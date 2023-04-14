@@ -1,9 +1,8 @@
-name: CD
+# name: CD
 
-on:
-  push:
-    branches:
-      - main
-jobs:
-   bump_version:
-    runs-on: ubuntu-latest
+# on:
+#   push:
+#     branches:
+#       - main
+
+#   workflow_dispatch:

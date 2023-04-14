@@ -6,9 +6,9 @@ import 'app_colors.dart';
 ThemeData lightTheme = ThemeData(
     colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
         .copyWith(secondary: Colors.blueAccent, brightness: Brightness.light),
-    primaryColor: AppColors.primaryColor,
-    floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: AppColors.accentColor),
+    primaryColor: AppColors.primary,
+    floatingActionButtonTheme:
+        FloatingActionButtonThemeData(backgroundColor: AppColors.accent),
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
             padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
@@ -17,7 +17,7 @@ ThemeData lightTheme = ThemeData(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0))),
             backgroundColor:
-                MaterialStateProperty.all<Color>(AppColors.accentColor))),
+                MaterialStateProperty.all<Color>(AppColors.accent))),
     inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20.0),
@@ -29,17 +29,17 @@ ThemeData darkTheme = ThemeData(
   colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
       .copyWith(secondary: Colors.blueAccent, brightness: Brightness.dark),
   switchTheme: SwitchThemeData(
-    trackColor: MaterialStateProperty.all<Color>(Colors.grey),
-    thumbColor: MaterialStateProperty.all<Color>(Colors.white),
+    trackColor: MaterialStateProperty.all<Color>(AppColors.grey),
+    thumbColor: MaterialStateProperty.all<Color>(AppColors.white),
   ),
   textTheme: TextTheme(
-    headline1: AppTextStyles.headline1.copyWith(color: Colors.white),
-    headline2: AppTextStyles.headline2.copyWith(color: Colors.white),
-    headline3: AppTextStyles.headline3.copyWith(color: Colors.white),
-    bodyText1: AppTextStyles.bodyText1.copyWith(color: Colors.white),
-    bodyText2: AppTextStyles.bodyText2.copyWith(color: Colors.white),
-    subtitle1: AppTextStyles.subtitle1.copyWith(color: Colors.white),
-    subtitle2: AppTextStyles.subtitle2.copyWith(color: Colors.white),
+    headline1: AppTextStyles.headline1.copyWith(color: AppColors.white),
+    headline2: AppTextStyles.headline2.copyWith(color: AppColors.white),
+    headline3: AppTextStyles.headline3.copyWith(color: AppColors.white),
+    bodyText1: AppTextStyles.bodyText1.copyWith(color: AppColors.white),
+    bodyText2: AppTextStyles.bodyText2.copyWith(color: AppColors.white),
+    subtitle1: AppTextStyles.subtitle1.copyWith(color: AppColors.white),
+    subtitle2: AppTextStyles.subtitle2.copyWith(color: AppColors.white),
   ),
   inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(

@@ -1,4 +1,3 @@
-import 'package:clean_flutter_template/shared/helpers/navigation_helper.dart';
 import 'package:flutter/material.dart';
 
 import 'shared/themes/theme_manager.dart';
@@ -40,7 +39,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      navigatorKey: NavigationHelper.navigatorKey,
+      debugShowCheckedModeBanner: false,
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: _themeManager.themeMode,

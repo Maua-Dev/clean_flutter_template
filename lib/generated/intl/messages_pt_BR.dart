@@ -20,6 +20,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'pt_BR';
 
+  static String m0(meal) => "${Intl.select(meal, {
+            'APPROVED': 'Aprovado',
+            'PENDING': 'Pendente',
+            'REJECTED': 'Rejeitado',
+            'other': 'Other',
+          })}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) =>
+      <String, Function>{"stateNameSchema": m0};
 }

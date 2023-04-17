@@ -2,7 +2,7 @@ import 'package:clean_flutter_template/shared/domain/entities/user.dart';
 import 'package:clean_flutter_template/shared/domain/repositories/user_repository_interface.dart';
 
 import '../../domain/enums/state_enum.dart';
-import '../../helpers/errors/erros.dart';
+import '../../helpers/errors/usecase_errors.dart';
 
 class UserRepositoryMock implements IUserRepository {
   List<User> users = [];

@@ -5,13 +5,16 @@ class Error implements Exception {
 }
 
 class NoItemsFound extends Error {
-  NoItemsFound({required super.message});
+  NoItemsFound({required String message})
+      : super(message: 'No items found for $message');
 }
 
 class DuplicatedItem extends Error {
-  DuplicatedItem({required super.message});
+  DuplicatedItem({required String message})
+      : super(message: 'The item alredy exists for this $message');
 }
 
 class ForbiddenAction extends Error {
-  ForbiddenAction({required super.message});
+  ForbiddenAction({required String message})
+      : super(message: 'That action is forbidden for this $message');
 }

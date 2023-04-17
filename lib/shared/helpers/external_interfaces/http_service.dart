@@ -29,7 +29,7 @@ class HttpService {
       return await request();
     } on DioError catch (e) {
       if (e.response == null || e.response!.statusCode == 401) {
-        await _getTokenFromCacheOrRefresh();
+        await _getTokenFromStorageOrRefresh();
         return await request();
       } else {
         _handleError(e);
@@ -38,7 +38,7 @@ class HttpService {
     }
   }
 
-  Future<String> _getTokenFromCacheOrRefresh() async {
+  Future<String> _getTokenFromStorageOrRefresh() async {
     String token = await storage.getRefreshToken();
     if (token.isEmpty) {
       await _refreshToken();

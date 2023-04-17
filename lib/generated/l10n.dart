@@ -49,6 +49,22 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `{meal, select, APPROVED{Approved} PENDING{Pending} REJECTED{Rejected} other{Other}}`
+  String stateNameSchema(Object meal) {
+    return Intl.select(
+      meal,
+      {
+        'APPROVED': 'Approved',
+        'PENDING': 'Pending',
+        'REJECTED': 'Rejected',
+        'other': 'Other',
+      },
+      name: 'stateNameSchema',
+      desc: '',
+      args: [meal],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,1 +1,3 @@
-{}
+{
+    "stateNameSchema": "{meal, select, APPROVED{Aprovado} PENDING{Pendente} REJECTED{Rejeitado} other{Other}}"
+}

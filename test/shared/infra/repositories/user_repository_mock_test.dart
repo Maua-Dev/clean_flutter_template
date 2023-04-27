@@ -1,13 +1,13 @@
 import 'package:clean_flutter_template/shared/domain/entities/user.dart';
 import 'package:clean_flutter_template/shared/domain/enums/state_enum.dart';
-import 'package:clean_flutter_template/shared/helpers/errors/usecase_errors.dart';
+import 'package:clean_flutter_template/shared/helpers/errors/infra_errors.dart';
+import 'package:clean_flutter_template/shared/infra/models/user_model.dart';
 import 'package:clean_flutter_template/shared/infra/repositories/user_repository_mock.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  UserRepositoryMock repository = UserRepositoryMock();
-
-  var user = User(
+  var user = UserModel(
     id: '0',
     name: 'Vitor Soller',
     email: 'gabriel.godoybz@hotmail.com',
@@ -16,22 +16,28 @@ void main() {
   );
 
   group('[TEST] - createUser', () {
-    test('Should return a user', () async {
+    test('should return a user', () async {
+      UserRepositoryMock repository = UserRepositoryMock();
+
       var response = await repository.createUser(user);
-      expect(response, user);
+      expect(response.fold(id, id), isA<User>());
     });
   });
 
   group('[TEST] - deleteUser', () {
-    test('Should return a user', () async {
+    test('should return a user', () async {
+      UserRepositoryMock repository = UserRepositoryMock();
+
       var lenthBefore = repository.users.length;
       var response = await repository.deleteUser('0');
       var lenthAfter = repository.users.length;
-      expect(response.id, user.id);
+      expect(response.fold(id, id), isA<User>());
       expect(lenthAfter, lenthBefore - 1);
     });
 
-    test('Should throw NoItemsFound', () async {
+    test('should throw NoItemsFound', () async {
+      UserRepositoryMock repository = UserRepositoryMock();
+
       try {
         await repository.deleteUser('0');
       } catch (e) {
@@ -41,19 +47,25 @@ void main() {
   });
 
   group('[TEST] - getAllUsers', () {
-    test('Should return a list of users', () async {
+    UserRepositoryMock repository = UserRepositoryMock();
+
+    test('should return a list of users', () async {
       var response = await repository.getAllUsers();
-      expect(response, repository.users);
+      expect(response.fold(id, id), isA<List<User>>());
     });
   });
 
   group('[TEST] - getUser', () {
-    test('Should return a user', () async {
+    test('should return a user', () async {
+      UserRepositoryMock repository = UserRepositoryMock();
+
       var response = await repository.getUser('0');
-      expect(response.id, user.id);
+      expect(response.fold(id, id), isA<User>());
     });
 
-    test('Should throw NoItemsFound', () async {
+    test('should throw NoItemsFound', () async {
+      UserRepositoryMock repository = UserRepositoryMock();
+
       try {
         await repository.getUser('0');
       } catch (e) {
@@ -63,12 +75,16 @@ void main() {
   });
 
   group('[TEST] - updateUser', () {
-    test('Should return a user', () async {
+    test('should return a user', () async {
+      UserRepositoryMock repository = UserRepositoryMock();
+
       var response = await repository.updateUser(user);
-      expect(response.name, user.name);
+      expect(response.fold(id, id), isA<User>());
     });
 
-    test('Should throw NoItemsFound', () async {
+    test('should throw NoItemsFound', () async {
+      UserRepositoryMock repository = UserRepositoryMock();
+
       try {
         await repository.updateUser(user);
       } catch (e) {

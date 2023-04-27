@@ -4,11 +4,6 @@ class UsecaseErrors implements Exception {
   UsecaseErrors({required this.message});
 }
 
-class NoItemsFound extends UsecaseErrors {
-  NoItemsFound({required String message})
-      : super(message: 'No items found for $message');
-}
-
 class DuplicatedItem extends UsecaseErrors {
   DuplicatedItem({required String message})
       : super(message: 'The item alredy exists for this $message');

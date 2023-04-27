@@ -6,7 +6,8 @@ class UserModel extends User {
       {required super.name,
       required super.email,
       required super.password,
-      required super.state});
+      required super.state,
+      super.id});
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(

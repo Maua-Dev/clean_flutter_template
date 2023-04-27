@@ -1,8 +1,10 @@
 import 'package:clean_flutter_template/shared/domain/entities/user.dart';
 import 'package:clean_flutter_template/shared/domain/repositories/user_repository_interface.dart';
+import 'package:dartz/dartz.dart';
 
 import '../../domain/enums/state_enum.dart';
-import '../../helpers/errors/usecase_errors.dart';
+import '../../helpers/errors/infra_errors.dart';
+import '../models/user_model.dart';
 
 class UserRepositoryMock implements IUserRepository {
   List<User> users = [];
@@ -27,44 +29,45 @@ class UserRepositoryMock implements IUserRepository {
   }
 
   @override
-  Future<User> createUser(User user) async {
-    users.add(user);
-    return user;
+  Future<Either<InfraErrors, User>> createUser(UserModel userToCreate) async {
+    users.add(userToCreate);
+    return right(userToCreate);
   }
 
   @override
-  Future<User> deleteUser(String id) async {
+  Future<Either<InfraErrors, User>> deleteUser(String id) async {
     for (var i = 0; i < users.length; i++) {
       if (users[i].id == id) {
-        return users.removeAt(i);
+        users.removeAt(i);
+        return right(users[i]);
       }
     }
-    throw NoItemsFound(message: "user_id");
+    return left(NoItemsFound(message: "user_id"));
   }
 
   @override
-  Future<List<User>> getAllUsers() async {
-    return users;
+  Future<Either<InfraErrors, List<User>>> getAllUsers() async {
+    return right(users);
   }
 
   @override
-  Future<User> getUser(String id) async {
+  Future<Either<InfraErrors, User>> getUser(String id) async {
     for (var user in users) {
       if (user.id == id) {
-        return user;
+        return right(user);
       }
     }
-    throw NoItemsFound(message: "user_id");
+    return left(NoItemsFound(message: "user_id"));
   }
 
   @override
-  Future<User> updateUser(User userToUpdate) async {
+  Future<Either<InfraErrors, User>> updateUser(UserModel userToUpdate) async {
     for (var user in users) {
       if (user.id == userToUpdate.id) {
         user = userToUpdate;
-        return user;
+        return right(user);
       }
     }
-    throw NoItemsFound(message: "user_id");
+    return left(NoItemsFound(message: "user_id"));
   }
 }

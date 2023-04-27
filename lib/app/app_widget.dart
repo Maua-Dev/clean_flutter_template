@@ -7,6 +7,8 @@ import '../shared/themes/themes_constants.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 ThemeManager _themeManager = ThemeManager();
+final scaffoldKey = GlobalKey<ScaffoldMessengerState>();
+final ScaffoldMessengerState scaffold = scaffoldKey.currentState!;
 
 class AppWidget extends StatefulWidget {
   const AppWidget({super.key});

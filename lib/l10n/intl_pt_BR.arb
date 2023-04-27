@@ -1,3 +1,4 @@
 {
-    "stateNameSchema": "{meal, select, APPROVED{Aprovado} PENDING{Pendente} REJECTED{Rejeitado} other{Other}}"
+    "stateNameSchema": "{schema, select, APPROVED{Aprovado} PENDING{Pendente} REJECTED{Rejeitado} other{Other}}",
+    "unknownErrorTitle": "Ocorreu um erro desconhecido"
 }

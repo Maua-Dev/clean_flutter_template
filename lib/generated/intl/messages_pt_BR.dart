@@ -20,7 +20,7 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'pt_BR';
 
-  static String m0(meal) => "${Intl.select(meal, {
+  static String m0(schema) => "${Intl.select(schema, {
             'APPROVED': 'Aprovado',
             'PENDING': 'Pendente',
             'REJECTED': 'Rejeitado',
@@ -28,6 +28,9 @@ class MessageLookup extends MessageLookupByLibrary {
           })}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) =>
-      <String, Function>{"stateNameSchema": m0};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "stateNameSchema": m0,
+        "unknownErrorTitle":
+            MessageLookupByLibrary.simpleMessage("Ocorreu um erro desconhecido")
+      };
 }

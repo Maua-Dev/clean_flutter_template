@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-enum HTTPStatusCodeEnum {
+enum HttpStatusCodeEnum {
   OK,
   CREATED,
   NO_CONTENT,
@@ -15,39 +15,78 @@ enum HTTPStatusCodeEnum {
   BAD_GATEWAY,
   SERVICE_UNAVAILABLE,
   GATEWAY_TIMEOUT,
+  UNKNOWN,
 }
 
-extension HTTPStatusCodeEnumExtension on HTTPStatusCodeEnum {
+extension HttpErrorTypeEnumExtension on HttpStatusCodeEnum {
   int get statusCode {
     switch (this) {
-      case HTTPStatusCodeEnum.OK:
+      case HttpStatusCodeEnum.OK:
         return 200;
-      case HTTPStatusCodeEnum.CREATED:
+      case HttpStatusCodeEnum.CREATED:
         return 201;
-      case HTTPStatusCodeEnum.NO_CONTENT:
+      case HttpStatusCodeEnum.NO_CONTENT:
         return 204;
-      case HTTPStatusCodeEnum.REDIRECT:
+      case HttpStatusCodeEnum.REDIRECT:
         return 303;
-      case HTTPStatusCodeEnum.BAD_REQUEST:
+      case HttpStatusCodeEnum.BAD_REQUEST:
         return 400;
-      case HTTPStatusCodeEnum.UNAUTHORIZED:
+      case HttpStatusCodeEnum.UNAUTHORIZED:
         return 401;
-      case HTTPStatusCodeEnum.FORBIDDEN:
+      case HttpStatusCodeEnum.FORBIDDEN:
         return 403;
-      case HTTPStatusCodeEnum.NOT_FOUND:
+      case HttpStatusCodeEnum.NOT_FOUND:
         return 404;
-      case HTTPStatusCodeEnum.METHOD_NOT_ALLOWED:
+      case HttpStatusCodeEnum.METHOD_NOT_ALLOWED:
         return 405;
-      case HTTPStatusCodeEnum.CONFLICT:
+      case HttpStatusCodeEnum.CONFLICT:
         return 409;
-      case HTTPStatusCodeEnum.INTERNAL_SERVER_ERROR:
+      case HttpStatusCodeEnum.INTERNAL_SERVER_ERROR:
         return 500;
-      case HTTPStatusCodeEnum.BAD_GATEWAY:
+      case HttpStatusCodeEnum.BAD_GATEWAY:
         return 502;
-      case HTTPStatusCodeEnum.SERVICE_UNAVAILABLE:
+      case HttpStatusCodeEnum.SERVICE_UNAVAILABLE:
         return 503;
-      case HTTPStatusCodeEnum.GATEWAY_TIMEOUT:
+      case HttpStatusCodeEnum.GATEWAY_TIMEOUT:
         return 504;
+      case HttpStatusCodeEnum.UNKNOWN:
+        return 0;
+    }
+  }
+
+  String get errorMessage {
+    // COLOCAR NO INTERNATIONALIZATION
+    switch (this) {
+      case HttpStatusCodeEnum.OK:
+        return 'A requisição foi concluída com sucesso.';
+      case HttpStatusCodeEnum.CREATED:
+        return 'A requisição foi concluída com sucesso e um novo recurso foi criado.';
+      case HttpStatusCodeEnum.NO_CONTENT:
+        return 'A requisição foi concluída com sucesso, mas não há conteúdo para ser exibido.';
+      case HttpStatusCodeEnum.REDIRECT:
+        return 'A requisição foi redirecionada com sucesso.';
+      case HttpStatusCodeEnum.BAD_REQUEST:
+        return 'A requisição não pôde ser processada devido a um erro de sintaxe.';
+      case HttpStatusCodeEnum.UNAUTHORIZED:
+        return 'A requisição não foi autorizada, por favor faça login novamente.';
+      case HttpStatusCodeEnum.FORBIDDEN:
+        return 'A requisição foi recusada pelo servidor.';
+      case HttpStatusCodeEnum.NOT_FOUND:
+        return 'O recurso requisitado não foi encontrado no servidor.';
+      case HttpStatusCodeEnum.METHOD_NOT_ALLOWED:
+        return 'O método utilizado na requisição não é permitido para o recurso requisitado.';
+      case HttpStatusCodeEnum.CONFLICT:
+        return 'A requisição conflitou com um recurso já existente no servidor.';
+      case HttpStatusCodeEnum.INTERNAL_SERVER_ERROR:
+        return 'Houve um erro interno no servidor.';
+      case HttpStatusCodeEnum.BAD_GATEWAY:
+        return 'Houve um erro ao processar a requisição.';
+      case HttpStatusCodeEnum.SERVICE_UNAVAILABLE:
+        return 'O servidor não está disponível no momento.';
+      case HttpStatusCodeEnum.GATEWAY_TIMEOUT:
+        return 'A requisição atingiu o tempo limite.';
+      case HttpStatusCodeEnum.UNKNOWN:
+        return 'Ocorreu um erro desconhecido.';
     }
   }
 }

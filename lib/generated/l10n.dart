@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `{meal, select, APPROVED{Approved} PENDING{Pending} REJECTED{Rejected} other{Other}}`
-  String stateNameSchema(Object meal) {
+  /// `{schema, select, APPROVED{Approved} PENDING{Pending} REJECTED{Rejected} other{Other}}`
+  String stateNameSchema(Object schema) {
     return Intl.select(
-      meal,
+      schema,
       {
         'APPROVED': 'Approved',
         'PENDING': 'Pending',
@@ -62,7 +62,17 @@ class S {
       },
       name: 'stateNameSchema',
       desc: '',
-      args: [meal],
+      args: [schema],
+    );
+  }
+
+  /// `Unknown error occurred`
+  String get unknownErrorTitle {
+    return Intl.message(
+      'Unknown error occurred',
+      name: 'unknownErrorTitle',
+      desc: '',
+      args: [],
     );
   }
 }

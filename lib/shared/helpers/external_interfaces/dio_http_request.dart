@@ -8,7 +8,7 @@ class DioHttpRequest implements IHttpRequest {
 
   DioHttpRequest({
     required Dio dio,
-    required String authorizationToken,
+    String authorizationToken = '',
   })  : _dio = dio,
         _authorizationToken = authorizationToken;
 

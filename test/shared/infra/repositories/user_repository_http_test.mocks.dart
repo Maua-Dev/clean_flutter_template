@@ -3,13 +3,12 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i5;
+import 'dart:async' as _i4;
 
 import 'package:clean_flutter_template/shared/datasource/external/http/user_datasource.dart'
-    as _i4;
-import 'package:clean_flutter_template/shared/infra/models/user_model.dart'
     as _i3;
-import 'package:dio/dio.dart' as _i2;
+import 'package:clean_flutter_template/shared/infra/models/user_model.dart'
+    as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -23,28 +22,8 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeBaseOptions_0 extends _i1.SmartFake implements _i2.BaseOptions {
-  _FakeBaseOptions_0(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
-class _FakeDio_1 extends _i1.SmartFake implements _i2.Dio {
-  _FakeDio_1(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
-class _FakeUserModel_2 extends _i1.SmartFake implements _i3.UserModel {
-  _FakeUserModel_2(
+class _FakeUserModel_0 extends _i1.SmartFake implements _i2.UserModel {
+  _FakeUserModel_0(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -56,107 +35,75 @@ class _FakeUserModel_2 extends _i1.SmartFake implements _i3.UserModel {
 /// A class which mocks [UserDatasource].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockUserDatasource extends _i1.Mock implements _i4.UserDatasource {
+class MockUserDatasource extends _i1.Mock implements _i3.UserDatasource {
   MockUserDatasource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i2.BaseOptions get options => (super.noSuchMethod(
-        Invocation.getter(#options),
-        returnValue: _FakeBaseOptions_0(
-          this,
-          Invocation.getter(#options),
-        ),
-      ) as _i2.BaseOptions);
-  @override
-  set options(_i2.BaseOptions? _options) => super.noSuchMethod(
-        Invocation.setter(
-          #options,
-          _options,
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
-  _i2.Dio get dio => (super.noSuchMethod(
-        Invocation.getter(#dio),
-        returnValue: _FakeDio_1(
-          this,
-          Invocation.getter(#dio),
-        ),
-      ) as _i2.Dio);
-  @override
-  set dio(_i2.Dio? _dio) => super.noSuchMethod(
-        Invocation.setter(
-          #dio,
-          _dio,
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
-  _i5.Future<_i3.UserModel> deleteUser(String? userId) => (super.noSuchMethod(
+  _i4.Future<_i2.UserModel> deleteUser(String? userId) => (super.noSuchMethod(
         Invocation.method(
           #deleteUser,
           [userId],
         ),
-        returnValue: _i5.Future<_i3.UserModel>.value(_FakeUserModel_2(
+        returnValue: _i4.Future<_i2.UserModel>.value(_FakeUserModel_0(
           this,
           Invocation.method(
             #deleteUser,
             [userId],
           ),
         )),
-      ) as _i5.Future<_i3.UserModel>);
+      ) as _i4.Future<_i2.UserModel>);
   @override
-  _i5.Future<_i3.UserModel> getUser(String? userId) => (super.noSuchMethod(
+  _i4.Future<_i2.UserModel> getUser(String? userId) => (super.noSuchMethod(
         Invocation.method(
           #getUser,
           [userId],
         ),
-        returnValue: _i5.Future<_i3.UserModel>.value(_FakeUserModel_2(
+        returnValue: _i4.Future<_i2.UserModel>.value(_FakeUserModel_0(
           this,
           Invocation.method(
             #getUser,
             [userId],
           ),
         )),
-      ) as _i5.Future<_i3.UserModel>);
+      ) as _i4.Future<_i2.UserModel>);
   @override
-  _i5.Future<_i3.UserModel> updateUser(_i3.UserModel? userToUpdate) =>
+  _i4.Future<_i2.UserModel> updateUser(_i2.UserModel? userToUpdate) =>
       (super.noSuchMethod(
         Invocation.method(
           #updateUser,
           [userToUpdate],
         ),
-        returnValue: _i5.Future<_i3.UserModel>.value(_FakeUserModel_2(
+        returnValue: _i4.Future<_i2.UserModel>.value(_FakeUserModel_0(
           this,
           Invocation.method(
             #updateUser,
             [userToUpdate],
           ),
         )),
-      ) as _i5.Future<_i3.UserModel>);
+      ) as _i4.Future<_i2.UserModel>);
   @override
-  _i5.Future<_i3.UserModel> createUser(_i3.UserModel? userToCreate) =>
+  _i4.Future<_i2.UserModel> createUser(_i2.UserModel? userToCreate) =>
       (super.noSuchMethod(
         Invocation.method(
           #createUser,
           [userToCreate],
         ),
-        returnValue: _i5.Future<_i3.UserModel>.value(_FakeUserModel_2(
+        returnValue: _i4.Future<_i2.UserModel>.value(_FakeUserModel_0(
           this,
           Invocation.method(
             #createUser,
             [userToCreate],
           ),
         )),
-      ) as _i5.Future<_i3.UserModel>);
+      ) as _i4.Future<_i2.UserModel>);
   @override
-  _i5.Future<List<_i3.UserModel>> getAllUsers() => (super.noSuchMethod(
+  _i4.Future<List<_i2.UserModel>> getAllUsers() => (super.noSuchMethod(
         Invocation.method(
           #getAllUsers,
           [],
         ),
-        returnValue: _i5.Future<List<_i3.UserModel>>.value(<_i3.UserModel>[]),
-      ) as _i5.Future<List<_i3.UserModel>>);
+        returnValue: _i4.Future<List<_i2.UserModel>>.value(<_i2.UserModel>[]),
+      ) as _i4.Future<List<_i2.UserModel>>);
 }

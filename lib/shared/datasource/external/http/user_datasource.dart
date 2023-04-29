@@ -1,6 +1,6 @@
 import 'package:clean_flutter_template/shared/infra/external/http/user_datasource_interface.dart';
 import 'package:clean_flutter_template/shared/infra/models/user_model.dart';
-import '../../../helpers/external_interfaces/http_request_interface.dart';
+import '../../../helpers/services/http_request_interface.dart';
 
 class UserDatasource implements IUserDatasource {
   final IHttpRequest _httpRequest;

@@ -29,13 +29,13 @@ class UserRepositoryMock implements IUserRepository {
   }
 
   @override
-  Future<Either<InfraErrors, User>> createUser(UserModel userToCreate) async {
+  Future<Either<Failure, User>> createUser(UserModel userToCreate) async {
     users.add(userToCreate);
     return right(userToCreate);
   }
 
   @override
-  Future<Either<InfraErrors, User>> deleteUser(String id) async {
+  Future<Either<Failure, User>> deleteUser(String id) async {
     for (var i = 0; i < users.length; i++) {
       if (users[i].id == id) {
         users.removeAt(i);
@@ -46,7 +46,7 @@ class UserRepositoryMock implements IUserRepository {
   }
 
   @override
-  Future<Either<InfraErrors, List<User>>> getAllUsers() async {
+  Future<Either<Failure, List<User>>> getAllUsers() async {
     if (users.isEmpty) {
       return left(EmptyList());
     }
@@ -54,7 +54,7 @@ class UserRepositoryMock implements IUserRepository {
   }
 
   @override
-  Future<Either<InfraErrors, User>> getUser(String id) async {
+  Future<Either<Failure, User>> getUser(String id) async {
     for (var user in users) {
       if (user.id == id) {
         return right(user);
@@ -64,7 +64,7 @@ class UserRepositoryMock implements IUserRepository {
   }
 
   @override
-  Future<Either<InfraErrors, User>> updateUser(UserModel userToUpdate) async {
+  Future<Either<Failure, User>> updateUser(UserModel userToUpdate) async {
     for (var user in users) {
       if (user.id == userToUpdate.id) {
         user = userToUpdate;

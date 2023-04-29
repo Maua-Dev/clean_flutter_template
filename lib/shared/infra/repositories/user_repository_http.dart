@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 
 import '../../domain/repositories/user_repository_interface.dart';
 import '../../helpers/enums/http_status_code_enum.dart';
-import '../../helpers/errors/infra_errors.dart';
+import '../../helpers/errors/errors.dart';
 import '../../helpers/functions/get_http_status_function.dart';
 import '../models/user_model.dart';
 
@@ -15,7 +15,7 @@ class UserRepositoryHttp implements IUserRepository {
   UserRepositoryHttp({required this.datasource});
 
   @override
-  Future<Either<InfraErrors, User>> createUser(UserModel userToCreate) async {
+  Future<Either<Failure, User>> createUser(UserModel userToCreate) async {
     User user;
     try {
       user = await datasource.createUser(userToCreate);
@@ -30,7 +30,7 @@ class UserRepositoryHttp implements IUserRepository {
   }
 
   @override
-  Future<Either<InfraErrors, User>> deleteUser(String id) async {
+  Future<Either<Failure, User>> deleteUser(String id) async {
     User user;
     try {
       user = await datasource.deleteUser(id);
@@ -45,7 +45,7 @@ class UserRepositoryHttp implements IUserRepository {
   }
 
   @override
-  Future<Either<InfraErrors, List<User>>> getAllUsers() async {
+  Future<Either<Failure, List<User>>> getAllUsers() async {
     List<User> users;
     try {
       users = await datasource.getAllUsers();
@@ -60,7 +60,7 @@ class UserRepositoryHttp implements IUserRepository {
   }
 
   @override
-  Future<Either<InfraErrors, User>> getUser(String id) async {
+  Future<Either<Failure, User>> getUser(String id) async {
     User user;
     try {
       user = await datasource.getUser(id);
@@ -75,7 +75,7 @@ class UserRepositoryHttp implements IUserRepository {
   }
 
   @override
-  Future<Either<InfraErrors, User>> updateUser(UserModel userToUpdate) async {
+  Future<Either<Failure, User>> updateUser(UserModel userToUpdate) async {
     User user;
     try {
       user = await datasource.updateUser(userToUpdate);

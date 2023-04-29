@@ -35,7 +35,7 @@ void main() {
       expect(lenthAfter, lenthBefore - 1);
     });
 
-    test('should throw NoItemsFound', () async {
+    test('should return NoItemsFound', () async {
       UserRepositoryMock repository = UserRepositoryMock();
 
       try {
@@ -53,6 +53,16 @@ void main() {
       var response = await repository.getAllUsers();
       expect(response.fold(id, id), isA<List<User>>());
     });
+
+    test('should return EmptyList', () async {
+      repository.users = [];
+      repository.getAllUsers();
+      try {
+        await repository.getAllUsers();
+      } catch (e) {
+        expect(e, isA<EmptyList>());
+      }
+    });
   });
 
   group('[TEST] - getUser', () {
@@ -63,7 +73,7 @@ void main() {
       expect(response.fold(id, id), isA<User>());
     });
 
-    test('should throw NoItemsFound', () async {
+    test('should return NoItemsFound', () async {
       UserRepositoryMock repository = UserRepositoryMock();
 
       try {
@@ -82,7 +92,7 @@ void main() {
       expect(response.fold(id, id), isA<User>());
     });
 
-    test('should throw NoItemsFound', () async {
+    test('should return NoItemsFound', () async {
       UserRepositoryMock repository = UserRepositoryMock();
 
       try {

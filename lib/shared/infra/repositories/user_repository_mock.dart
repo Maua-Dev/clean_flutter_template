@@ -47,6 +47,9 @@ class UserRepositoryMock implements IUserRepository {
 
   @override
   Future<Either<InfraErrors, List<User>>> getAllUsers() async {
+    if (users.isEmpty) {
+      return left(EmptyList());
+    }
     return right(users);
   }
 

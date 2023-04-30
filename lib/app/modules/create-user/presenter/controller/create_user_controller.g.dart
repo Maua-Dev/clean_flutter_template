@@ -150,7 +150,7 @@ mixin _$CreateUserController on CreateUserControllerBase, Store {
   }
 
   @override
-  void setPageState(CreateUserState value) {
+  dynamic setPageState(CreateUserState value) {
     final _$actionInfo = _$CreateUserControllerBaseActionController.startAction(
         name: 'CreateUserControllerBase.setPageState');
     try {

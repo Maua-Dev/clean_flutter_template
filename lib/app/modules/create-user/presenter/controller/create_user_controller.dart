@@ -3,7 +3,7 @@ import 'package:clean_flutter_template/shared/domain/usecases/create_user_usecas
 import 'package:clean_flutter_template/shared/infra/models/user_model.dart';
 import 'package:mobx/mobx.dart';
 
-import 'states/create_user_state.dart';
+import '../states/create_user_state.dart';
 
 part 'create_user_controller.g.dart';
 
@@ -36,14 +36,7 @@ abstract class CreateUserControllerBase with Store {
   @action
   Future<void> createUser() async {
     setPageState(const LoadingCreateState());
-    UserModel userToCreate = UserModel(
-      email: userEmail,
-      name: userName,
-      password: userPassword,
-      state: userState,
-      id: userId,
-    );
-    var result = await createUserUsecase(userToCreate);
+    var result = await createUserUsecase(userName, userEmail, userPassword);
     setPageState(
         result.fold((l) => ErrorCreateState(l), (r) => SuccessCreateState(r)));
   }
@@ -58,5 +51,5 @@ abstract class CreateUserControllerBase with Store {
   setUserPassword(String password) => userPassword = password;
 
   @action
-  void setPageState(CreateUserState value) => state = value;
+  setPageState(CreateUserState value) => state = value;
 }

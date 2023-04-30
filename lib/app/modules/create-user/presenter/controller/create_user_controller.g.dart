@@ -9,19 +9,83 @@ part of 'create_user_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$CreateUserController on CreateUserControllerBase, Store {
-  late final _$userToCreateAtom =
-      Atom(name: 'CreateUserControllerBase.userToCreate', context: context);
+  late final _$userNameAtom =
+      Atom(name: 'CreateUserControllerBase.userName', context: context);
 
   @override
-  UserModel get userToCreate {
-    _$userToCreateAtom.reportRead();
-    return super.userToCreate;
+  String get userName {
+    _$userNameAtom.reportRead();
+    return super.userName;
   }
 
   @override
-  set userToCreate(UserModel value) {
-    _$userToCreateAtom.reportWrite(value, super.userToCreate, () {
-      super.userToCreate = value;
+  set userName(String value) {
+    _$userNameAtom.reportWrite(value, super.userName, () {
+      super.userName = value;
+    });
+  }
+
+  late final _$userEmailAtom =
+      Atom(name: 'CreateUserControllerBase.userEmail', context: context);
+
+  @override
+  String get userEmail {
+    _$userEmailAtom.reportRead();
+    return super.userEmail;
+  }
+
+  @override
+  set userEmail(String value) {
+    _$userEmailAtom.reportWrite(value, super.userEmail, () {
+      super.userEmail = value;
+    });
+  }
+
+  late final _$userPasswordAtom =
+      Atom(name: 'CreateUserControllerBase.userPassword', context: context);
+
+  @override
+  String get userPassword {
+    _$userPasswordAtom.reportRead();
+    return super.userPassword;
+  }
+
+  @override
+  set userPassword(String value) {
+    _$userPasswordAtom.reportWrite(value, super.userPassword, () {
+      super.userPassword = value;
+    });
+  }
+
+  late final _$userStateAtom =
+      Atom(name: 'CreateUserControllerBase.userState', context: context);
+
+  @override
+  StateEnum get userState {
+    _$userStateAtom.reportRead();
+    return super.userState;
+  }
+
+  @override
+  set userState(StateEnum value) {
+    _$userStateAtom.reportWrite(value, super.userState, () {
+      super.userState = value;
+    });
+  }
+
+  late final _$userIdAtom =
+      Atom(name: 'CreateUserControllerBase.userId', context: context);
+
+  @override
+  String get userId {
+    _$userIdAtom.reportRead();
+    return super.userId;
+  }
+
+  @override
+  set userId(String value) {
+    _$userIdAtom.reportWrite(value, super.userId, () {
+      super.userId = value;
     });
   }
 
@@ -86,11 +150,11 @@ mixin _$CreateUserController on CreateUserControllerBase, Store {
   }
 
   @override
-  void setState(CreateUserState value) {
+  void setPageState(CreateUserState value) {
     final _$actionInfo = _$CreateUserControllerBaseActionController.startAction(
-        name: 'CreateUserControllerBase.setState');
+        name: 'CreateUserControllerBase.setPageState');
     try {
-      return super.setState(value);
+      return super.setPageState(value);
     } finally {
       _$CreateUserControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -99,7 +163,11 @@ mixin _$CreateUserController on CreateUserControllerBase, Store {
   @override
   String toString() {
     return '''
-userToCreate: ${userToCreate},
+userName: ${userName},
+userEmail: ${userEmail},
+userPassword: ${userPassword},
+userState: ${userState},
+userId: ${userId},
 state: ${state}
     ''';
   }

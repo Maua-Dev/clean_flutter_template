@@ -13,6 +13,15 @@
                 "--dart-define=ENV=DEV",
             ]
         },
+        {
+            "name": "(homolog) template",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--dart-define=ENV=HOMOLOG",
+            ]
+        },
         
     ]
 }

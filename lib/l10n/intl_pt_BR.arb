@@ -1,4 +1,33 @@
 {
     "stateNameSchema": "{schema, select, APPROVED{Aprovado} PENDING{Pendente} REJECTED{Rejeitado} other{Other}}",
-    "unknownErrorTitle": "Ocorreu um erro desconhecido"
+    
+
+    "entityErrorMessage": "Campo {entityErrorMessage} não é válido",
+    "@entityErrorMessage" : {
+        "placeholders": {
+            "placeholders": {
+                "restaurantName": {}
+            }
+        }
+    },
+
+    "emptyListErrorMessage": "Lista vazia, itens não encontrados para essa requisição",
+
+    "requestErrorMessage": "{message}",
+    "@requestErrorMessage" : {
+        "placeholders": {
+            "placeholders": {
+                "restaurantName": {}
+            }
+        }
+    },
+
+    "noItemsFoundErrorMessage": "Items não encontrados para: {message}",
+    "@noItemsFoundErrorMessage" : {
+        "placeholders": {
+            "placeholders": {
+                "restaurantName": {}
+            }
+        }
+    }
 }

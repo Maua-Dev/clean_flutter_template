@@ -1,3 +1,5 @@
+import 'package:clean_flutter_template/generated/l10n.dart';
+
 class Failure implements Exception {
   final String message;
 
@@ -6,19 +8,19 @@ class Failure implements Exception {
 
 class EntityError extends Failure {
   EntityError({required String message})
-      : super(message: 'Field $message is not valid');
+      : super(message: S.current.entityErrorMessage('', message));
 }
 
 class EmptyList extends Failure {
-  EmptyList()
-      : super(message: 'List is empty, no items found for this request');
+  EmptyList() : super(message: S.current.emptyListErrorMessage);
 }
 
 class ErrorRequest extends Failure {
-  ErrorRequest({required String message}) : super(message: message);
+  ErrorRequest({required String message})
+      : super(message: S.current.requestErrorMessage('', message));
 }
 
 class NoItemsFound extends Failure {
   NoItemsFound({required String message})
-      : super(message: 'No items found for $message');
+      : super(message: S.current.noItemsFoundErrorMessage('', message));
 }

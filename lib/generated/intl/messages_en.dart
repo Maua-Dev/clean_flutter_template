@@ -20,7 +20,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(schema) => "${Intl.select(schema, {
+  static String m0(placeholders, entityErrorMessage) =>
+      "Field ${entityErrorMessage} is not valid";
+
+  static String m1(placeholders, message) => "No items found for ${message}";
+
+  static String m2(placeholders, message) => "${message}";
+
+  static String m3(schema) => "${Intl.select(schema, {
             'APPROVED': 'Approved',
             'PENDING': 'Pending',
             'REJECTED': 'Rejected',
@@ -29,8 +36,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "stateNameSchema": m0,
-        "unknownErrorTitle":
-            MessageLookupByLibrary.simpleMessage("Unknown error occurred")
+        "emptyListErrorMessage": MessageLookupByLibrary.simpleMessage(
+            "List is empty, no items found for this request"),
+        "entityErrorMessage": m0,
+        "noItemsFoundErrorMessage": m1,
+        "requestErrorMessage": m2,
+        "stateNameSchema": m3
       };
 }

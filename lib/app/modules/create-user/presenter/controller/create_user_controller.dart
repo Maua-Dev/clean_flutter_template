@@ -1,3 +1,4 @@
+import 'package:clean_flutter_template/shared/domain/enums/state_enum.dart';
 import 'package:clean_flutter_template/shared/domain/usecases/create_user_usecase.dart';
 import 'package:clean_flutter_template/shared/infra/models/user_model.dart';
 import 'package:mobx/mobx.dart';
@@ -15,28 +16,47 @@ abstract class CreateUserControllerBase with Store {
   CreateUserControllerBase(this.createUserUsecase);
 
   @observable
-  UserModel userToCreate = UserModel.newInstance();
+  String userName = '';
+
+  @observable
+  String userEmail = '';
+
+  @observable
+  String userPassword = '';
+
+  @observable
+  StateEnum userState = StateEnum.REJECTED;
+
+  @observable
+  String userId = '';
 
   @observable
   CreateUserState state = const StartCreateState();
 
   @action
   Future<void> createUser() async {
-    setState(const LoadingCreateState());
+    setPageState(const LoadingCreateState());
+    UserModel userToCreate = UserModel(
+      email: userEmail,
+      name: userName,
+      password: userPassword,
+      state: userState,
+      id: userId,
+    );
     var result = await createUserUsecase(userToCreate);
-    setState(
+    setPageState(
         result.fold((l) => ErrorCreateState(l), (r) => SuccessCreateState(r)));
   }
 
   @action
-  setUserName(String name) => userToCreate.copyWith(name: name);
+  setUserName(String name) => userName = name;
 
   @action
-  setUserEmail(String email) => userToCreate.copyWith(email: email);
+  setUserEmail(String email) => userEmail = email;
 
   @action
-  setUserPassword(String password) => userToCreate.copyWith(password: password);
+  setUserPassword(String password) => userPassword = password;
 
   @action
-  void setState(CreateUserState value) => state = value;
+  void setPageState(CreateUserState value) => state = value;
 }

@@ -3,11 +3,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'secure_storage_test.mocks.dart';
+import 'local_storage_test.mocks.dart';
 
 @GenerateMocks([LocalStorage])
 void main() {
-  LocalStorage storage = MockSecureStorage();
+  LocalStorage storage = MockLocalStorage();
 
   var token = '123';
 

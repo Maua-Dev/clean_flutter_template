@@ -1,6 +1,5 @@
 import '../../domain/entities/user.dart';
 import '../../domain/enums/state_enum.dart';
-import '../../helpers/errors/errors.dart';
 
 class UserModel extends User {
   UserModel(
@@ -8,17 +7,7 @@ class UserModel extends User {
       required super.email,
       required super.password,
       required super.state,
-      super.id}) {
-    if (!User.validateName(name)) {
-      throw EntityError(message: 'name');
-    }
-    if (!User.validateEmail(email)) {
-      throw EntityError(message: 'email');
-    }
-    if (!User.validatePassword(password)) {
-      throw EntityError(message: 'password');
-    }
-  }
+      super.id});
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(

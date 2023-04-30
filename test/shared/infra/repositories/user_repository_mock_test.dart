@@ -1,6 +1,6 @@
 import 'package:clean_flutter_template/shared/domain/entities/user.dart';
 import 'package:clean_flutter_template/shared/domain/enums/state_enum.dart';
-import 'package:clean_flutter_template/shared/helpers/errors/infra_errors.dart';
+import 'package:clean_flutter_template/shared/helpers/errors/errors.dart';
 import 'package:clean_flutter_template/shared/infra/models/user_model.dart';
 import 'package:clean_flutter_template/shared/infra/repositories/user_repository_mock.dart';
 import 'package:dartz/dartz.dart';

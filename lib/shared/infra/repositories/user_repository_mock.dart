@@ -3,7 +3,7 @@ import 'package:clean_flutter_template/shared/domain/repositories/user_repositor
 import 'package:dartz/dartz.dart';
 
 import '../../domain/enums/state_enum.dart';
-import '../../helpers/errors/infra_errors.dart';
+import '../../helpers/errors/errors.dart';
 import '../models/user_model.dart';
 
 class UserRepositoryMock implements IUserRepository {

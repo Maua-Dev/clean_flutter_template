@@ -1,14 +1,14 @@
-import 'package:clean_flutter_template/shared/infra/storage/secure_storage_interface.dart';
+import 'package:clean_flutter_template/shared/domain/storage/local_storage_interface.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-class SecureStorage implements ISecureStorage {
+class LocalStorage implements ILocalStorage {
   final Box storage;
 
-  SecureStorage._(this.storage);
+  LocalStorage._(this.storage);
 
-  static Future<SecureStorage> instance() async {
+  static Future<LocalStorage> instance() async {
     await Hive.initFlutter();
-    return SecureStorage._(await Hive.openBox('box'));
+    return LocalStorage._(await Hive.openBox('box'));
   }
 
   @override

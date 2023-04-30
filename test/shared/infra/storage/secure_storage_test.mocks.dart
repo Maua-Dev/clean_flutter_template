@@ -5,7 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
-import 'package:clean_flutter_template/shared/infra/storage/secure_storage.dart'
+import 'package:clean_flutter_template/shared/infra/storage/local_storage.dart'
     as _i3;
 import 'package:hive_flutter/hive_flutter.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
@@ -31,11 +31,11 @@ class _FakeBox_0<E> extends _i1.SmartFake implements _i2.Box<E> {
         );
 }
 
-/// A class which mocks [SecureStorage].
+/// A class which mocks [LocalStorage].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSecureStorage extends _i1.Mock implements _i3.SecureStorage {
-  MockSecureStorage() {
+class MockLocalStorage extends _i1.Mock implements _i3.LocalStorage {
+  MockLocalStorage() {
     _i1.throwOnMissingStub(this);
   }
 

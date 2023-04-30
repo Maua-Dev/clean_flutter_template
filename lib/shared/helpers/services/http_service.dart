@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import '../../infra/storage/secure_storage_interface.dart';
+import '../../domain/storage/local_storage_interface.dart';
 import 'http_request_interface.dart';
 
 class HttpService {
-  final ISecureStorage storage;
+  final ILocalStorage storage;
   final IHttpRequest httpRequest;
 
   HttpService({

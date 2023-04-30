@@ -1,13 +1,13 @@
-import 'package:clean_flutter_template/shared/infra/storage/secure_storage.dart';
+import 'package:clean_flutter_template/shared/infra/storage/local_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'secure_storage_test.mocks.dart';
 
-@GenerateMocks([SecureStorage])
+@GenerateMocks([LocalStorage])
 void main() {
-  SecureStorage storage = MockSecureStorage();
+  LocalStorage storage = MockSecureStorage();
 
   var token = '123';
 

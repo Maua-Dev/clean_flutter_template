@@ -43,4 +43,25 @@ class UserModel extends User {
       'state': super.state.name
     };
   }
+
+  factory UserModel.newInstance() {
+    return UserModel(
+        name: '', email: '', password: '', state: StateEnum.REJECTED);
+  }
+
+  UserModel copyWith({
+    String? id,
+    String? name,
+    String? email,
+    String? password,
+    StateEnum? state,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      email: email ?? this.email,
+      password: password ?? this.password,
+      state: state ?? this.state,
+    );
+  }
 }

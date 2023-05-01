@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:clean_flutter_template/app/modules/user/home/presenter/ui/pages/home_page.dart';
 import 'package:clean_flutter_template/app/modules/user/home/presenter/ui/widgets/home_button_widget.dart';
 import 'package:clean_flutter_template/generated/l10n.dart';
@@ -19,7 +17,7 @@ void main() {
       S.delegate,
       GlobalMaterialLocalizations.delegate,
       GlobalWidgetsLocalizations.delegate,
-    ], supportedLocales: S.delegate.supportedLocales, home: HomePage()));
+    ], supportedLocales: S.delegate.supportedLocales, home: const HomePage()));
     expect(find.byType(LogoWidget), findsOneWidget);
     expect(find.text(S.current.homePageTitle), findsOneWidget);
     expect(find.text(S.current.homePageSubtitle), findsOneWidget);

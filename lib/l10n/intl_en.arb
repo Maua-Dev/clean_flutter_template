@@ -1,4 +1,37 @@
 {
     "stateNameSchema": "{schema, select, APPROVED{Approved} PENDING{Pending} REJECTED{Rejected} other{Other}}",
-    "unknownErrorTitle": "Unknown error occurred"
+
+
+    "homePageTitle": "Welcome to Clean Flutter Template",
+    "homePageSubtitle": "Explore the features of the template:",
+
+
+    "entityErrorMessage": "Field {entityErrorMessage} is not valid",
+    "@entityErrorMessage" : {
+        "placeholders": {
+            "placeholders": {
+                "restaurantName": {}
+            }
+        }
+    },
+    
+    "emptyListErrorMessage": "List is empty, no items found for this request",
+
+    "requestErrorMessage": "{message}",
+    "@requestErrorMessage" : {
+        "placeholders": {
+            "placeholders": {
+                "restaurantName": {}
+            }
+        }
+    },
+
+    "noItemsFoundErrorMessage": "No items found for {message}",
+    "@noItemsFoundErrorMessage" : {
+        "placeholders": {
+            "placeholders": {
+                "restaurantName": {}
+            }
+        }
+    }
 }

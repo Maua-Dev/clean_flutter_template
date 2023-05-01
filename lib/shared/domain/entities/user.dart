@@ -1,4 +1,4 @@
-import '../../helpers/errors/domain_errors.dart';
+import '../../helpers/errors/errors.dart';
 import '../enums/state_enum.dart';
 
 class User {

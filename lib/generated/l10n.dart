@@ -246,6 +246,26 @@ class S {
     );
   }
 
+  /// `Update an user`
+  String get updatePageTitle {
+    return Intl.message(
+      'Update an user',
+      name: 'updatePageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update`
+  String get updateTitle {
+    return Intl.message(
+      'Update',
+      name: 'updateTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Field {entityErrorMessage} is not valid`
   String entityErrorMessage(Object placeholders, Object entityErrorMessage) {
     return Intl.message(

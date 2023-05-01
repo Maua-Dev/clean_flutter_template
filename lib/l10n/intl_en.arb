@@ -33,6 +33,9 @@
     "getPageTitle": "Search for a user",
     "searchTitle": "Search",
 
+    "updatePageTitle": "Update an user",
+    "updateTitle": "Update",
+
     "entityErrorMessage": "Field {entityErrorMessage} is not valid",
     "@entityErrorMessage" : {
         "placeholders": {

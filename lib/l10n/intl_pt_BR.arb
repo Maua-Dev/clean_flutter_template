@@ -33,6 +33,9 @@
     "getPageTitle": "Procure um usuário",
     "searchTitle": "Procurar",
 
+    "updatePageTitle": "Dê update em um usuário",
+    "updateTitle": "Update",
+
     "entityErrorMessage": "Campo {entityErrorMessage} não é válido",
     "@entityErrorMessage" : {
         "placeholders": {

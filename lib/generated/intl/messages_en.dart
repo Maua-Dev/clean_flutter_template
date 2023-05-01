@@ -72,6 +72,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "requestErrorMessage": m2,
         "searchTitle": MessageLookupByLibrary.simpleMessage("Search"),
         "stateNameSchema": m3,
-        "successCreateUser": m4
+        "successCreateUser": m4,
+        "updatePageTitle":
+            MessageLookupByLibrary.simpleMessage("Update an user"),
+        "updateTitle": MessageLookupByLibrary.simpleMessage("Update")
       };
 }

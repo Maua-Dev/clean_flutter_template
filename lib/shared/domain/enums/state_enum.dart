@@ -9,7 +9,7 @@ enum StateEnum {
 }
 
 extension StateEnumExtension on StateEnum {
-  String get name {
+  String get typeName {
     return S.current.stateNameSchema(toString());
   }
 }

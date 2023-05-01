@@ -40,26 +40,10 @@ class UpdateUserPage extends StatelessWidget {
         decoration: BoxDecoration(
             color: AppColors.green,
             borderRadius: const BorderRadius.all(Radius.circular(20))),
-        child: Column(
-          children: [
-            Text('ID: ${user.id}',
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      color: AppColors.white,
-                    )),
-            Text('Nome: ${user.name}',
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      color: AppColors.white,
-                    )),
-            Text('Email: ${user.email}',
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      color: AppColors.white,
-                    )),
-            Text('State: ${user.state.name}',
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      color: AppColors.white,
-                    )),
-          ],
-        ),
+        child: Text(S.of(context).successUpdateUser('', user.id!),
+            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  color: AppColors.white,
+                )),
       );
     }
 
@@ -75,78 +59,79 @@ class UpdateUserPage extends StatelessWidget {
                     ScreenHelper.width(context) < ScreenHelper.breakpointTablet
                         ? 16
                         : 0),
-            child: Column(
-              children: [
-                const LogoWidget(),
-                TitlePagesWidget(text: S.of(context).updatePageTitle),
-                Observer(builder: (_) {
-                  return Form(
-                    key: formKey,
-                    child: Column(
-                      children: [
-                        TextFieldWidget(
-                          title: S.of(context).fieldId,
-                          hintText: S.of(context).fieldHintId,
-                          onChanged: controller.setUserId,
-                        ),
-                        TextFieldWidget(
-                          title: S.of(context).fieldName,
-                          hintText: S.of(context).fieldHintName,
-                          onChanged: controller.setUserName,
-                          validation: controller.validateUserName,
-                        ),
-                        TextFieldWidget(
-                          title: S.of(context).fieldEmail,
-                          hintText: S.of(context).fieldHintEmail,
-                          onChanged: controller.setUserEmail,
-                          validation: controller.validateUserEmail,
-                        ),
-                        TextFieldWidget(
-                          title: S.of(context).fieldPassword,
-                          hintText: S.of(context).fieldHintPassword,
-                          onChanged: controller.setUserPassword,
-                          validation: controller.validateUserPassword,
-                        ),
-                        const SizedBox(height: 8),
-                        SizedBox(
-                          width: 250,
-                          child: ElevatedButton(
-                              onPressed: () async {
-                                if (formKey.currentState!.validate()) {
-                                  await controller.updateUser();
-                                }
-                              },
-                              child: controller.state is LoadingUpdateState
-                                  ? const CircularProgressIndicator()
-                                  : Text(
-                                      S.of(context).updateTitle,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline3!
-                                          .copyWith(color: AppColors.white),
-                                    )),
-                        ),
-                      ],
-                    ),
-                  );
-                }),
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Observer(builder: (_) {
-                    var state = controller.state;
-
-                    if (state is ErrorUpdateState) {
-                      return buildError(state.error);
-                    } else if (state is SuccessUpdateState) {
-                      return buildSuccess(state.user);
-                    } else {
-                      return const SizedBox.shrink();
-                    }
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const LogoWidget(),
+                  TitlePagesWidget(text: S.of(context).updatePageTitle),
+                  Observer(builder: (_) {
+                    return Form(
+                      key: formKey,
+                      child: Column(
+                        children: [
+                          TextFieldWidget(
+                            title: S.of(context).fieldId,
+                            hintText: S.of(context).fieldHintId,
+                            onChanged: controller.setUserId,
+                          ),
+                          TextFieldWidget(
+                            title: S.of(context).fieldName,
+                            hintText: S.of(context).fieldHintName,
+                            onChanged: controller.setUserName,
+                            validation: controller.validateUserName,
+                          ),
+                          TextFieldWidget(
+                            title: S.of(context).fieldEmail,
+                            hintText: S.of(context).fieldHintEmail,
+                            onChanged: controller.setUserEmail,
+                            validation: controller.validateUserEmail,
+                          ),
+                          TextFieldWidget(
+                            title: S.of(context).fieldPassword,
+                            hintText: S.of(context).fieldHintPassword,
+                            onChanged: controller.setUserPassword,
+                            validation: controller.validateUserPassword,
+                          ),
+                          const SizedBox(height: 8),
+                          SizedBox(
+                            width: 250,
+                            child: ElevatedButton(
+                                onPressed: () async {
+                                  if (formKey.currentState!.validate()) {
+                                    await controller.updateUser();
+                                  }
+                                },
+                                child: controller.state is LoadingUpdateState
+                                    ? const CircularProgressIndicator()
+                                    : Text(
+                                        S.of(context).updateTitle,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headline3!
+                                            .copyWith(color: AppColors.white),
+                                      )),
+                          ),
+                        ],
+                      ),
+                    );
                   }),
-                ),
-                const Spacer(),
-                const FooterWidget(),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Observer(builder: (_) {
+                      var state = controller.state;
+
+                      if (state is ErrorUpdateState) {
+                        return buildError(state.error);
+                      } else if (state is SuccessUpdateState) {
+                        return buildSuccess(state.user);
+                      } else {
+                        return const SizedBox.shrink();
+                      }
+                    }),
+                  ),
+                  const FooterWidget(),
+                ],
+              ),
             ),
           ),
         ),

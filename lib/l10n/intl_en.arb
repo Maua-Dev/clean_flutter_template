@@ -36,6 +36,15 @@
     "updatePageTitle": "Update an user",
     "updateTitle": "Update",
 
+    "successUpdateUser": "User {successUpdateUser} updated successfully",
+    "@successUpdateUser" : {
+        "placeholders": {
+            "placeholders": {
+                "successUpdateUser": {}
+            }
+        }
+    },
+
     "entityErrorMessage": "Field {entityErrorMessage} is not valid",
     "@entityErrorMessage" : {
         "placeholders": {

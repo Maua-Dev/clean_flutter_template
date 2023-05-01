@@ -266,6 +266,16 @@ class S {
     );
   }
 
+  /// `User {successUpdateUser} updated successfully`
+  String successUpdateUser(Object placeholders, Object successUpdateUser) {
+    return Intl.message(
+      'User $successUpdateUser updated successfully',
+      name: 'successUpdateUser',
+      desc: '',
+      args: [placeholders, successUpdateUser],
+    );
+  }
+
   /// `Field {entityErrorMessage} is not valid`
   String entityErrorMessage(Object placeholders, Object entityErrorMessage) {
     return Intl.message(

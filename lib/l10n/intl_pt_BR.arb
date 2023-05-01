@@ -36,6 +36,15 @@
     "updatePageTitle": "Dê update em um usuário",
     "updateTitle": "Update",
 
+    "successUpdateUser": "Usuário {successUpdateUser} updated com sucesso",
+    "@successUpdateUser" : {
+        "placeholders": {
+            "placeholders": {
+                "successUpdateUser": {}
+            }
+        }
+    },
+
     "entityErrorMessage": "Campo {entityErrorMessage} não é válido",
     "@entityErrorMessage" : {
         "placeholders": {

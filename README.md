@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/Maua-Dev/clean_flutter_template/branch/dev/graph/badge.svg?token=ZPKZHXHM9X)](https://codecov.io/gh/Maua-Dev/clean_flutter_template)
+
 # clean_flutter_template
 
 A new Flutter project.

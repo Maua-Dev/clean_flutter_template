@@ -40,6 +40,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "emptyListErrorMessage": MessageLookupByLibrary.simpleMessage(
             "Lista vazia, itens não encontrados para essa requisição"),
         "entityErrorMessage": m0,
+        "homePageSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Explore as funcionalidades do template:"),
+        "homePageTitle": MessageLookupByLibrary.simpleMessage(
+            "Bem-vindo ao Clean Flutter Template"),
         "noItemsFoundErrorMessage": m1,
         "requestErrorMessage": m2,
         "stateNameSchema": m3

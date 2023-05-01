@@ -1,6 +1,5 @@
 import 'package:clean_flutter_template/shared/domain/enums/state_enum.dart';
 import 'package:clean_flutter_template/shared/domain/usecases/create_user_usecase.dart';
-import 'package:clean_flutter_template/shared/infra/models/user_model.dart';
 import 'package:mobx/mobx.dart';
 
 import '../states/create_user_state.dart';

@@ -1,6 +1,7 @@
-import 'package:clean_flutter_template/app/modules/create-user/presenter/controller/create_user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import '../../controller/create_user_controller.dart';
 
 class CreateUserPage extends StatefulWidget {
   const CreateUserPage({super.key});
@@ -14,13 +15,8 @@ class _CreateUserPageState extends State<CreateUserPage> {
   Widget build(BuildContext context) {
     var controller = Modular.get<CreateUserController>();
     return Scaffold(
-        body: Center(
-      child: ElevatedButton(
-        onPressed: () {
-          controller.createUser();
-        },
-        child: const Text('Create User'),
-      ),
+        body: Column(
+      children: [Image(image: AssetImage('assets/images/logo-dev.png'))],
     ));
   }
 }

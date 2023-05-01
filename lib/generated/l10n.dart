@@ -66,6 +66,26 @@ class S {
     );
   }
 
+  /// `Welcome to Clean Flutter Template`
+  String get homePageTitle {
+    return Intl.message(
+      'Welcome to Clean Flutter Template',
+      name: 'homePageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Explore the features of the template:`
+  String get homePageSubtitle {
+    return Intl.message(
+      'Explore the features of the template:',
+      name: 'homePageSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Field {entityErrorMessage} is not valid`
   String entityErrorMessage(Object placeholders, Object entityErrorMessage) {
     return Intl.message(

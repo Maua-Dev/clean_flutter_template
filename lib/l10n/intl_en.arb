@@ -2,6 +2,10 @@
     "stateNameSchema": "{schema, select, APPROVED{Approved} PENDING{Pending} REJECTED{Rejected} other{Other}}",
 
 
+    "homePageTitle": "Welcome to Clean Flutter Template",
+    "homePageSubtitle": "Explore the features of the template:",
+
+
     "entityErrorMessage": "Field {entityErrorMessage} is not valid",
     "@entityErrorMessage" : {
         "placeholders": {

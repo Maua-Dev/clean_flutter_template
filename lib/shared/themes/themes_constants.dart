@@ -9,6 +9,15 @@ ThemeData lightTheme = ThemeData(
     primaryColor: AppColors.primary,
     floatingActionButtonTheme:
         FloatingActionButtonThemeData(backgroundColor: AppColors.accent),
+    textTheme: TextTheme(
+      headline1: AppTextStyles.headline1,
+      headline2: AppTextStyles.headline2,
+      headline3: AppTextStyles.headline3,
+      bodyText1: AppTextStyles.bodyText1,
+      bodyText2: AppTextStyles.bodyText2,
+      subtitle1: AppTextStyles.subtitle1,
+      subtitle2: AppTextStyles.subtitle2,
+    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
             padding: MaterialStateProperty.all<EdgeInsetsGeometry>(

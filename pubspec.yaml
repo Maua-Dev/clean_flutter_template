@@ -34,6 +34,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/logo-dev.png
 
 scripts:
   build: flutter pub run build_runner build

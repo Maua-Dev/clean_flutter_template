@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
             padding: EdgeInsets.symmetric(
                 horizontal:
                     ScreenHelper.width(context) < ScreenHelper.breakpointTablet
-                        ? 8
+                        ? 16
                         : 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,

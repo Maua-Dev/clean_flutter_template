@@ -96,6 +96,76 @@ class S {
     );
   }
 
+  /// `Register`
+  String get registerTitle {
+    return Intl.message(
+      'Register',
+      name: 'registerTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get fieldName {
+    return Intl.message(
+      'Name',
+      name: 'fieldName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get fieldEmail {
+    return Intl.message(
+      'Email',
+      name: 'fieldEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get fieldPassword {
+    return Intl.message(
+      'Password',
+      name: 'fieldPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gabriel de Godoy Braz`
+  String get fieldHintName {
+    return Intl.message(
+      'Gabriel de Godoy Braz',
+      name: 'fieldHintName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `example@example.com`
+  String get fieldHintEmail {
+    return Intl.message(
+      'example@example.com',
+      name: 'fieldHintEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `🤫`
+  String get fieldHintPassword {
+    return Intl.message(
+      '🤫',
+      name: 'fieldHintPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Field is required`
   String get fieldRequired {
     return Intl.message(
@@ -123,6 +193,16 @@ class S {
       name: 'fieldInvalidEmail',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `User ${successCreateUser} created successfully`
+  String successCreateUser(Object placeholders, Object successCreateUser) {
+    return Intl.message(
+      'User \$$successCreateUser created successfully',
+      name: 'successCreateUser',
+      desc: '',
+      args: [placeholders, successCreateUser],
     );
   }
 

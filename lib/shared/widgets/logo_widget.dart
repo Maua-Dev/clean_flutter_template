@@ -12,7 +12,7 @@ class LogoWidget extends StatelessWidget {
           ? ScreenHelper.width(context)
           : 500,
       height: ScreenHelper.width(context) < ScreenHelper.breakpointTablet
-          ? 200
+          ? 180
           : 300,
       child: const Image(
           image: AssetImage('assets/images/logo-dev.png'), fit: BoxFit.fill),

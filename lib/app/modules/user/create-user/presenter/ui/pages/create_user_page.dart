@@ -58,6 +58,7 @@ class _CreateUserPageState extends State<CreateUserPage> {
         width: ScreenHelper.width(context) < ScreenHelper.breakpointTablet
             ? ScreenHelper.width(context)
             : ScreenHelper.breakpointTablet,
+        height: ScreenHelper.height(context),
         child: Padding(
           padding: EdgeInsets.symmetric(
               horizontal:

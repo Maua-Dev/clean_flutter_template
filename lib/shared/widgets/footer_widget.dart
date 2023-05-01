@@ -11,6 +11,7 @@ class FooterWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Text(
         'Copyright 2023 © Dev. Community Mauá',
+        textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.headline3!.copyWith(
               fontSize:
                   ScreenHelper.width(context) < ScreenHelper.breakpointTablet

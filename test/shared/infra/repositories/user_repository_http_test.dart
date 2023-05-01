@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:clean_flutter_template/generated/l10n.dart';
 import 'package:clean_flutter_template/shared/datasource/external/http/user_datasource.dart';
 import 'package:clean_flutter_template/shared/domain/entities/user.dart';
 import 'package:clean_flutter_template/shared/domain/enums/state_enum.dart';
@@ -26,6 +29,10 @@ void main() {
 
   late UserRepositoryHttp repository;
   UserDatasource datasource = MockUserDatasource();
+
+  setUp(() async {
+    await S.load(const Locale.fromSubtags(languageCode: 'en'));
+  });
 
   group('[TEST] - createUser', () {
     repository = UserRepositoryHttp(datasource: datasource);

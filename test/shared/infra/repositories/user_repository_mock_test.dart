@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:clean_flutter_template/generated/l10n.dart';
 import 'package:clean_flutter_template/shared/domain/entities/user.dart';
 import 'package:clean_flutter_template/shared/domain/enums/state_enum.dart';
 import 'package:clean_flutter_template/shared/helpers/errors/errors.dart';
@@ -14,6 +17,10 @@ void main() {
     password: 'Teste123!',
     state: StateEnum.APPROVED,
   );
+
+  setUp(() async {
+    await S.load(const Locale.fromSubtags(languageCode: 'en'));
+  });
 
   group('[TEST] - createUser', () {
     test('should return a user', () async {

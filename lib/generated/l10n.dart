@@ -196,10 +196,10 @@ class S {
     );
   }
 
-  /// `User ${successCreateUser} created successfully`
+  /// `User {successCreateUser} created successfully`
   String successCreateUser(Object placeholders, Object successCreateUser) {
     return Intl.message(
-      'User \$$successCreateUser created successfully',
+      'User $successCreateUser created successfully',
       name: 'successCreateUser',
       desc: '',
       args: [placeholders, successCreateUser],

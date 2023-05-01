@@ -20,7 +20,7 @@
     "fieldMinLength": "Field must be at least 6 characters long",
     "fieldInvalidEmail": "Field must be a valid email address",
 
-    "successCreateUser": "User ${successCreateUser} created successfully",
+    "successCreateUser": "User {successCreateUser} created successfully",
     "@successCreateUser" : {
         "placeholders": {
             "placeholders": {

@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
                         onPressed: () {
                           Modular.to.pushNamed('/create-user');
                         },
-                        text: 'Listar usuários'),
+                        text: 'Criar usuário'),
                     HomeButtonWidget(
                         onPressed: () {
                           Modular.to.pushNamed('/user/list-users');

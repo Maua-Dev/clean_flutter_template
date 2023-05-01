@@ -26,23 +26,27 @@ class _CreateUserPageState extends State<CreateUserPage> {
 
   Widget _buildError(Failure error) {
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.red,
-          ),
+          color: AppColors.red,
           borderRadius: const BorderRadius.all(Radius.circular(20))),
-      child: Text(error.message),
+      child: Text(error.message,
+          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                color: AppColors.white,
+              )),
     );
   }
 
   Widget _buildSuccess(User user) {
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.red,
-          ),
+          color: AppColors.green,
           borderRadius: const BorderRadius.all(Radius.circular(20))),
-      child: Text(S.of(context).successCreateUser('', user.name)),
+      child: Text(S.of(context).successCreateUser('', user.name),
+          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                color: AppColors.white,
+              )),
     );
   }
 

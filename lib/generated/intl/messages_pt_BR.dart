@@ -36,7 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
           })}";
 
   static String m4(placeholders, successCreateUser) =>
-      "Usuário \$${successCreateUser} criado com sucesso";
+      "Usuário ${successCreateUser} criado com sucesso";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{

@@ -86,6 +86,46 @@ class S {
     );
   }
 
+  /// `Create a new user`
+  String get createPageTitle {
+    return Intl.message(
+      'Create a new user',
+      name: 'createPageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Field is required`
+  String get fieldRequired {
+    return Intl.message(
+      'Field is required',
+      name: 'fieldRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Field must be at least 6 characters long`
+  String get fieldMinLength {
+    return Intl.message(
+      'Field must be at least 6 characters long',
+      name: 'fieldMinLength',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Field must be a valid email address`
+  String get fieldInvalidEmail {
+    return Intl.message(
+      'Field must be a valid email address',
+      name: 'fieldInvalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Field {entityErrorMessage} is not valid`
   String entityErrorMessage(Object placeholders, Object entityErrorMessage) {
     return Intl.message(

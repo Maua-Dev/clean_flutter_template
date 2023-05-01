@@ -6,6 +6,12 @@
     "homePageSubtitle": "Explore the features of the template:",
 
 
+    "createPageTitle": "Create a new user",
+
+    "fieldRequired": "Field is required",
+    "fieldMinLength": "Field must be at least 6 characters long",
+    "fieldInvalidEmail": "Field must be a valid email address",
+
     "entityErrorMessage": "Field {entityErrorMessage} is not valid",
     "@entityErrorMessage" : {
         "placeholders": {

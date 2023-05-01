@@ -37,9 +37,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "createPageTitle":
+            MessageLookupByLibrary.simpleMessage("Crie um novo usuário"),
         "emptyListErrorMessage": MessageLookupByLibrary.simpleMessage(
             "Lista vazia, itens não encontrados para essa requisição"),
         "entityErrorMessage": m0,
+        "fieldInvalidEmail": MessageLookupByLibrary.simpleMessage(
+            "O campo deve ser um endereço de e-mail válido"),
+        "fieldMinLength": MessageLookupByLibrary.simpleMessage(
+            "O campo deve ter pelo menos 6 caracteres"),
+        "fieldRequired":
+            MessageLookupByLibrary.simpleMessage("Campo é obrigatório"),
         "homePageSubtitle": MessageLookupByLibrary.simpleMessage(
             "Explore as funcionalidades do template:"),
         "homePageTitle": MessageLookupByLibrary.simpleMessage(

@@ -5,6 +5,11 @@
     "homePageTitle": "Bem-vindo ao Clean Flutter Template",
     "homePageSubtitle": "Explore as funcionalidades do template:",
 
+    "createPageTitle": "Crie um novo usuário",
+
+    "fieldRequired": "Campo é obrigatório",
+    "fieldMinLength": "O campo deve ter pelo menos 6 caracteres",
+    "fieldInvalidEmail": "O campo deve ser um endereço de e-mail válido",
 
     "entityErrorMessage": "Campo {entityErrorMessage} não é válido",
     "@entityErrorMessage" : {

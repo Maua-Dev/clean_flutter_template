@@ -60,9 +60,9 @@ class HomePage extends StatelessWidget {
                         text: 'Criar usuário'),
                     HomeButtonWidget(
                         onPressed: () {
-                          Modular.to.pushNamed('/user/list-users');
+                          Modular.to.pushNamed('/user/get-user');
                         },
-                        text: 'Listar usuários'),
+                        text: 'Procurar usuário'),
                     HomeButtonWidget(
                         onPressed: () {
                           Modular.to.pushNamed('/user/list-users');

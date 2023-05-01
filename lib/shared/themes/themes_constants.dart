@@ -38,7 +38,7 @@ ThemeData darkTheme = ThemeData(
   colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
       .copyWith(secondary: Colors.blueAccent, brightness: Brightness.dark),
   switchTheme: SwitchThemeData(
-    trackColor: MaterialStateProperty.all<Color>(AppColors.grey),
+    trackColor: MaterialStateProperty.all<Color>(AppColors.primary),
     thumbColor: MaterialStateProperty.all<Color>(AppColors.white),
   ),
   textTheme: TextTheme(

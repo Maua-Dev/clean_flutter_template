@@ -34,17 +34,38 @@ class MessageLookup extends MessageLookupByLibrary {
             'other': 'Other',
           })}";
 
+  static String m4(placeholders, successCreateUser) =>
+      "User ${successCreateUser} created successfully";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "createPageTitle":
+            MessageLookupByLibrary.simpleMessage("Create a new user"),
         "emptyListErrorMessage": MessageLookupByLibrary.simpleMessage(
             "List is empty, no items found for this request"),
         "entityErrorMessage": m0,
+        "fieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
+        "fieldHintEmail":
+            MessageLookupByLibrary.simpleMessage("example@example.com"),
+        "fieldHintName":
+            MessageLookupByLibrary.simpleMessage("Gabriel de Godoy Braz"),
+        "fieldHintPassword": MessageLookupByLibrary.simpleMessage("🤫"),
+        "fieldInvalidEmail": MessageLookupByLibrary.simpleMessage(
+            "Field must be a valid email address"),
+        "fieldMinLength": MessageLookupByLibrary.simpleMessage(
+            "Field must be at least 6 characters long"),
+        "fieldName": MessageLookupByLibrary.simpleMessage("Name"),
+        "fieldPassword": MessageLookupByLibrary.simpleMessage("Password"),
+        "fieldRequired":
+            MessageLookupByLibrary.simpleMessage("Field is required"),
         "homePageSubtitle": MessageLookupByLibrary.simpleMessage(
             "Explore the features of the template:"),
         "homePageTitle": MessageLookupByLibrary.simpleMessage(
             "Welcome to Clean Flutter Template"),
         "noItemsFoundErrorMessage": m1,
+        "registerTitle": MessageLookupByLibrary.simpleMessage("Register"),
         "requestErrorMessage": m2,
-        "stateNameSchema": m3
+        "stateNameSchema": m3,
+        "successCreateUser": m4
       };
 }

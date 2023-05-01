@@ -6,11 +6,34 @@
     "homePageSubtitle": "Explore the features of the template:",
 
 
+    "createPageTitle": "Create a new user",
+    "registerTitle": "Register",
+
+    "fieldName": "Name",
+    "fieldEmail": "Email",
+    "fieldPassword": "Password",
+    "fieldHintName": "Gabriel de Godoy Braz",
+    "fieldHintEmail": "example@example.com",
+    "fieldHintPassword": "🤫",
+
+    "fieldRequired": "Field is required",
+    "fieldMinLength": "Field must be at least 6 characters long",
+    "fieldInvalidEmail": "Field must be a valid email address",
+
+    "successCreateUser": "User {successCreateUser} created successfully",
+    "@successCreateUser" : {
+        "placeholders": {
+            "placeholders": {
+                "successCreateUser": {}
+            }
+        }
+    },
+
     "entityErrorMessage": "Field {entityErrorMessage} is not valid",
     "@entityErrorMessage" : {
         "placeholders": {
             "placeholders": {
-                "restaurantName": {}
+                "entityErrorMessage": {}
             }
         }
     },
@@ -21,7 +44,7 @@
     "@requestErrorMessage" : {
         "placeholders": {
             "placeholders": {
-                "restaurantName": {}
+                "requestErrorMessage": {}
             }
         }
     },
@@ -30,7 +53,7 @@
     "@noItemsFoundErrorMessage" : {
         "placeholders": {
             "placeholders": {
-                "restaurantName": {}
+                "noItemsFoundErrorMessage": {}
             }
         }
     }

@@ -161,6 +161,39 @@ mixin _$CreateUserController on CreateUserControllerBase, Store {
   }
 
   @override
+  String? validateUserName(String? value) {
+    final _$actionInfo = _$CreateUserControllerBaseActionController.startAction(
+        name: 'CreateUserControllerBase.validateUserName');
+    try {
+      return super.validateUserName(value);
+    } finally {
+      _$CreateUserControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  String? validateUserEmail(String? value) {
+    final _$actionInfo = _$CreateUserControllerBaseActionController.startAction(
+        name: 'CreateUserControllerBase.validateUserEmail');
+    try {
+      return super.validateUserEmail(value);
+    } finally {
+      _$CreateUserControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  String? validateUserPassword(String? value) {
+    final _$actionInfo = _$CreateUserControllerBaseActionController.startAction(
+        name: 'CreateUserControllerBase.validateUserPassword');
+    try {
+      return super.validateUserPassword(value);
+    } finally {
+      _$CreateUserControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 userName: ${userName},

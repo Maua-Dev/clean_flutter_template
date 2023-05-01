@@ -5,6 +5,28 @@
     "homePageTitle": "Bem-vindo ao Clean Flutter Template",
     "homePageSubtitle": "Explore as funcionalidades do template:",
 
+    "createPageTitle": "Crie um novo usuário",
+    "registerTitle": "Cadastrar",
+
+    "fieldName": "Nome",
+    "fieldEmail": "Email",
+    "fieldPassword": "Senha",
+    "fieldHintName": "Gabriel de Godoy Braz",
+    "fieldHintEmail": "exemplo@exemplo.com",
+    "fieldHintPassword": "🤫",
+
+    "fieldRequired": "Campo é obrigatório",
+    "fieldMinLength": "O campo deve ter pelo menos 6 caracteres",
+    "fieldInvalidEmail": "O campo deve ser um endereço de e-mail válido",
+
+    "successCreateUser": "Usuário {successCreateUser} criado com sucesso",
+    "@successCreateUser" : {
+        "placeholders": {
+            "placeholders": {
+                "successCreateUser": {}
+            }
+        }
+    },
 
     "entityErrorMessage": "Campo {entityErrorMessage} não é válido",
     "@entityErrorMessage" : {

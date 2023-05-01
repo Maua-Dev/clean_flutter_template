@@ -25,7 +25,7 @@ class EnvironmentConfig {
     // else if (value == EnvironmentEnum.PROD) {
     //   return null;
     else {
-      throw Exception("No repository found for this stage");
+      return UserRepositoryMock();
     }
   }
 }

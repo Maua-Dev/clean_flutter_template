@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../../../shared/helpers/utils/screen_helper.dart';
 import '../../../../../../../shared/widgets/footer_widget.dart';
+import '../../../../../../../shared/widgets/logo_widget.dart';
 import '../widgets/home_button_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -25,9 +26,7 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Image(
-                    image: AssetImage('assets/images/logo-dev.png'),
-                    fit: BoxFit.fill),
+                const LogoWidget(),
                 Text(
                   S.of(context).homePageTitle,
                   textAlign: TextAlign.center,

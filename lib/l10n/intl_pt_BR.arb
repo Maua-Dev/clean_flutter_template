@@ -11,9 +11,11 @@
     "fieldName": "Nome",
     "fieldEmail": "Email",
     "fieldPassword": "Senha",
+    "fieldId": "ID",
     "fieldHintName": "Gabriel de Godoy Braz",
     "fieldHintEmail": "exemplo@exemplo.com",
     "fieldHintPassword": "🤫",
+    "fieldHintId": "Número de identificação do usuário",
 
     "fieldRequired": "Campo é obrigatório",
     "fieldMinLength": "O campo deve ter pelo menos 6 caracteres",
@@ -27,6 +29,9 @@
             }
         }
     },
+
+    "getPageTitle": "Procure um usuário",
+    "searchTitle": "Procurar",
 
     "entityErrorMessage": "Campo {entityErrorMessage} não é válido",
     "@entityErrorMessage" : {
@@ -48,7 +53,7 @@
         }
     },
 
-    "noItemsFoundErrorMessage": "Items não encontrados para: {message}",
+    "noItemsFoundErrorMessage": "Itens não encontrados para: {message}",
     "@noItemsFoundErrorMessage" : {
         "placeholders": {
             "placeholders": {

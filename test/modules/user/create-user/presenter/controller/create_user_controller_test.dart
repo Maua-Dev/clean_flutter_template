@@ -74,4 +74,21 @@ void main() {
     controller.setPageState(const StartCreateState());
     expect(controller.state, const StartCreateState());
   });
+
+  test('[TEST] - validateUserName', () {
+    expect(controller.validateUserName(''), S.current.fieldRequired);
+    expect(controller.validateUserName('test'), null);
+  });
+
+  test('[TEST] - validateUserEmail', () {
+    expect(controller.validateUserEmail(''), S.current.fieldRequired);
+    expect(controller.validateUserEmail('test'), S.current.fieldInvalidEmail);
+    expect(controller.validateUserEmail('test@'), null);
+  });
+
+  test('[TEST] - validateUserPassword', () {
+    expect(controller.validateUserPassword(''), S.current.fieldRequired);
+    expect(controller.validateUserPassword('test'), S.current.fieldMinLength);
+    expect(controller.validateUserPassword('test12312'), null);
+  });
 }

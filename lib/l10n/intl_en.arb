@@ -5,16 +5,17 @@
     "homePageTitle": "Welcome to Clean Flutter Template",
     "homePageSubtitle": "Explore the features of the template:",
 
-
     "createPageTitle": "Create a new user",
     "registerTitle": "Register",
 
     "fieldName": "Name",
     "fieldEmail": "Email",
     "fieldPassword": "Password",
+    "fieldId": "ID",
     "fieldHintName": "Gabriel de Godoy Braz",
     "fieldHintEmail": "example@example.com",
     "fieldHintPassword": "🤫",
+    "fieldHintId": "Identification number",
 
     "fieldRequired": "Field is required",
     "fieldMinLength": "Field must be at least 6 characters long",
@@ -28,6 +29,9 @@
             }
         }
     },
+
+    "getPageTitle": "Search for a user",
+    "searchTitle": "Search",
 
     "entityErrorMessage": "Field {entityErrorMessage} is not valid",
     "@entityErrorMessage" : {

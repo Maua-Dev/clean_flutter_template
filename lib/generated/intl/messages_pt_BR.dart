@@ -24,7 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Campo ${entityErrorMessage} não é válido";
 
   static String m1(placeholders, message) =>
-      "Items não encontrados para: ${message}";
+      "Itens não encontrados para: ${message}";
 
   static String m2(placeholders, message) => "${message}";
 
@@ -48,9 +48,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "fieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "fieldHintEmail":
             MessageLookupByLibrary.simpleMessage("exemplo@exemplo.com"),
+        "fieldHintId": MessageLookupByLibrary.simpleMessage(
+            "Número de identificação do usuário"),
         "fieldHintName":
             MessageLookupByLibrary.simpleMessage("Gabriel de Godoy Braz"),
         "fieldHintPassword": MessageLookupByLibrary.simpleMessage("🤫"),
+        "fieldId": MessageLookupByLibrary.simpleMessage("ID"),
         "fieldInvalidEmail": MessageLookupByLibrary.simpleMessage(
             "O campo deve ser um endereço de e-mail válido"),
         "fieldMinLength": MessageLookupByLibrary.simpleMessage(
@@ -59,6 +62,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "fieldPassword": MessageLookupByLibrary.simpleMessage("Senha"),
         "fieldRequired":
             MessageLookupByLibrary.simpleMessage("Campo é obrigatório"),
+        "getPageTitle":
+            MessageLookupByLibrary.simpleMessage("Procure um usuário"),
         "homePageSubtitle": MessageLookupByLibrary.simpleMessage(
             "Explore as funcionalidades do template:"),
         "homePageTitle": MessageLookupByLibrary.simpleMessage(
@@ -66,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noItemsFoundErrorMessage": m1,
         "registerTitle": MessageLookupByLibrary.simpleMessage("Cadastrar"),
         "requestErrorMessage": m2,
+        "searchTitle": MessageLookupByLibrary.simpleMessage("Procurar"),
         "stateNameSchema": m3,
         "successCreateUser": m4
       };

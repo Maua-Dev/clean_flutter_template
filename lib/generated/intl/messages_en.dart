@@ -47,9 +47,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "fieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "fieldHintEmail":
             MessageLookupByLibrary.simpleMessage("example@example.com"),
+        "fieldHintId":
+            MessageLookupByLibrary.simpleMessage("Identification number"),
         "fieldHintName":
             MessageLookupByLibrary.simpleMessage("Gabriel de Godoy Braz"),
         "fieldHintPassword": MessageLookupByLibrary.simpleMessage("🤫"),
+        "fieldId": MessageLookupByLibrary.simpleMessage("ID"),
         "fieldInvalidEmail": MessageLookupByLibrary.simpleMessage(
             "Field must be a valid email address"),
         "fieldMinLength": MessageLookupByLibrary.simpleMessage(
@@ -58,6 +61,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "fieldPassword": MessageLookupByLibrary.simpleMessage("Password"),
         "fieldRequired":
             MessageLookupByLibrary.simpleMessage("Field is required"),
+        "getPageTitle":
+            MessageLookupByLibrary.simpleMessage("Search for a user"),
         "homePageSubtitle": MessageLookupByLibrary.simpleMessage(
             "Explore the features of the template:"),
         "homePageTitle": MessageLookupByLibrary.simpleMessage(
@@ -65,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noItemsFoundErrorMessage": m1,
         "registerTitle": MessageLookupByLibrary.simpleMessage("Register"),
         "requestErrorMessage": m2,
+        "searchTitle": MessageLookupByLibrary.simpleMessage("Search"),
         "stateNameSchema": m3,
         "successCreateUser": m4
       };

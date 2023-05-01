@@ -10,6 +10,7 @@ import '../../../../../../../shared/helpers/errors/errors.dart';
 import '../../../../../../../shared/helpers/utils/screen_helper.dart';
 import '../../../../../../../shared/widgets/footer_widget.dart';
 import '../../../../../../../shared/widgets/text_field_widget.dart';
+import '../../../../../../../shared/widgets/title_pages_widget.dart';
 import '../../controller/create_user_controller.dart';
 import '../../states/create_user_state.dart';
 
@@ -58,7 +59,6 @@ class _CreateUserPageState extends State<CreateUserPage> {
         width: ScreenHelper.width(context) < ScreenHelper.breakpointTablet
             ? ScreenHelper.width(context)
             : ScreenHelper.breakpointTablet,
-        height: ScreenHelper.height(context),
         child: Padding(
           padding: EdgeInsets.symmetric(
               horizontal:
@@ -68,15 +68,7 @@ class _CreateUserPageState extends State<CreateUserPage> {
           child: Column(
             children: [
               const LogoWidget(),
-              Text(
-                S.of(context).createPageTitle,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline1!.copyWith(
-                    fontSize: ScreenHelper.width(context) <
-                            ScreenHelper.breakpointTablet
-                        ? 22
-                        : 24),
-              ),
+              TitlePagesWidget(text: S.of(context).createPageTitle),
               Observer(builder: (_) {
                 var state = controller.state;
 
@@ -116,11 +108,6 @@ class _CreateUserPageState extends State<CreateUserPage> {
                         width: 250,
                         child: ElevatedButton(
                             onPressed: () async {
-                              FocusScopeNode currentFocus =
-                                  FocusScope.of(context);
-                              if (!currentFocus.hasPrimaryFocus) {
-                                currentFocus.unfocus();
-                              }
                               if (formKey.currentState!.validate()) {
                                 await controller.createUser();
                               }

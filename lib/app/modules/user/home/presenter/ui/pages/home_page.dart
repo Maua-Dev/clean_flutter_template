@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../../../shared/helpers/utils/screen_helper.dart';
 import '../../../../../../../shared/widgets/footer_widget.dart';
 import '../../../../../../../shared/widgets/logo_widget.dart';
+import '../../../../../../../shared/widgets/title_pages_widget.dart';
 import '../widgets/home_button_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -27,15 +28,7 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const LogoWidget(),
-                Text(
-                  S.of(context).homePageTitle,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline1!.copyWith(
-                      fontSize: ScreenHelper.width(context) <
-                              ScreenHelper.breakpointTablet
-                          ? 22
-                          : 24),
-                ),
+                TitlePagesWidget(text: S.of(context).homePageTitle),
                 const SizedBox(height: 32),
                 Text(
                   S.of(context).homePageSubtitle,
@@ -60,22 +53,22 @@ class HomePage extends StatelessWidget {
                         text: 'Criar usuário'),
                     HomeButtonWidget(
                         onPressed: () {
-                          Modular.to.pushNamed('/user/get-user');
+                          Modular.to.pushNamed('/get-user');
                         },
                         text: 'Procurar usuário'),
                     HomeButtonWidget(
                         onPressed: () {
-                          Modular.to.pushNamed('/user/list-users');
+                          Modular.to.pushNamed('/list-users');
                         },
                         text: 'Listar usuários'),
                     HomeButtonWidget(
                         onPressed: () {
-                          Modular.to.pushNamed('/user/list-users');
+                          Modular.to.pushNamed('/list-users');
                         },
                         text: 'Listar usuários'),
                     HomeButtonWidget(
                         onPressed: () {
-                          Modular.to.pushNamed('/user/list-users');
+                          Modular.to.pushNamed('/list-users');
                         },
                         text: 'Listar usuários'),
                   ],

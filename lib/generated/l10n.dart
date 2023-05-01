@@ -136,6 +136,16 @@ class S {
     );
   }
 
+  /// `ID`
+  String get fieldId {
+    return Intl.message(
+      'ID',
+      name: 'fieldId',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Gabriel de Godoy Braz`
   String get fieldHintName {
     return Intl.message(
@@ -161,6 +171,16 @@ class S {
     return Intl.message(
       '🤫',
       name: 'fieldHintPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Identification number`
+  String get fieldHintId {
+    return Intl.message(
+      'Identification number',
+      name: 'fieldHintId',
       desc: '',
       args: [],
     );
@@ -203,6 +223,26 @@ class S {
       name: 'successCreateUser',
       desc: '',
       args: [placeholders, successCreateUser],
+    );
+  }
+
+  /// `Search for a user`
+  String get getPageTitle {
+    return Intl.message(
+      'Search for a user',
+      name: 'getPageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get searchTitle {
+    return Intl.message(
+      'Search',
+      name: 'searchTitle',
+      desc: '',
+      args: [],
     );
   }
 

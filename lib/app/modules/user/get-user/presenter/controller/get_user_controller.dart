@@ -1,5 +1,6 @@
 import 'package:mobx/mobx.dart';
 
+import '../../../../../../generated/l10n.dart';
 import '../../../../../../shared/domain/usecases/get_user_usecase.dart';
 import '../../states/get_user_state.dart';
 
@@ -31,4 +32,12 @@ abstract class GetUserControllerBase with Store {
 
   @action
   setPageState(GetUserState value) => state = value;
+
+  @action
+  String? validateUserId(String? value) {
+    if (value!.isEmpty) {
+      return S.current.fieldRequired;
+    }
+    return null;
+  }
 }

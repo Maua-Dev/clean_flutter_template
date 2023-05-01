@@ -75,6 +75,17 @@ mixin _$GetUserController on GetUserControllerBase, Store {
   }
 
   @override
+  String? validateUserId(String? value) {
+    final _$actionInfo = _$GetUserControllerBaseActionController.startAction(
+        name: 'GetUserControllerBase.validateUserId');
+    try {
+      return super.validateUserId(value);
+    } finally {
+      _$GetUserControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 userId: ${userId},

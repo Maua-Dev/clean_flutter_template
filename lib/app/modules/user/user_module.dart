@@ -1,3 +1,4 @@
+import 'package:clean_flutter_template/app/modules/user/update-user/update_user_module.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -36,6 +37,10 @@ class UserModule extends Module {
         ModuleRoute(
           '/get-user',
           module: GetUserModule(),
+        ),
+        ModuleRoute(
+          '/update-user',
+          module: UpdateUserModule(),
         ),
       ];
 }

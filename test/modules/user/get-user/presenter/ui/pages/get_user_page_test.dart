@@ -19,7 +19,7 @@ import 'package:mockito/mockito.dart';
 import 'package:modular_test/modular_test.dart';
 import 'package:flutter_modular/flutter_modular.dart' as modular;
 
-import '../controller/get_user_controller_test.mocks.dart';
+import '../../controller/get_user_controller_test.mocks.dart';
 
 @GenerateMocks([GetUserUsecase])
 void main() {

@@ -37,6 +37,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(placeholders, successCreateUser) =>
       "User ${successCreateUser} created successfully";
 
+  static String m5(placeholders, successUpdateUser) =>
+      "User ${successUpdateUser} updated successfully";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "createPageTitle":
@@ -72,6 +75,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "requestErrorMessage": m2,
         "searchTitle": MessageLookupByLibrary.simpleMessage("Search"),
         "stateNameSchema": m3,
-        "successCreateUser": m4
+        "successCreateUser": m4,
+        "successUpdateUser": m5,
+        "updatePageTitle":
+            MessageLookupByLibrary.simpleMessage("Update an user"),
+        "updateTitle": MessageLookupByLibrary.simpleMessage("Update")
       };
 }

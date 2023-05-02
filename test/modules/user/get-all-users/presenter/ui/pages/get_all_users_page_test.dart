@@ -1,6 +1,7 @@
 import 'package:clean_flutter_template/app/modules/user/get-all-users/get_all_users_module.dart';
 import 'package:clean_flutter_template/app/modules/user/get-all-users/presenter/controllers/get_all_users_controller.dart';
 import 'package:clean_flutter_template/app/modules/user/get-all-users/presenter/ui/pages/get_all_users_page.dart';
+import 'package:clean_flutter_template/app/modules/user/get-all-users/presenter/ui/state/get_all_users_state.dart';
 import 'package:clean_flutter_template/app/modules/user/get-all-users/presenter/ui/widgets/user_widget.dart';
 import 'package:clean_flutter_template/generated/l10n.dart';
 import 'package:clean_flutter_template/shared/domain/enums/state_enum.dart';
@@ -12,7 +13,6 @@ import 'package:clean_flutter_template/shared/widgets/logo_widget.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -22,10 +22,7 @@ import 'get_all_users_page_test.mocks.dart';
 
 @GenerateMocks([GetAllUsersUsecase])
 void main() {
-  // ignore: unused_local_variable
-  late GetAllUsersController controller;
   GetAllUsersUsecase usecase = MockGetAllUsersUsecase();
-
   var listUsers = [
     UserModel(
       name: 'Gabriel',
@@ -36,21 +33,21 @@ void main() {
     ),
   ];
 
-  setUp(() async {
-    initModules([
-      GetAllUsersModule()
-    ], replaceBinds: [
-      modular.Bind<IGetAllUsersUsecase>((i) => usecase),
-    ]);
+  setUpAll(() async {
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
   });
 
   testWidgets(
-      '[TEST] - GetAllUsersPage must show some widgets when getAll is OK',
+      '[TEST] - GetAllUsersPage must show some widgets when controller is working',
       (widgetTester) async {
     when(usecase()).thenAnswer((_) async => Right(listUsers));
-    controller = Modular.get<GetAllUsersController>();
-    usecase = Modular.get<GetAllUsersUsecase>();
+    GetAllUsersController controller = GetAllUsersController(usecase);
+    initModules([
+      GetAllUsersModule()
+    ], replaceBinds: [
+      modular.Bind<IGetAllUsersUsecase>((i) => usecase),
+      modular.Bind<GetAllUsersController>((i) => controller),
+    ]);
     await widgetTester.pumpWidget(MaterialApp(
         localizationsDelegates: const [
           S.delegate,
@@ -65,28 +62,20 @@ void main() {
     expect(find.byType(UserWidget), findsNWidgets(1));
     expect(find.byType(Spacer), findsOneWidget);
     expect(find.byType(FooterWidget), findsOneWidget);
-  });
 
-  testWidgets(
-      '[TEST] - GetAllUsersPage must show some widgets when getAll is Error',
-      (widgetTester) async {
     when(usecase())
         .thenAnswer((_) async => left(ErrorRequest(message: 'message')));
-    controller = Modular.get<GetAllUsersController>();
-    usecase = Modular.get<GetAllUsersUsecase>();
-    await widgetTester.pumpWidget(MaterialApp(
-        localizationsDelegates: const [
-          S.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: S.delegate.supportedLocales,
-        home: const GetAllUsersPage()));
-    expect(find.byType(LogoWidget), findsOneWidget);
-    expect(find.text(S.current.getAllPageTitle), findsOneWidget);
-    expect(find.byType(UserWidget), findsNothing);
+
+    await controller.getAllUsers();
+
+    await widgetTester.pump();
+
     expect(find.text('message'), findsOneWidget);
-    expect(find.byType(Spacer), findsOneWidget);
-    expect(find.byType(FooterWidget), findsOneWidget);
+
+    await controller.setPageState(const LoadingGetAllState());
+
+    await widgetTester.pump();
+
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });
 }

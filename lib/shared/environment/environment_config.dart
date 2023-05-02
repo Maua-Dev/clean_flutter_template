@@ -15,7 +15,6 @@ class EnvironmentConfig {
   static IUserRepository getUserRepo() {
     EnvironmentEnum value = EnvironmentEnum.values.firstWhere(
       (element) => element.toString() == ENV,
-      orElse: () => EnvironmentEnum.DEV,
     );
     if (value == EnvironmentEnum.DEV) {
       return UserRepositoryMock();

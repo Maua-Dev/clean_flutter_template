@@ -17,7 +17,7 @@ class UserDatasource implements IUserDatasource {
     );
 
     if (response.statusCode == 200) {
-      return UserModel.fromJson(response.data['user']);
+      return UserModel.fromJson(response.data);
     } else {
       throw Exception();
     }

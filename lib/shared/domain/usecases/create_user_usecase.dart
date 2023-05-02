@@ -19,13 +19,12 @@ class CreateUserUsecase implements ICreateUserUsecase {
   @override
   Future<Either<Failure, User>> call(
       String name, String email, String password) async {
-    UserModel userToCreate = UserModel(
+    return await repository.createUser(UserModel(
       email: email,
       name: name,
       password: password,
       state: StateEnum.REJECTED,
       id: '',
-    );
-    return await repository.createUser(userToCreate);
+    ));
   }
 }

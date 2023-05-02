@@ -19,7 +19,7 @@ void main() {
     'name': 'Gabriel',
     'email': 'gabriel.godoybz@hotmail.com',
     'password': 'Teste123!',
-    'state': 'Approved',
+    'state': 'APPROVED',
   };
 
   setUpAll(() async {

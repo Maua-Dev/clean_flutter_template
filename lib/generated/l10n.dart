@@ -286,6 +286,16 @@ class S {
     );
   }
 
+  /// `List of all users`
+  String get getAllPageTitle {
+    return Intl.message(
+      'List of all users',
+      name: 'getAllPageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `User {successUpdateUser} updated successfully`
   String successUpdateUser(Object placeholders, Object successUpdateUser) {
     return Intl.message(

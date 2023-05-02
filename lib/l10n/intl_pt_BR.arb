@@ -39,6 +39,8 @@
     "deletePageTitle": "Delete um usuário",
     "deleteTitle": "Deletar",
 
+    "getAllPageTitle": "Lista de todos os usuários",
+
     "successUpdateUser": "Usuário {successUpdateUser} updated com sucesso",
     "@successUpdateUser" : {
         "placeholders": {

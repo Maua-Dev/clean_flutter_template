@@ -1,7 +1,7 @@
 import 'package:mobx/mobx.dart';
 
 import '../../../../../../shared/domain/usecases/delete_user_usecase.dart';
-import '../../states/delete_user_state.dart';
+import '../ui/states/delete_user_state.dart';
 
 part 'delete_user_controller.g.dart';
 

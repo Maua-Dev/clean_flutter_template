@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../../../../../generated/l10n.dart';
-import '../../../../../../shared/domain/entities/user.dart';
-import '../../../../../../shared/helpers/errors/errors.dart';
-import '../../../../../../shared/helpers/utils/screen_helper.dart';
-import '../../../../../../shared/themes/app_colors.dart';
-import '../../../../../../shared/widgets/footer_widget.dart';
-import '../../../../../../shared/widgets/logo_widget.dart';
-import '../../../../../../shared/widgets/text_field_widget.dart';
-import '../../../../../../shared/widgets/title_pages_widget.dart';
-import '../../presenter/controller/get_user_controller.dart';
-import '../../states/get_user_state.dart';
+import '../../../../../../../generated/l10n.dart';
+import '../../../../../../../shared/domain/entities/user.dart';
+import '../../../../../../../shared/helpers/errors/errors.dart';
+import '../../../../../../../shared/helpers/utils/screen_helper.dart';
+import '../../../../../../../shared/themes/app_colors.dart';
+import '../../../../../../../shared/widgets/footer_widget.dart';
+import '../../../../../../../shared/widgets/logo_widget.dart';
+import '../../../../../../../shared/widgets/text_field_widget.dart';
+import '../../../../../../../shared/widgets/title_pages_widget.dart';
+import '../../controller/get_user_controller.dart';
+import '../states/get_user_state.dart';
 
 class GetUserPage extends StatelessWidget {
   const GetUserPage({super.key});

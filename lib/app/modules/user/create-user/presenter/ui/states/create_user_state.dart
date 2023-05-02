@@ -1,5 +1,5 @@
 import 'package:clean_flutter_template/shared/domain/entities/user.dart';
-import '../../../../../../shared/helpers/errors/errors.dart';
+import '../../../../../../../shared/helpers/errors/errors.dart';
 
 abstract class CreateUserState {}
 

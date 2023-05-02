@@ -1,5 +1,5 @@
-import '../../../../../shared/domain/entities/user.dart';
-import '../../../../../shared/helpers/errors/errors.dart';
+import '../../../../../../../shared/domain/entities/user.dart';
+import '../../../../../../../shared/helpers/errors/errors.dart';
 
 abstract class GetUserState {}
 

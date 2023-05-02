@@ -1,6 +1,6 @@
 import 'package:clean_flutter_template/app/modules/user/get-user/get_user_module.dart';
 import 'package:clean_flutter_template/app/modules/user/get-user/presenter/controller/get_user_controller.dart';
-import 'package:clean_flutter_template/app/modules/user/get-user/ui/pages/get_user_page.dart';
+import 'package:clean_flutter_template/app/modules/user/get-user/presenter/ui/pages/get_user_page.dart';
 import 'package:clean_flutter_template/generated/l10n.dart';
 import 'package:clean_flutter_template/shared/domain/enums/state_enum.dart';
 import 'package:clean_flutter_template/shared/domain/usecases/get_user_usecase.dart';

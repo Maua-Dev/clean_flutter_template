@@ -12,7 +12,7 @@ import '../../../../../../../shared/widgets/footer_widget.dart';
 import '../../../../../../../shared/widgets/text_field_widget.dart';
 import '../../../../../../../shared/widgets/title_pages_widget.dart';
 import '../../controller/create_user_controller.dart';
-import '../../states/create_user_state.dart';
+import '../states/create_user_state.dart';
 
 class CreateUserPage extends StatefulWidget {
   const CreateUserPage({super.key});

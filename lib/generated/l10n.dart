@@ -266,6 +266,26 @@ class S {
     );
   }
 
+  /// `Delete an user`
+  String get deletePageTitle {
+    return Intl.message(
+      'Delete an user',
+      name: 'deletePageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get deleteTitle {
+    return Intl.message(
+      'Delete',
+      name: 'deleteTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `User {successUpdateUser} updated successfully`
   String successUpdateUser(Object placeholders, Object successUpdateUser) {
     return Intl.message(
@@ -273,6 +293,16 @@ class S {
       name: 'successUpdateUser',
       desc: '',
       args: [placeholders, successUpdateUser],
+    );
+  }
+
+  /// `User {successDeleteUser} deleted successfully`
+  String successDeleteUser(Object placeholders, Object successDeleteUser) {
+    return Intl.message(
+      'User $successDeleteUser deleted successfully',
+      name: 'successDeleteUser',
+      desc: '',
+      args: [placeholders, successDeleteUser],
     );
   }
 

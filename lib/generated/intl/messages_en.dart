@@ -37,13 +37,19 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(placeholders, successCreateUser) =>
       "User ${successCreateUser} created successfully";
 
-  static String m5(placeholders, successUpdateUser) =>
+  static String m5(placeholders, successDeleteUser) =>
+      "User ${successDeleteUser} deleted successfully";
+
+  static String m6(placeholders, successUpdateUser) =>
       "User ${successUpdateUser} updated successfully";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "createPageTitle":
             MessageLookupByLibrary.simpleMessage("Create a new user"),
+        "deletePageTitle":
+            MessageLookupByLibrary.simpleMessage("Delete an user"),
+        "deleteTitle": MessageLookupByLibrary.simpleMessage("Delete"),
         "emptyListErrorMessage": MessageLookupByLibrary.simpleMessage(
             "List is empty, no items found for this request"),
         "entityErrorMessage": m0,
@@ -76,7 +82,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "searchTitle": MessageLookupByLibrary.simpleMessage("Search"),
         "stateNameSchema": m3,
         "successCreateUser": m4,
-        "successUpdateUser": m5,
+        "successDeleteUser": m5,
+        "successUpdateUser": m6,
         "updatePageTitle":
             MessageLookupByLibrary.simpleMessage("Update an user"),
         "updateTitle": MessageLookupByLibrary.simpleMessage("Update")

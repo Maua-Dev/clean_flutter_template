@@ -1,5 +1,5 @@
 import 'package:clean_flutter_template/app/modules/user/delete-user/presenter/controller/delete_user_controller.dart';
-import 'package:clean_flutter_template/app/modules/user/delete-user/states/delete_user_state.dart';
+import 'package:clean_flutter_template/app/modules/user/delete-user/presenter/ui/states/delete_user_state.dart';
 import 'package:clean_flutter_template/generated/l10n.dart';
 import 'package:clean_flutter_template/shared/domain/enums/state_enum.dart';
 import 'package:clean_flutter_template/shared/domain/usecases/delete_user_usecase.dart';

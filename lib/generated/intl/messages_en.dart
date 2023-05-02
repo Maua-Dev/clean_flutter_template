@@ -70,6 +70,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "fieldPassword": MessageLookupByLibrary.simpleMessage("Password"),
         "fieldRequired":
             MessageLookupByLibrary.simpleMessage("Field is required"),
+        "getAllPageTitle":
+            MessageLookupByLibrary.simpleMessage("List of all users"),
         "getPageTitle":
             MessageLookupByLibrary.simpleMessage("Search for a user"),
         "homePageSubtitle": MessageLookupByLibrary.simpleMessage(

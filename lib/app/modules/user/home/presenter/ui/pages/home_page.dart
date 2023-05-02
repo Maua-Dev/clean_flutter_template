@@ -48,27 +48,27 @@ class HomePage extends StatelessWidget {
                   children: [
                     HomeButtonWidget(
                         onPressed: () {
-                          Modular.to.pushNamed('/create-user');
+                          Modular.to.pushNamed('/create-user/');
                         },
                         text: 'Criar usuário'),
                     HomeButtonWidget(
                         onPressed: () {
-                          Modular.to.pushNamed('/get-user');
+                          Modular.to.pushNamed('/get-user/');
                         },
                         text: 'Procurar usuário'),
                     HomeButtonWidget(
                         onPressed: () {
-                          Modular.to.pushNamed('/update-user');
+                          Modular.to.pushNamed('/update-user/');
                         },
                         text: 'Update usuário'),
                     HomeButtonWidget(
                         onPressed: () {
-                          Modular.to.pushNamed('/delete-user');
+                          Modular.to.pushNamed('/delete-user/');
                         },
                         text: 'Deletar usuário'),
                     HomeButtonWidget(
                         onPressed: () {
-                          Modular.to.pushNamed('/get-all-users');
+                          Modular.to.pushNamed('/get-all-users/');
                         },
                         text: 'Listar usuários'),
                   ],

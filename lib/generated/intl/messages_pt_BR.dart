@@ -71,6 +71,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "fieldPassword": MessageLookupByLibrary.simpleMessage("Senha"),
         "fieldRequired":
             MessageLookupByLibrary.simpleMessage("Campo é obrigatório"),
+        "getAllPageTitle":
+            MessageLookupByLibrary.simpleMessage("Lista de todos os usuários"),
         "getPageTitle":
             MessageLookupByLibrary.simpleMessage("Procure um usuário"),
         "homePageSubtitle": MessageLookupByLibrary.simpleMessage(

@@ -3,7 +3,7 @@ import 'package:clean_flutter_template/shared/domain/usecases/create_user_usecas
 import 'package:mobx/mobx.dart';
 
 import '../../../../../../generated/l10n.dart';
-import '../states/create_user_state.dart';
+import '../ui/states/create_user_state.dart';
 
 part 'create_user_controller.g.dart';
 

@@ -2,7 +2,7 @@ import 'package:mobx/mobx.dart';
 
 import '../../../../../../generated/l10n.dart';
 import '../../../../../../shared/domain/usecases/update_user_usecase.dart';
-import '../../states/update_user_state.dart';
+import '../ui/states/update_user_state.dart';
 
 part 'update_user_controller.g.dart';
 

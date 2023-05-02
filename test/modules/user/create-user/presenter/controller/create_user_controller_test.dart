@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:clean_flutter_template/app/modules/user/create-user/presenter/controller/create_user_controller.dart';
-import 'package:clean_flutter_template/app/modules/user/create-user/presenter/states/create_user_state.dart';
+import 'package:clean_flutter_template/app/modules/user/create-user/presenter/ui/states/create_user_state.dart';
 import 'package:clean_flutter_template/generated/l10n.dart';
 import 'package:clean_flutter_template/shared/domain/enums/state_enum.dart';
 import 'package:clean_flutter_template/shared/domain/usecases/create_user_usecase.dart';

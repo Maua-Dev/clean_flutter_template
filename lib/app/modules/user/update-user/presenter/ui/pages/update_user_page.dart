@@ -11,7 +11,7 @@ import '../../../../../../../shared/widgets/footer_widget.dart';
 import '../../../../../../../shared/widgets/logo_widget.dart';
 import '../../../../../../../shared/widgets/text_field_widget.dart';
 import '../../../../../../../shared/widgets/title_pages_widget.dart';
-import '../../../states/update_user_state.dart';
+import '../states/update_user_state.dart';
 import '../../controller/update_user_controller.dart';
 
 class UpdateUserPage extends StatelessWidget {

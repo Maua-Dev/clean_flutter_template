@@ -1,5 +1,5 @@
 import 'package:clean_flutter_template/app/modules/user/update-user/presenter/controller/update_user_controller.dart';
-import 'package:clean_flutter_template/app/modules/user/update-user/states/update_user_state.dart';
+import 'package:clean_flutter_template/app/modules/user/update-user/presenter/ui/states/update_user_state.dart';
 import 'package:clean_flutter_template/generated/l10n.dart';
 import 'package:clean_flutter_template/shared/domain/enums/state_enum.dart';
 import 'package:clean_flutter_template/shared/domain/usecases/update_user_usecase.dart';

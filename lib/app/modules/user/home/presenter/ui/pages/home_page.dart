@@ -63,9 +63,9 @@ class HomePage extends StatelessWidget {
                         text: 'Update usuário'),
                     HomeButtonWidget(
                         onPressed: () {
-                          Modular.to.pushNamed('/list-users');
+                          Modular.to.pushNamed('/delete-user');
                         },
-                        text: 'Listar usuários'),
+                        text: 'Deletar usuário'),
                     HomeButtonWidget(
                         onPressed: () {
                           Modular.to.pushNamed('/list-users');

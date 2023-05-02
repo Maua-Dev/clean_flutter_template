@@ -1,9 +1,9 @@
-import 'package:clean_flutter_template/app/modules/user/get-user/get_user_module.dart';
-import 'package:clean_flutter_template/app/modules/user/get-user/presenter/controller/get_user_controller.dart';
-import 'package:clean_flutter_template/app/modules/user/get-user/presenter/ui/pages/get_user_page.dart';
+import 'package:clean_flutter_template/app/modules/user/delete-user/delete_user_module.dart';
+import 'package:clean_flutter_template/app/modules/user/delete-user/presenter/controller/delete_user_controller.dart';
+import 'package:clean_flutter_template/app/modules/user/delete-user/presenter/ui/pages/delete_user_page.dart';
 import 'package:clean_flutter_template/generated/l10n.dart';
 import 'package:clean_flutter_template/shared/domain/enums/state_enum.dart';
-import 'package:clean_flutter_template/shared/domain/usecases/get_user_usecase.dart';
+import 'package:clean_flutter_template/shared/domain/usecases/delete_user_usecase.dart';
 import 'package:clean_flutter_template/shared/helpers/errors/errors.dart';
 import 'package:clean_flutter_template/shared/infra/models/user_model.dart';
 import 'package:clean_flutter_template/shared/widgets/footer_widget.dart';
@@ -18,13 +18,12 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:modular_test/modular_test.dart';
 import 'package:flutter_modular/flutter_modular.dart' as modular;
+import 'delete_user_page_test.mocks.dart';
 
-import '../../controller/get_user_controller_test.mocks.dart';
-
-@GenerateMocks([GetUserUsecase])
+@GenerateMocks([DeleteUserUsecase])
 void main() {
-  late GetUserController controller;
-  GetUserUsecase usecase = MockGetUserUsecase();
+  late DeleteUserController controller;
+  DeleteUserUsecase usecase = MockDeleteUserUsecase();
 
   String name = "Gabriel Godoy";
   String email = "gabriel.godoybz@hotmail.com";
@@ -32,16 +31,16 @@ void main() {
 
   setUp(() async {
     initModules([
-      GetUserModule()
+      DeleteUserModule()
     ], replaceBinds: [
-      modular.Bind<IGetUserUsecase>((i) => usecase),
+      modular.Bind<IDeleteUserUsecase>((i) => usecase),
     ]);
-    controller = Modular.get<GetUserController>();
-    usecase = Modular.get<GetUserUsecase>();
+    controller = Modular.get<DeleteUserController>();
+    usecase = Modular.get<DeleteUserUsecase>();
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
   });
 
-  testWidgets('[TEST] - GetUserPage must show some widgets when initialize',
+  testWidgets('[TEST] - DeleteUserPage must show some widgets when initialize',
       (widgetTester) async {
     await widgetTester.pumpWidget(MaterialApp(
         localizationsDelegates: const [
@@ -50,18 +49,19 @@ void main() {
           GlobalWidgetsLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        home: const GetUserPage()));
+        home: const DeleteUserPage()));
     expect(find.byType(LogoWidget), findsOneWidget);
-    expect(find.text(S.current.getPageTitle), findsOneWidget);
+    expect(find.text(S.current.deletePageTitle), findsOneWidget);
     expect(find.byType(Form), findsOneWidget);
-    expect(find.byType(TextFieldWidget), findsOneWidget);
+    expect(find.byType(TextFieldWidget), findsNWidgets(1));
     expect(find.byType(ElevatedButton), findsOneWidget);
-    expect(find.text(S.current.searchTitle), findsOneWidget);
+    expect(find.text(S.current.deleteTitle), findsOneWidget);
     expect(find.byType(Spacer), findsOneWidget);
     expect(find.byType(FooterWidget), findsOneWidget);
   });
 
-  testWidgets('[TEST] - GetUserPage must show SuccessWidget when create user',
+  testWidgets(
+      '[TEST] - DeleteUserPage must show SuccessWidget when delete user',
       (widgetTester) async {
     var userModel = UserModel(
       name: name,
@@ -77,18 +77,16 @@ void main() {
           GlobalWidgetsLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        home: const GetUserPage()));
+        home: const DeleteUserPage()));
     when(usecase.call('0')).thenAnswer((_) async => Right(userModel));
     await widgetTester.runAsync(() async => controller.setUserId('0'));
-    await widgetTester.runAsync(() async => controller.getUser());
+    await widgetTester.runAsync(() async => controller.deleteUser());
     await widgetTester.pump();
 
-    expect(find.text('Nome: ${userModel.name}'), findsOneWidget);
-    expect(find.text('Email: ${userModel.email}'), findsOneWidget);
-    expect(find.text('State: REJECTED'), findsOneWidget);
+    expect(find.text(S.current.successDeleteUser('', name)), findsOneWidget);
   });
 
-  testWidgets('[TEST] - GetUserPage must show ErrorWidget when create user',
+  testWidgets('[TEST] - DeleteUserPage must show ErrorWidget when delete user',
       (widgetTester) async {
     await widgetTester.pumpWidget(MaterialApp(
         localizationsDelegates: const [
@@ -97,12 +95,11 @@ void main() {
           GlobalWidgetsLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        home: const GetUserPage()));
+        home: const DeleteUserPage()));
     when(usecase.call('10000'))
         .thenAnswer((_) async => left(ErrorRequest(message: 'message')));
     await widgetTester.runAsync(() async => controller.setUserId('10000'));
-
-    await widgetTester.runAsync(() async => controller.getUser());
+    await widgetTester.runAsync(() async => controller.deleteUser());
     await widgetTester.pump();
 
     expect(find.text(S.current.requestErrorMessage('', 'message')),

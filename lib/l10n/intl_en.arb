@@ -36,11 +36,23 @@
     "updatePageTitle": "Update an user",
     "updateTitle": "Update",
 
+    "deletePageTitle": "Delete an user",
+    "deleteTitle": "Delete",
+
     "successUpdateUser": "User {successUpdateUser} updated successfully",
     "@successUpdateUser" : {
         "placeholders": {
             "placeholders": {
                 "successUpdateUser": {}
+            }
+        }
+    },
+
+    "successDeleteUser": "User {successDeleteUser} deleted successfully",
+    "@successDeleteUser" : {
+        "placeholders": {
+            "placeholders": {
+                "successDeleteUser": {}
             }
         }
     },

@@ -53,6 +53,17 @@ mixin _$DeleteUserController on DeleteUserControllerBase, Store {
       ActionController(name: 'DeleteUserControllerBase', context: context);
 
   @override
+  dynamic setUserId(String id) {
+    final _$actionInfo = _$DeleteUserControllerBaseActionController.startAction(
+        name: 'DeleteUserControllerBase.setUserId');
+    try {
+      return super.setUserId(id);
+    } finally {
+      _$DeleteUserControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   dynamic setPageState(DeleteUserState value) {
     final _$actionInfo = _$DeleteUserControllerBaseActionController.startAction(
         name: 'DeleteUserControllerBase.setPageState');

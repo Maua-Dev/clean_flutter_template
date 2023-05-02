@@ -20,6 +20,9 @@ abstract class DeleteUserControllerBase with Store {
   DeleteUserState state = const StartDeleteState();
 
   @action
+  setUserId(String id) => userId = id;
+
+  @action
   setPageState(DeleteUserState value) => state = value;
 
   @action

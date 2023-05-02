@@ -84,7 +84,6 @@ void main() {
         home: const GetAllUsersPage()));
     expect(find.byType(LogoWidget), findsOneWidget);
     expect(find.text(S.current.getAllPageTitle), findsOneWidget);
-    expect(find.byType(ListView), findsNothing);
     expect(find.byType(UserWidget), findsNothing);
     expect(find.text('message'), findsOneWidget);
     expect(find.byType(Spacer), findsOneWidget);

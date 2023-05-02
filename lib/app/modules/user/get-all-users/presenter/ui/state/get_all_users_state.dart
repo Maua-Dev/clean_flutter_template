@@ -17,6 +17,6 @@ class ErrorGetAllState implements GetAllUsersState {
 }
 
 class SuccessGetAllState implements GetAllUsersState {
-  final List<User> user;
-  const SuccessGetAllState(this.user);
+  final List<User> users;
+  const SuccessGetAllState(this.users);
 }

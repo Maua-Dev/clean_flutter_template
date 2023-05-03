@@ -30,46 +30,104 @@ Our folder structure was developed specially for our projects.
 
 ```bash
 .
-├── iac
-├── src
-│   ├── modules
-│   │   ├── create_user
-│   │   │   └── app
-│   │   ├── delete_user
-│   │   │   └── app
-│   │   ├── get_user
-│   │   │   └── app
-│   │   └── update_user
-│   │       └── app
+├── lib
+│   ├── app
+│   │   └── modules
+│   │       ├── create_user
+│   │       │    └── presenter
+│   │       │        ├── controller
+│   │       │        └── ui
+│   │       │            ├──pages
+│   │       │            └── states
+│   │       ├── delete_user
+│   │       │    └── presenter
+│   │       │        ├── controller
+│   │       │        └── ui
+│   │       │            ├──pages
+│   │       │            └── states
+│   │       ├── get_all_users
+│   │       │    └── presenter
+│   │       │        ├── controller
+│   │       │        └── ui
+│   │       │            ├──pages
+│   │       │            └── states
+│   │       ├── get_user
+│   │       │    └── presenter
+│   │       │        ├── controller
+│   │       │        └── ui
+│   │       │            ├──pages
+│   │       │            └── states
+│   │       └── update_user
+│   │            └── presenter
+│   │                ├── controller
+│   │                └── ui
+│   │                    ├──pages
+│   │                    └── states
+│   ├── generated
+│   ├── l10n
 │   └── shared
+│       ├── datasource
+│       │    └── external
+│       │         └── http
 │       ├── domain
 │       │   ├── entities
 │       │   ├── enums
-│       │   └── repositories
+│       │   ├── repositories
+│       │   ├── storage
+│       │   └── usecases
 │       ├── helpers
 │       │   ├── enum
 │       │   ├── errors
 │       │   ├── functions
 │       │   └── http
-│       └── infra
-│           ├── dto
-│           ├── external
-│           └── repositories
+│       ├── environment
+│       ├── helpers
+│       ├── infra
+│       │   ├── external
+│       │   ├── models
+│       │   ├── repositories
+│       │   └── storage
+│       ├── themes
+│       └── widgets
 └── tests
-    ├── modules
-    │   ├── create_user
-    │   │   └── app
-    │   ├── delete_user
-    │   │   └── app
-    │   ├── get_user
-    │   │   └── app
-    │   └── update_user
-    │       └── app
-    └── shared
-        ├── domain
-        │   └── entities
-        ├── helpers
-        └── infra
+    └── app
+        ├── modules
+        │   ├── create_user
+        │   │   └── presenter
+        │   │       ├── controller
+        │   │       └── ui
+        │   │           └── pages
+        │   ├── delete_user
+        │   │   └── presenter
+        │   │       ├── controller
+        │   │       └── ui
+        │   │           └── pages
+        │   ├── get_all_users
+        │   │   └── presenter
+        │   │       ├── controller
+        │   │       └── ui
+        │   │           └── pages
+        │   ├── get_user
+        │   │   └── presenter
+        │   │       ├── controller
+        │   │       └── ui
+        │   │           └── pages
+        │   └── update_user
+        │       └── presenter
+        │           ├── controller
+        │           └── ui
+        │               └── pages
+        └── shared
+            ├── datasource
+            │   └── external
+            │       └── http
+            ├── domain
+            │   ├── entities
+            │   └── usecases
+            └── infra
+                ├── models
+                ├── repositories
+                └── storage
 
 ```
 
@@ -140,3 +198,4 @@ Clone the repository using template
 - [Dev. Community Mauá](https://www.instagram.com/devcommunitymaua/)
 - [Clean Architecture: A Craftsman's Guide to Software Structure and Design](https://www.amazon.com.br/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164)
 - [Institute Mauá of Technology](https://www.maua.br/)
+- [Flutterando/Clean-Dart](https://github.com/Flutterando/Clean-Dart)

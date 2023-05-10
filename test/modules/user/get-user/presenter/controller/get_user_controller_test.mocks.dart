@@ -64,7 +64,7 @@ class MockGetUserUsecase extends _i1.Mock implements _i4.GetUserUsecase {
         ),
       ) as _i2.IUserRepository);
   @override
-  _i5.Future<_i3.Either<_i6.Failure, _i7.User>> call(String? id) =>
+  _i5.Future<_i3.Either<_i6.Failure, _i7.User>> call(int? id) =>
       (super.noSuchMethod(
         Invocation.method(
           #call,

@@ -28,29 +28,29 @@ void main() {
       name: 'Gabriel',
       email: 'gabriel.godoybz@hotmail.com',
       state: StateEnum.REJECTED,
-      id: '0',
+      id: 0,
     );
 
     test('should return SuccessDeleteState', () async {
-      when(usecase.call('0')).thenAnswer((_) async => Right(userModel));
+      when(usecase.call(0)).thenAnswer((_) async => Right(userModel));
       expect(controller.state, const StartDeleteState());
-      controller.setUserId('0');
+      controller.setUserId(0);
       await controller.deleteUser();
       expect(controller.state, isA<SuccessDeleteState>());
     });
 
     test('should return ErrorDeleteState', () async {
-      when(usecase.call('0'))
+      when(usecase.call(0))
           .thenAnswer((_) async => left(ErrorRequest(message: 'message')));
       expect(controller.state, const StartDeleteState());
-      controller.setUserId('0');
+      controller.setUserId(0);
       await controller.deleteUser();
       expect(controller.state, isA<ErrorDeleteState>());
     });
 
     test('[TEST] - setUserId', () {
-      controller.setUserId('123');
-      expect(controller.userId, '123');
+      controller.setUserId(123);
+      expect(controller.userId, 123);
     });
 
     test('[TEST] - setPageState', () {

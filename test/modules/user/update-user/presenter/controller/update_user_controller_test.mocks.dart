@@ -67,7 +67,7 @@ class MockUpdateUserUsecase extends _i1.Mock implements _i4.UpdateUserUsecase {
   _i5.Future<_i3.Either<_i6.Failure, _i7.User>> call(
     String? name,
     String? email,
-    String? id,
+    int? id,
   ) =>
       (super.noSuchMethod(
         Invocation.method(

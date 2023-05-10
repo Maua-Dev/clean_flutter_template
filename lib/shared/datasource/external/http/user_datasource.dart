@@ -25,7 +25,12 @@ class UserDatasource implements IUserDatasource {
 
   @override
   Future<UserModel> getUser(String userId) async {
-    var response = await _httpRequest.get('/get-user?user_id=$userId');
+    var response = await _httpRequest.get(
+      '/get-user',
+      {
+        'user_id': userId,
+      },
+    );
 
     if (response.statusCode == 200) {
       return UserModel.fromJson(response.data);

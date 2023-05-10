@@ -10,7 +10,7 @@ void main() {
     name: 'Gabriel',
     email: 'gabriel.godoybz@hotmail.com',
     state: StateEnum.APPROVED,
-    id: '123',
+    id: 123,
   );
 
   var userMap = {

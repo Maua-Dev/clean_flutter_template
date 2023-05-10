@@ -107,7 +107,9 @@ class _CreateUserPageState extends State<CreateUserPage> {
                               }
                             },
                             child: controller.state is LoadingCreateState
-                                ? const CircularProgressIndicator()
+                                ? CircularProgressIndicator(
+                                    color: AppColors.white,
+                                  )
                                 : Text(
                                     S.of(context).registerTitle,
                                     style: Theme.of(context)

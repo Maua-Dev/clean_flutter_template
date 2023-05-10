@@ -196,6 +196,16 @@ class S {
     );
   }
 
+  /// `Field must be a valid integer`
+  String get fieldInvalidId {
+    return Intl.message(
+      'Field must be a valid integer',
+      name: 'fieldInvalidId',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `User {successCreateUser} created successfully`
   String successCreateUser(Object placeholders, Object successCreateUser) {
     return Intl.message(

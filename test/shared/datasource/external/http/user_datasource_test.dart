@@ -72,8 +72,12 @@ void main() {
       final response = Response(
           data: userData, statusCode: 200, requestOptions: RequestOptions());
 
-      when(httpRequest.get('/get-user?userId=$userId'))
-          .thenAnswer((_) async => response);
+      when(httpRequest.get(
+        '/get-user',
+        {
+          'userId': userId,
+        },
+      )).thenAnswer((_) async => response);
 
       final result = await userDatasource.getUser(userId);
 
@@ -85,8 +89,12 @@ void main() {
       final response =
           Response(statusCode: 500, requestOptions: RequestOptions());
 
-      when(httpRequest.get('/get-user?userId=$userId'))
-          .thenAnswer((_) async => response);
+      when(httpRequest.get(
+        '/get-user',
+        {
+          'userId': userId,
+        },
+      )).thenAnswer((_) async => response);
 
       expect(() => userDatasource.getUser(userId), throwsException);
     });
@@ -94,7 +102,7 @@ void main() {
 
   group('[TEST] - createUser', () {
     test('success 201', () async {
-      var userId = '123';
+      var userId = 123;
       final userData = {
         'id': userId,
         'name': 'John Doe',
@@ -116,7 +124,7 @@ void main() {
     });
 
     test('failure', () async {
-      var userId = '123';
+      var userId = 123;
       final userData = {
         'id': userId,
         'name': 'John Doe',

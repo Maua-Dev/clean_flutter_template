@@ -18,6 +18,7 @@
     "fieldRequired": "Field is required",
     "fieldMinLength": "Field must be at least 6 characters long",
     "fieldInvalidEmail": "Field must be a valid email address",
+    "fieldInvalidId": "Field must be a valid integer",
 
     "successCreateUser": "User {successCreateUser} created successfully",
     "@successCreateUser" : {

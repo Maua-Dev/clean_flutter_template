@@ -16,19 +16,19 @@ abstract class GetUserControllerBase with Store {
   @action
   Future<void> getUser() async {
     setPageState(const LoadingGetState());
-    var result = await _getUserUsecase(userId);
+    var result = await _getUserUsecase(userId!);
     setPageState(
         result.fold((l) => ErrorGetState(l), (r) => SuccessGetState(r)));
   }
 
   @observable
-  String userId = '';
+  int? userId;
 
   @observable
   GetUserState state = const StartGetState();
 
   @action
-  setUserId(String id) => userId = id;
+  setUserId(int id) => userId = id;
 
   @action
   setPageState(GetUserState value) => state = value;
@@ -37,6 +37,8 @@ abstract class GetUserControllerBase with Store {
   String? validateUserId(String? value) {
     if (value!.isEmpty) {
       return S.current.fieldRequired;
+    } else if (int.tryParse(value) == null) {
+      return S.current.fieldInvalidId;
     }
     return null;
   }

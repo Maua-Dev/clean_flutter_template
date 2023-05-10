@@ -66,7 +66,7 @@ void main() {
       name: name,
       email: email,
       state: StateEnum.REJECTED,
-      id: '0',
+      id: 0,
     );
     await widgetTester.pumpWidget(MaterialApp(
         localizationsDelegates: const [
@@ -76,8 +76,8 @@ void main() {
         ],
         supportedLocales: S.delegate.supportedLocales,
         home: const DeleteUserPage()));
-    when(usecase.call('0')).thenAnswer((_) async => Right(userModel));
-    await widgetTester.runAsync(() async => controller.setUserId('0'));
+    when(usecase.call(0)).thenAnswer((_) async => Right(userModel));
+    await widgetTester.runAsync(() async => controller.setUserId(0));
     await widgetTester.runAsync(() async => controller.deleteUser());
     await widgetTester.pump();
 
@@ -94,9 +94,9 @@ void main() {
         ],
         supportedLocales: S.delegate.supportedLocales,
         home: const DeleteUserPage()));
-    when(usecase.call('10000'))
+    when(usecase.call(10000))
         .thenAnswer((_) async => left(ErrorRequest(message: 'message')));
-    await widgetTester.runAsync(() async => controller.setUserId('10000'));
+    await widgetTester.runAsync(() async => controller.setUserId(10000));
     await widgetTester.runAsync(() async => controller.deleteUser());
     await widgetTester.pump();
 

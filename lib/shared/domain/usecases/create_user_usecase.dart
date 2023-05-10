@@ -21,7 +21,7 @@ class CreateUserUsecase implements ICreateUserUsecase {
       email: email,
       name: name,
       state: StateEnum.REJECTED,
-      id: '',
+      id: 9999999,
     ));
   }
 }

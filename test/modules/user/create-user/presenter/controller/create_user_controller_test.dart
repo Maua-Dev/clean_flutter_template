@@ -28,7 +28,6 @@ void main() {
       name: 'Gabriel',
       email: 'gabriel.godoybz@hotmail.com',
       state: StateEnum.REJECTED,
-      id: '',
     );
 
     test('should return SuccessCreateState', () async {

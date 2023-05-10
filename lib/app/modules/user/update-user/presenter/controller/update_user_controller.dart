@@ -21,7 +21,7 @@ abstract class UpdateUserControllerBase with Store {
   String userEmail = '';
 
   @observable
-  String userId = '';
+  int userId = 99999;
 
   @observable
   UpdateUserState state = const StartUpdateState();
@@ -33,7 +33,7 @@ abstract class UpdateUserControllerBase with Store {
   setUserEmail(String email) => userEmail = email;
 
   @action
-  setUserId(String id) => userId = id;
+  setUserId(int id) => userId = id;
 
   @action
   setPageState(UpdateUserState value) => state = value;
@@ -60,6 +60,16 @@ abstract class UpdateUserControllerBase with Store {
       return S.current.fieldRequired;
     } else if (!value.contains('@')) {
       return S.current.fieldInvalidEmail;
+    }
+    return null;
+  }
+
+  @action
+  String? validateUserId(String? value) {
+    if (value!.isEmpty) {
+      return S.current.fieldRequired;
+    } else if (int.tryParse(value) == null) {
+      return S.current.fieldInvalidId;
     }
     return null;
   }

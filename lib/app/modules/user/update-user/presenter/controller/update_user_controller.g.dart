@@ -45,13 +45,13 @@ mixin _$UpdateUserController on UpdateUserControllerBase, Store {
       Atom(name: 'UpdateUserControllerBase.userId', context: context);
 
   @override
-  String get userId {
+  int get userId {
     _$userIdAtom.reportRead();
     return super.userId;
   }
 
   @override
-  set userId(String value) {
+  set userId(int value) {
     _$userIdAtom.reportWrite(value, super.userId, () {
       super.userId = value;
     });
@@ -107,7 +107,7 @@ mixin _$UpdateUserController on UpdateUserControllerBase, Store {
   }
 
   @override
-  dynamic setUserId(String id) {
+  dynamic setUserId(int id) {
     final _$actionInfo = _$UpdateUserControllerBaseActionController.startAction(
         name: 'UpdateUserControllerBase.setUserId');
     try {
@@ -145,6 +145,17 @@ mixin _$UpdateUserController on UpdateUserControllerBase, Store {
         name: 'UpdateUserControllerBase.validateUserEmail');
     try {
       return super.validateUserEmail(value);
+    } finally {
+      _$UpdateUserControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  String? validateUserId(String? value) {
+    final _$actionInfo = _$UpdateUserControllerBaseActionController.startAction(
+        name: 'UpdateUserControllerBase.validateUserId');
+    try {
+      return super.validateUserId(value);
     } finally {
       _$UpdateUserControllerBaseActionController.endAction(_$actionInfo);
     }

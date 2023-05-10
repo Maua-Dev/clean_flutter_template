@@ -40,17 +40,27 @@ class MockIHttpRequest extends _i1.Mock implements _i3.IHttpRequest {
   }
 
   @override
-  _i4.Future<_i2.Response<dynamic>> get(String? url) => (super.noSuchMethod(
+  _i4.Future<_i2.Response<dynamic>> get(
+    String? url,
+    dynamic data,
+  ) =>
+      (super.noSuchMethod(
         Invocation.method(
           #get,
-          [url],
+          [
+            url,
+            data,
+          ],
         ),
         returnValue:
             _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_0<dynamic>(
           this,
           Invocation.method(
             #get,
-            [url],
+            [
+              url,
+              data,
+            ],
           ),
         )),
       ) as _i4.Future<_i2.Response<dynamic>>);

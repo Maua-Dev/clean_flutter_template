@@ -2,7 +2,7 @@ import '../../helpers/errors/errors.dart';
 import '../enums/state_enum.dart';
 
 class User {
-  final String? id;
+  final int? id;
   final String name;
   final String email;
   final StateEnum state;
@@ -10,7 +10,7 @@ class User {
   static const int minNameLenght = 2;
 
   User({
-    this.id,
+    required this.id,
     required this.name,
     required this.email,
     required this.state,

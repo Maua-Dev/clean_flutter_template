@@ -35,14 +35,14 @@ void main() {
   group('[TEST] - DeleteUserUsecase', () {
     test('should return an User', () async {
       usecase = UpdateUserUsecase(repositorySuccess);
-      final result = await usecase('John Doe', 'johndoe@example.com', '0');
+      final result = await usecase('John Doe', 'johndoe@example.com', 0);
 
       expect(result.fold(id, id), isA<UserModel>());
     });
 
     test('should return an ErrorRequest', () async {
       usecase = UpdateUserUsecase(repositoryFailed);
-      final result = await usecase('John Doe', 'johndoe@example.com', '0');
+      final result = await usecase('John Doe', 'johndoe@example.com', 0);
 
       expect(result.fold(id, id), isA<ErrorRequest>());
     });

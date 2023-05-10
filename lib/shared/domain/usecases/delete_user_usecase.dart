@@ -5,7 +5,7 @@ import '../entities/user.dart';
 import '../repositories/user_repository_interface.dart';
 
 abstract class IDeleteUserUsecase {
-  Future<Either<Failure, User>> call(String id);
+  Future<Either<Failure, User>> call(int id);
 }
 
 class DeleteUserUsecase implements IDeleteUserUsecase {
@@ -14,7 +14,7 @@ class DeleteUserUsecase implements IDeleteUserUsecase {
   DeleteUserUsecase(this.repository);
 
   @override
-  Future<Either<Failure, User>> call(String id) async {
+  Future<Either<Failure, User>> call(int id) async {
     return await repository.deleteUser(id);
   }
 }

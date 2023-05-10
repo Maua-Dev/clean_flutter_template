@@ -64,6 +64,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "fieldId": MessageLookupByLibrary.simpleMessage("ID"),
         "fieldInvalidEmail": MessageLookupByLibrary.simpleMessage(
             "O campo deve ser um endereço de e-mail válido"),
+        "fieldInvalidId": MessageLookupByLibrary.simpleMessage(
+            "O campo deve ser um número inteiro válido"),
         "fieldMinLength": MessageLookupByLibrary.simpleMessage(
             "O campo deve ter pelo menos 6 caracteres"),
         "fieldName": MessageLookupByLibrary.simpleMessage("Nome"),

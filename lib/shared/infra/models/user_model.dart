@@ -23,7 +23,7 @@ class UserModel extends User {
 
   Map<String, dynamic> toJsonUpdate() {
     return {
-      'user_id': super.id,
+      'user_id': super.id.toString(),
       'new_name': super.name,
     };
   }
@@ -40,7 +40,7 @@ class UserModel extends User {
   }
 
   UserModel copyWith({
-    String? id,
+    int? id,
     String? name,
     String? email,
     StateEnum? state,

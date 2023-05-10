@@ -24,37 +24,37 @@ class UserRepositoryHttp implements IUserRepository {
           getHttpStatusFunction(e.response!.statusCode);
       return left(ErrorRequest(message: errorType.errorMessage));
       //caso erro venha do back
-      //return left(ErrorRequest(message: e.response?.data['message']));
+      //return left(ErrorRequest(message: e.response?.data));
     }
     return right(user);
   }
 
   @override
-  Future<Either<Failure, User>> deleteUser(String id) async {
+  Future<Either<Failure, User>> deleteUser(int id) async {
     User user;
     try {
-      user = await datasource.deleteUser(id);
+      user = await datasource.deleteUser(id.toString());
     } on DioError catch (e) {
       HttpStatusCodeEnum errorType =
           getHttpStatusFunction(e.response!.statusCode);
       return left(ErrorRequest(message: errorType.errorMessage));
-      //caso erro venha do back
-      //return left(ErrorRequest(message: e.response?.data['message']));
+      // caso erro venha do back
+      // return left(ErrorRequest(message: e.response?.data));
     }
     return right(user);
   }
 
   @override
-  Future<Either<Failure, User>> getUser(String id) async {
+  Future<Either<Failure, User>> getUser(int id) async {
     User user;
     try {
-      user = await datasource.getUser(id);
+      user = await datasource.getUser(id.toString());
     } on DioError catch (e) {
       HttpStatusCodeEnum errorType =
           getHttpStatusFunction(e.response!.statusCode);
       return left(ErrorRequest(message: errorType.errorMessage));
       //caso erro venha do back
-      //return left(ErrorRequest(message: e.response?.data['message']));
+      //return left(ErrorRequest(message: e.response?.data));
     }
     return right(user);
   }
@@ -69,7 +69,7 @@ class UserRepositoryHttp implements IUserRepository {
           getHttpStatusFunction(e.response!.statusCode);
       return left(ErrorRequest(message: errorType.errorMessage));
       //caso erro venha do back
-      //return left(ErrorRequest(message: e.response?.data['message']));
+      //return left(ErrorRequest(message: e.response?.data));
     }
     return right(user);
   }

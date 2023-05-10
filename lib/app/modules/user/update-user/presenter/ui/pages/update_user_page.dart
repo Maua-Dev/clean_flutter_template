@@ -72,7 +72,10 @@ class UpdateUserPage extends StatelessWidget {
                           TextFieldWidget(
                             title: S.of(context).fieldId,
                             hintText: S.of(context).fieldHintId,
-                            onChanged: controller.setUserId,
+                            onChanged: (p0) {
+                              controller.setUserId(int.parse(p0));
+                            },
+                            validation: controller.validateUserId,
                           ),
                           TextFieldWidget(
                             title: S.of(context).fieldName,
@@ -96,7 +99,9 @@ class UpdateUserPage extends StatelessWidget {
                                   }
                                 },
                                 child: controller.state is LoadingUpdateState
-                                    ? const CircularProgressIndicator()
+                                    ? CircularProgressIndicator(
+                                        color: AppColors.white,
+                                      )
                                     : Text(
                                         S.of(context).updateTitle,
                                         style: Theme.of(context)

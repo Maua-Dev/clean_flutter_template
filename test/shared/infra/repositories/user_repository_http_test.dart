@@ -18,7 +18,7 @@ import 'user_repository_http_test.mocks.dart';
 @GenerateMocks([UserDatasource])
 void main() {
   var user = UserModel(
-    id: '0',
+    id: 0,
     name: 'Vitor Soller',
     email: 'gabriel.godoybz@hotmail.com',
     state: StateEnum.APPROVED,
@@ -58,13 +58,13 @@ void main() {
   group('[TEST] - deleteUser', () {
     repository = UserRepositoryHttp(datasource: datasource);
     test('should return a user', () async {
-      when(datasource.deleteUser('')).thenAnswer((_) async => user);
-      var response = await repository.deleteUser('');
+      when(datasource.deleteUser('0')).thenAnswer((_) async => user);
+      var response = await repository.deleteUser(0);
       expect(response.fold(id, id), isA<User>());
     });
 
     test('should return ErrorRequest', () async {
-      when(datasource.deleteUser('')).thenThrow(DioError(
+      when(datasource.deleteUser('0')).thenThrow(DioError(
         requestOptions: RequestOptions(path: ''),
         response: Response(
           requestOptions: RequestOptions(path: ''),
@@ -72,7 +72,7 @@ void main() {
           data: {'message': errorMessage},
         ),
       ));
-      var response = await repository.deleteUser('');
+      var response = await repository.deleteUser(0);
       expect(response.fold(id, id), isA<ErrorRequest>());
     });
   });
@@ -80,13 +80,13 @@ void main() {
   group('[TEST] - getUser', () {
     repository = UserRepositoryHttp(datasource: datasource);
     test('should return a user', () async {
-      when(datasource.getUser('')).thenAnswer((_) async => user);
-      var response = await repository.getUser('');
+      when(datasource.getUser('0')).thenAnswer((_) async => user);
+      var response = await repository.getUser(0);
       expect(response.fold(id, id), isA<User>());
     });
 
     test('should return ErrorRequest', () async {
-      when(datasource.getUser('')).thenThrow(DioError(
+      when(datasource.getUser('0')).thenThrow(DioError(
         requestOptions: RequestOptions(path: ''),
         response: Response(
           requestOptions: RequestOptions(path: ''),
@@ -94,7 +94,7 @@ void main() {
           data: {'message': errorMessage},
         ),
       ));
-      var response = await repository.getUser('');
+      var response = await repository.getUser(0);
       expect(response.fold(id, id), isA<ErrorRequest>());
     });
   });

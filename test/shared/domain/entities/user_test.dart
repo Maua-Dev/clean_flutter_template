@@ -14,7 +14,7 @@ void main() {
   test('[TEST] - user', () {
     expect(
       () => User(
-        id: '0',
+        id: 0,
         name: 'Vitor Soller',
         email: 'gabriel.godoybz@hotmail.com',
         state: StateEnum.APPROVED,
@@ -28,7 +28,7 @@ void main() {
       () => User(
         name: 'g',
         email: "gabriel.braz@maua.br",
-        id: '1',
+        id: 1,
         state: StateEnum.APPROVED,
       ),
       throwsA(isInstanceOf<EntityError>()),
@@ -40,7 +40,7 @@ void main() {
       () => User(
         name: 'gabriel',
         email: "gabriel.braz.com",
-        id: '1',
+        id: 1,
         state: StateEnum.APPROVED,
       ),
       throwsA(isInstanceOf<EntityError>()),

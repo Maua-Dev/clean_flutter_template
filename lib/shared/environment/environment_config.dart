@@ -18,7 +18,9 @@ class EnvironmentConfig {
 
   static IUserRepository getUserRepo() {
     EnvironmentEnum value = EnvironmentEnum.values.firstWhere(
-      (element) => element.toString() == ENV,
+      (element) {
+        return element.name.toUpperCase() == ENV.toUpperCase();
+      },
       orElse: () => EnvironmentEnum.DEV,
     );
     if (value == EnvironmentEnum.DEV) {

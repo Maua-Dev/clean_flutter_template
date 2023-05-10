@@ -83,7 +83,8 @@ class GetUserPage extends StatelessWidget {
                       TextFieldWidget(
                         title: S.of(context).fieldId,
                         hintText: S.of(context).fieldHintId,
-                        onChanged: controller.setUserId,
+                        onChanged: (value) =>
+                            controller.setUserId(int.parse(value)),
                         validation: controller.validateUserId,
                       ),
                       const SizedBox(height: 8),
@@ -96,7 +97,9 @@ class GetUserPage extends StatelessWidget {
                               }
                             },
                             child: controller.state is LoadingGetState
-                                ? const CircularProgressIndicator()
+                                ? CircularProgressIndicator(
+                                    color: AppColors.white,
+                                  )
                                 : Text(
                                     S.of(context).searchTitle,
                                     style: Theme.of(context)

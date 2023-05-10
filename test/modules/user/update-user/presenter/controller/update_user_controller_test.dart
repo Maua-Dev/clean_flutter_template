@@ -28,11 +28,11 @@ void main() {
       name: 'Gabriel',
       email: 'gabriel.godoybz@hotmail.com',
       state: StateEnum.REJECTED,
-      id: '0',
+      id: 0,
     );
 
     test('should return SuccessUpdateState', () async {
-      when(usecase.call('Gabriel', 'gabriel.godoybz@hotmail.com', '0'))
+      when(usecase.call('Gabriel', 'gabriel.godoybz@hotmail.com', 0))
           .thenAnswer((_) async => Right(userModel));
       expect(controller.state, const StartUpdateState());
       controller.setUserName(userModel.name);
@@ -43,12 +43,12 @@ void main() {
     });
 
     test('should return ErrorUpdateState', () async {
-      when(usecase.call('Gabriel', 'gabriel.godoybz@hotmail.com', '10000'))
+      when(usecase.call('Gabriel', 'gabriel.godoybz@hotmail.com', 10000))
           .thenAnswer((_) async => left(ErrorRequest(message: 'message')));
       expect(controller.state, const StartUpdateState());
       controller.setUserName(userModel.name);
       controller.setUserEmail(userModel.email);
-      controller.setUserId('10000');
+      controller.setUserId(10000);
       await controller.updateUser();
       expect(controller.state, isA<ErrorUpdateState>());
     });
@@ -65,8 +65,8 @@ void main() {
   });
 
   test('[TEST] - setUserId', () {
-    controller.setUserId('0');
-    expect(controller.userId, '0');
+    controller.setUserId(0);
+    expect(controller.userId, 0);
   });
 
   test('[TEST] - setPageState', () {

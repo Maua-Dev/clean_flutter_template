@@ -67,7 +67,6 @@ void main() {
       name: name,
       email: email,
       state: StateEnum.REJECTED,
-      id: '',
     );
     await widgetTester.pumpWidget(MaterialApp(
         localizationsDelegates: const [

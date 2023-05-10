@@ -1,5 +1,6 @@
 import 'package:mobx/mobx.dart';
 
+import '../../../../../../generated/l10n.dart';
 import '../../../../../../shared/domain/usecases/delete_user_usecase.dart';
 import '../ui/states/delete_user_state.dart';
 
@@ -14,21 +15,31 @@ abstract class DeleteUserControllerBase with Store {
   DeleteUserControllerBase(this._deleteUserUsecase);
 
   @observable
-  String userId = '';
+  int? userId;
 
   @observable
   DeleteUserState state = const StartDeleteState();
 
   @action
-  setUserId(String id) => userId = id;
+  setUserId(int id) => userId = id;
 
   @action
   setPageState(DeleteUserState value) => state = value;
 
   @action
+  String? validateUserId(String? value) {
+    if (value!.isEmpty) {
+      return S.current.fieldRequired;
+    } else if (int.tryParse(value) == null) {
+      return S.current.fieldInvalidId;
+    }
+    return null;
+  }
+
+  @action
   Future<void> deleteUser() async {
     setPageState(const LoadingDeleteState());
-    var result = await _deleteUserUsecase(userId);
+    var result = await _deleteUserUsecase(userId!);
     setPageState(
         result.fold((l) => ErrorDeleteState(l), (r) => SuccessDeleteState(r)));
   }

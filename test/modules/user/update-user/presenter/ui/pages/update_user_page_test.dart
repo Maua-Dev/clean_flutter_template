@@ -66,7 +66,7 @@ void main() {
       name: name,
       email: email,
       state: StateEnum.REJECTED,
-      id: '0',
+      id: 0,
     );
     await widgetTester.pumpWidget(MaterialApp(
         localizationsDelegates: const [
@@ -76,15 +76,15 @@ void main() {
         ],
         supportedLocales: S.delegate.supportedLocales,
         home: const UpdateUserPage()));
-    when(usecase.call(name, email, '0'))
+    when(usecase.call(name, email, 0))
         .thenAnswer((_) async => Right(userModel));
     await widgetTester.runAsync(() async => controller.setUserEmail(email));
     await widgetTester.runAsync(() async => controller.setUserName(name));
-    await widgetTester.runAsync(() async => controller.setUserId('0'));
+    await widgetTester.runAsync(() async => controller.setUserId(0));
     await widgetTester.runAsync(() async => controller.updateUser());
     await widgetTester.pump();
 
-    expect(find.text(S.current.successUpdateUser('', '0')), findsOneWidget);
+    expect(find.text(S.current.successUpdateUser('', 0)), findsOneWidget);
   });
 
   testWidgets('[TEST] - UpdateUserPage must show ErrorWidget when create user',
@@ -97,11 +97,11 @@ void main() {
         ],
         supportedLocales: S.delegate.supportedLocales,
         home: const UpdateUserPage()));
-    when(usecase.call(name, email, '10000'))
+    when(usecase.call(name, email, 10000))
         .thenAnswer((_) async => left(ErrorRequest(message: 'message')));
     await widgetTester.runAsync(() async => controller.setUserEmail(email));
     await widgetTester.runAsync(() async => controller.setUserName(name));
-    await widgetTester.runAsync(() async => controller.setUserId('10000'));
+    await widgetTester.runAsync(() async => controller.setUserId(10000));
     await widgetTester.runAsync(() async => controller.updateUser());
     await widgetTester.pump();
 

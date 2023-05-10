@@ -14,7 +14,7 @@ void main() {
   );
 
   var userMap = {
-    'id': '123',
+    'user_id': 123,
     'name': 'Gabriel',
     'email': 'gabriel.godoybz@hotmail.com',
     'state': 'APPROVED',

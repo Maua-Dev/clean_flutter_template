@@ -53,7 +53,7 @@ void main() {
     expect(find.byType(LogoWidget), findsOneWidget);
     expect(find.text(S.current.updatePageTitle), findsOneWidget);
     expect(find.byType(Form), findsOneWidget);
-    expect(find.byType(TextFieldWidget), findsNWidgets(4));
+    expect(find.byType(TextFieldWidget), findsNWidgets(3));
     expect(find.byType(ElevatedButton), findsOneWidget);
     expect(find.text(S.current.updateTitle), findsOneWidget);
     expect(find.byType(FooterWidget), findsOneWidget);

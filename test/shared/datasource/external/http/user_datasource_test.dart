@@ -24,7 +24,7 @@ void main() {
     test('success 200', () async {
       var userId = '123';
       final userData = {
-        'id': userId,
+        'user_id': 123,
         'name': 'John Doe',
         'email': 'johndoe@example.com',
         'state': 'APPROVED'
@@ -35,13 +35,13 @@ void main() {
       when(httpRequest.post(
         '/delete-user',
         {
-          'userId': userId,
+          'user_id': userId,
         },
       )).thenAnswer((_) async => response);
 
       final result = await userDatasource.deleteUser(userId);
 
-      expect(result.id, userId);
+      expect(result.id, 123);
     });
 
     test('failure', () async {
@@ -52,7 +52,7 @@ void main() {
       when(httpRequest.post(
         '/delete-user',
         {
-          'userId': userId,
+          'user_id': userId,
         },
       )).thenAnswer((_) async => response);
 
@@ -64,7 +64,7 @@ void main() {
     test('success 200', () async {
       var userId = '123';
       final userData = {
-        'id': userId,
+        'user_id': 123,
         'name': 'John Doe',
         'email': 'johndoe@example.com',
         'state': 'APPROVED'
@@ -75,13 +75,13 @@ void main() {
       when(httpRequest.get(
         '/get-user',
         {
-          'userId': userId,
+          'user_id': userId,
         },
       )).thenAnswer((_) async => response);
 
       final result = await userDatasource.getUser(userId);
 
-      expect(result.id, userId);
+      expect(result.id, 123);
     });
 
     test('failure', () async {
@@ -92,7 +92,7 @@ void main() {
       when(httpRequest.get(
         '/get-user',
         {
-          'userId': userId,
+          'user_id': userId,
         },
       )).thenAnswer((_) async => response);
 
@@ -102,9 +102,8 @@ void main() {
 
   group('[TEST] - createUser', () {
     test('success 201', () async {
-      var userId = 123;
       final userData = {
-        'id': userId,
+        'user_id': 123,
         'name': 'John Doe',
         'email': 'johndoe@example.com',
         'state': 'APPROVED'
@@ -114,19 +113,21 @@ void main() {
 
       when(httpRequest.post(
         '/create-user',
-        userData,
+        {
+          'name': 'John Doe',
+          'email': 'johndoe@example.com',
+        },
       )).thenAnswer((_) async => response);
 
       final result =
           await userDatasource.createUser(UserModel.fromJson(userData));
 
-      expect(result.id, userId);
+      expect(result.id, 123);
     });
 
     test('failure', () async {
-      var userId = 123;
       final userData = {
-        'id': userId,
+        'user_id': 123,
         'name': 'John Doe',
         'email': 'johndoe@example.com',
         'state': 'APPROVED'
@@ -136,7 +137,10 @@ void main() {
 
       when(httpRequest.post(
         '/create-user',
-        userData,
+        {
+          'name': 'John Doe',
+          'email': 'johndoe@example.com',
+        },
       )).thenAnswer((_) async => response);
 
       expect(() => userDatasource.createUser(UserModel.fromJson(userData)),

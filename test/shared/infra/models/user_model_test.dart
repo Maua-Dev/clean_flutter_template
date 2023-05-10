@@ -9,32 +9,43 @@ void main() {
   var userModel = UserModel(
     name: 'Gabriel',
     email: 'gabriel.godoybz@hotmail.com',
-    password: 'Teste123!',
     state: StateEnum.APPROVED,
-    id: '123',
+    id: 123,
   );
 
   var userMap = {
-    'id': '123',
+    'user_id': 123,
     'name': 'Gabriel',
     'email': 'gabriel.godoybz@hotmail.com',
-    'password': 'Teste123!',
     'state': 'APPROVED',
+  };
+
+  var userMapUpdate = {
+    'user_id': '123',
+    'new_name': 'Gabriel',
+  };
+
+  var userMapCreate = {
+    'name': 'Gabriel',
+    'email': 'gabriel.godoybz@hotmail.com',
   };
 
   setUpAll(() async {
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
   });
 
-  test('[TEST] - userModel toJson', () {
-    expect(userModel.toJson(), userMap);
+  test('[TEST] - userModel toJsonCreate', () {
+    expect(userModel.toJsonCreate(), userMapCreate);
+  });
+
+  test('[TEST] - userModel toJsonUpdate', () {
+    expect(userModel.toJsonUpdate(), userMapUpdate);
   });
 
   test('[TEST] - userModel fromJson', () {
     expect(UserModel.fromJson(userMap).id, userModel.id);
     expect(UserModel.fromJson(userMap).name, userModel.name);
     expect(UserModel.fromJson(userMap).email, userModel.email);
-    expect(UserModel.fromJson(userMap).password, userModel.password);
     expect(UserModel.fromJson(userMap).state, userModel.state);
   });
 

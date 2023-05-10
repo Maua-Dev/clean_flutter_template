@@ -20,9 +20,8 @@ void main() {
   var userModel = UserModel(
     name: 'Gabriel',
     email: 'gabriel.godoybz@hotmail.com',
-    password: 'Teste123!',
     state: StateEnum.REJECTED,
-    id: '0',
+    id: 0,
   );
 
   setUp(() async {
@@ -32,18 +31,18 @@ void main() {
 
   group('[TEST] - getUser', () {
     test('should return SuccessGetState', () async {
-      when(usecase.call('0')).thenAnswer((_) async => Right(userModel));
+      when(usecase.call(0)).thenAnswer((_) async => Right(userModel));
       expect(controller.state, const StartGetState());
-      controller.setUserId('0');
+      controller.setUserId(0);
       await controller.getUser();
       expect(controller.state, isA<SuccessGetState>());
     });
 
     test('should return ErrorGetState', () async {
-      when(usecase.call('100000'))
+      when(usecase.call(100000))
           .thenAnswer((_) async => left(ErrorRequest(message: 'message')));
       expect(controller.state, const StartGetState());
-      controller.setUserId('100000');
+      controller.setUserId(100000);
       await controller.getUser();
       expect(controller.state, isA<ErrorGetState>());
     });

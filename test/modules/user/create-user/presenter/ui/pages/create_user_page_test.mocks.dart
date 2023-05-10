@@ -67,7 +67,6 @@ class MockCreateUserUsecase extends _i1.Mock implements _i4.CreateUserUsecase {
   _i5.Future<_i3.Either<_i6.Failure, _i7.User>> call(
     String? name,
     String? email,
-    String? password,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -75,7 +74,6 @@ class MockCreateUserUsecase extends _i1.Mock implements _i4.CreateUserUsecase {
           [
             name,
             email,
-            password,
           ],
         ),
         returnValue: _i5.Future<_i3.Either<_i6.Failure, _i7.User>>.value(
@@ -86,7 +84,6 @@ class MockCreateUserUsecase extends _i1.Mock implements _i4.CreateUserUsecase {
             [
               name,
               email,
-              password,
             ],
           ),
         )),

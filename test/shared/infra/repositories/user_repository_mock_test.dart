@@ -11,10 +11,9 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   var user = UserModel(
-    id: '0',
+    id: 0,
     name: 'Vitor Soller',
     email: 'gabriel.godoybz@hotmail.com',
-    password: 'Teste123!',
     state: StateEnum.APPROVED,
   );
 
@@ -36,7 +35,7 @@ void main() {
       UserRepositoryMock repository = UserRepositoryMock();
 
       var lenthBefore = repository.users.length;
-      var response = await repository.deleteUser('0');
+      var response = await repository.deleteUser(0);
       var lenthAfter = repository.users.length;
       expect(response.fold(id, id), isA<User>());
       expect(lenthAfter, lenthBefore - 1);
@@ -46,28 +45,9 @@ void main() {
       UserRepositoryMock repository = UserRepositoryMock();
 
       try {
-        await repository.deleteUser('0');
+        await repository.deleteUser(0);
       } catch (e) {
         expect(e, isA<NoItemsFound>());
-      }
-    });
-  });
-
-  group('[TEST] - getAllUsers', () {
-    UserRepositoryMock repository = UserRepositoryMock();
-
-    test('should return a list of users', () async {
-      var response = await repository.getAllUsers();
-      expect(response.fold(id, id), isA<List<User>>());
-    });
-
-    test('should return EmptyList', () async {
-      repository.users = [];
-      repository.getAllUsers();
-      try {
-        await repository.getAllUsers();
-      } catch (e) {
-        expect(e, isA<EmptyList>());
       }
     });
   });
@@ -76,7 +56,7 @@ void main() {
     test('should return a user', () async {
       UserRepositoryMock repository = UserRepositoryMock();
 
-      var response = await repository.getUser('0');
+      var response = await repository.getUser(0);
       expect(response.fold(id, id), isA<User>());
     });
 
@@ -84,7 +64,7 @@ void main() {
       UserRepositoryMock repository = UserRepositoryMock();
 
       try {
-        await repository.getUser('0');
+        await repository.getUser(0);
       } catch (e) {
         expect(e, isA<NoItemsFound>());
       }

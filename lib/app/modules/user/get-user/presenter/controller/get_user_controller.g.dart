@@ -13,13 +13,13 @@ mixin _$GetUserController on GetUserControllerBase, Store {
       Atom(name: 'GetUserControllerBase.userId', context: context);
 
   @override
-  String get userId {
+  int? get userId {
     _$userIdAtom.reportRead();
     return super.userId;
   }
 
   @override
-  set userId(String value) {
+  set userId(int? value) {
     _$userIdAtom.reportWrite(value, super.userId, () {
       super.userId = value;
     });
@@ -53,7 +53,7 @@ mixin _$GetUserController on GetUserControllerBase, Store {
       ActionController(name: 'GetUserControllerBase', context: context);
 
   @override
-  dynamic setUserId(String id) {
+  dynamic setUserId(int id) {
     final _$actionInfo = _$GetUserControllerBaseActionController.startAction(
         name: 'GetUserControllerBase.setUserId');
     try {

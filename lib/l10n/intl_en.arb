@@ -10,16 +10,15 @@
 
     "fieldName": "Name",
     "fieldEmail": "Email",
-    "fieldPassword": "Password",
     "fieldId": "ID",
     "fieldHintName": "Gabriel de Godoy Braz",
     "fieldHintEmail": "example@example.com",
-    "fieldHintPassword": "🤫",
     "fieldHintId": "Identification number",
 
     "fieldRequired": "Field is required",
     "fieldMinLength": "Field must be at least 6 characters long",
     "fieldInvalidEmail": "Field must be a valid email address",
+    "fieldInvalidId": "Field must be a valid integer",
 
     "successCreateUser": "User {successCreateUser} created successfully",
     "@successCreateUser" : {
@@ -39,7 +38,6 @@
     "deletePageTitle": "Delete an user",
     "deleteTitle": "Delete",
 
-    "getAllPageTitle": "List of all users",
 
     "successUpdateUser": "User {successUpdateUser} updated successfully",
     "@successUpdateUser" : {

@@ -24,10 +24,9 @@ void main() {
     test('success 200', () async {
       var userId = '123';
       final userData = {
-        'id': userId,
+        'user_id': 123,
         'name': 'John Doe',
         'email': 'johndoe@example.com',
-        'password': 'Teste123!',
         'state': 'APPROVED'
       };
       final response = Response(
@@ -36,13 +35,13 @@ void main() {
       when(httpRequest.post(
         '/delete-user',
         {
-          'userId': userId,
+          'user_id': userId,
         },
       )).thenAnswer((_) async => response);
 
       final result = await userDatasource.deleteUser(userId);
 
-      expect(result.id, userId);
+      expect(result.id, 123);
     });
 
     test('failure', () async {
@@ -53,7 +52,7 @@ void main() {
       when(httpRequest.post(
         '/delete-user',
         {
-          'userId': userId,
+          'user_id': userId,
         },
       )).thenAnswer((_) async => response);
 
@@ -65,21 +64,24 @@ void main() {
     test('success 200', () async {
       var userId = '123';
       final userData = {
-        'id': userId,
+        'user_id': 123,
         'name': 'John Doe',
         'email': 'johndoe@example.com',
-        'password': 'Teste123!',
         'state': 'APPROVED'
       };
       final response = Response(
           data: userData, statusCode: 200, requestOptions: RequestOptions());
 
-      when(httpRequest.get('/get-user?userId=$userId'))
-          .thenAnswer((_) async => response);
+      when(httpRequest.get(
+        '/get-user',
+        {
+          'user_id': userId,
+        },
+      )).thenAnswer((_) async => response);
 
       final result = await userDatasource.getUser(userId);
 
-      expect(result.id, userId);
+      expect(result.id, 123);
     });
 
     test('failure', () async {
@@ -87,8 +89,12 @@ void main() {
       final response =
           Response(statusCode: 500, requestOptions: RequestOptions());
 
-      when(httpRequest.get('/get-user?userId=$userId'))
-          .thenAnswer((_) async => response);
+      when(httpRequest.get(
+        '/get-user',
+        {
+          'user_id': userId,
+        },
+      )).thenAnswer((_) async => response);
 
       expect(() => userDatasource.getUser(userId), throwsException);
     });
@@ -96,12 +102,10 @@ void main() {
 
   group('[TEST] - createUser', () {
     test('success 201', () async {
-      var userId = '123';
       final userData = {
-        'id': userId,
+        'user_id': 123,
         'name': 'John Doe',
         'email': 'johndoe@example.com',
-        'password': 'Teste123!',
         'state': 'APPROVED'
       };
       final response = Response(
@@ -109,22 +113,23 @@ void main() {
 
       when(httpRequest.post(
         '/create-user',
-        userData,
+        {
+          'name': 'John Doe',
+          'email': 'johndoe@example.com',
+        },
       )).thenAnswer((_) async => response);
 
       final result =
           await userDatasource.createUser(UserModel.fromJson(userData));
 
-      expect(result.id, userId);
+      expect(result.id, 123);
     });
 
     test('failure', () async {
-      var userId = '123';
       final userData = {
-        'id': userId,
+        'user_id': 123,
         'name': 'John Doe',
         'email': 'johndoe@example.com',
-        'password': 'Teste123!',
         'state': 'APPROVED'
       };
       final response =
@@ -132,43 +137,14 @@ void main() {
 
       when(httpRequest.post(
         '/create-user',
-        userData,
+        {
+          'name': 'John Doe',
+          'email': 'johndoe@example.com',
+        },
       )).thenAnswer((_) async => response);
 
       expect(() => userDatasource.createUser(UserModel.fromJson(userData)),
           throwsException);
-    });
-  });
-
-  group('[TEST] - getAllUsers', () {
-    test('success 200', () async {
-      var userId = '123';
-      final userData = [
-        {
-          'id': userId,
-          'name': 'John Doe',
-          'email': 'johndoe@example.com',
-          'password': 'Teste123!',
-          'state': 'APPROVED'
-        }
-      ];
-      final response = Response(
-          data: userData, statusCode: 200, requestOptions: RequestOptions());
-
-      when(httpRequest.get('/get-all-users')).thenAnswer((_) async => response);
-
-      final result = await userDatasource.getAllUsers();
-
-      expect(result[0].id, userId);
-    });
-
-    test('failure', () async {
-      final response =
-          Response(statusCode: 500, requestOptions: RequestOptions());
-
-      when(httpRequest.get('/get-all-users')).thenAnswer((_) async => response);
-
-      expect(() => userDatasource.getAllUsers(), throwsException);
     });
   });
 }

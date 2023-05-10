@@ -21,10 +21,7 @@ abstract class UpdateUserControllerBase with Store {
   String userEmail = '';
 
   @observable
-  String userPassword = '';
-
-  @observable
-  String userId = '';
+  int userId = 99999;
 
   @observable
   UpdateUserState state = const StartUpdateState();
@@ -36,10 +33,7 @@ abstract class UpdateUserControllerBase with Store {
   setUserEmail(String email) => userEmail = email;
 
   @action
-  setUserPassword(String password) => userPassword = password;
-
-  @action
-  setUserId(String id) => userId = id;
+  setUserId(int id) => userId = id;
 
   @action
   setPageState(UpdateUserState value) => state = value;
@@ -47,8 +41,7 @@ abstract class UpdateUserControllerBase with Store {
   @action
   Future<void> updateUser() async {
     setPageState(const LoadingUpdateState());
-    var result =
-        await _updateUserUsecase(userName, userEmail, userPassword, userId);
+    var result = await _updateUserUsecase(userName, userEmail, userId);
     setPageState(
         result.fold((l) => ErrorUpdateState(l), (r) => SuccessUpdateState(r)));
   }
@@ -72,11 +65,11 @@ abstract class UpdateUserControllerBase with Store {
   }
 
   @action
-  String? validateUserPassword(String? value) {
+  String? validateUserId(String? value) {
     if (value!.isEmpty) {
       return S.current.fieldRequired;
-    } else if (value.length < 6) {
-      return S.current.fieldMinLength;
+    } else if (int.tryParse(value) == null) {
+      return S.current.fieldInvalidId;
     }
     return null;
   }

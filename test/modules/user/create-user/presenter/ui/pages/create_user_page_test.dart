@@ -28,7 +28,6 @@ void main() {
 
   String name = "Gabriel Godoy";
   String email = "gabriel.godoybz@hotmail.com";
-  String password = "Teste123!";
 
   setUp(() async {
     initModules([
@@ -54,7 +53,7 @@ void main() {
     expect(find.byType(LogoWidget), findsOneWidget);
     expect(find.text(S.current.createPageTitle), findsOneWidget);
     expect(find.byType(Form), findsOneWidget);
-    expect(find.byType(TextFieldWidget), findsNWidgets(3));
+    expect(find.byType(TextFieldWidget), findsNWidgets(2));
     expect(find.byType(ElevatedButton), findsOneWidget);
     expect(find.text(S.current.registerTitle), findsOneWidget);
     expect(find.byType(Spacer), findsOneWidget);
@@ -67,9 +66,7 @@ void main() {
     var userModel = UserModel(
       name: name,
       email: email,
-      password: password,
       state: StateEnum.REJECTED,
-      id: '',
     );
     await widgetTester.pumpWidget(MaterialApp(
         localizationsDelegates: const [
@@ -79,12 +76,9 @@ void main() {
         ],
         supportedLocales: S.delegate.supportedLocales,
         home: const CreateUserPage()));
-    when(usecase.call(name, email, password))
-        .thenAnswer((_) async => Right(userModel));
+    when(usecase.call(name, email)).thenAnswer((_) async => Right(userModel));
     await widgetTester.runAsync(() async => controller.setUserEmail(email));
     await widgetTester.runAsync(() async => controller.setUserName(name));
-    await widgetTester
-        .runAsync(() async => controller.setUserPassword(password));
     await widgetTester.runAsync(() async => controller.createUser());
     await widgetTester.pump();
 
@@ -101,12 +95,10 @@ void main() {
         ],
         supportedLocales: S.delegate.supportedLocales,
         home: const CreateUserPage()));
-    when(usecase.call(name, email, password))
+    when(usecase.call(name, email))
         .thenAnswer((_) async => left(ErrorRequest(message: 'message')));
     await widgetTester.runAsync(() async => controller.setUserEmail(email));
     await widgetTester.runAsync(() async => controller.setUserName(name));
-    await widgetTester
-        .runAsync(() async => controller.setUserPassword(password));
     await widgetTester.runAsync(() async => controller.createUser());
     await widgetTester.pump();
 

@@ -27,33 +27,28 @@ void main() {
     var userModel = UserModel(
       name: 'Gabriel',
       email: 'gabriel.godoybz@hotmail.com',
-      password: 'Teste123!',
       state: StateEnum.REJECTED,
-      id: '0',
+      id: 0,
     );
 
     test('should return SuccessUpdateState', () async {
-      when(usecase.call(
-              'Gabriel', 'gabriel.godoybz@hotmail.com', 'Teste123!', '0'))
+      when(usecase.call('Gabriel', 'gabriel.godoybz@hotmail.com', 0))
           .thenAnswer((_) async => Right(userModel));
       expect(controller.state, const StartUpdateState());
       controller.setUserName(userModel.name);
       controller.setUserEmail(userModel.email);
-      controller.setUserPassword(userModel.password);
       controller.setUserId(userModel.id!);
       await controller.updateUser();
       expect(controller.state, isA<SuccessUpdateState>());
     });
 
     test('should return ErrorUpdateState', () async {
-      when(usecase.call(
-              'Gabriel', 'gabriel.godoybz@hotmail.com', 'Teste123!', '10000'))
+      when(usecase.call('Gabriel', 'gabriel.godoybz@hotmail.com', 10000))
           .thenAnswer((_) async => left(ErrorRequest(message: 'message')));
       expect(controller.state, const StartUpdateState());
       controller.setUserName(userModel.name);
       controller.setUserEmail(userModel.email);
-      controller.setUserPassword(userModel.password);
-      controller.setUserId('10000');
+      controller.setUserId(10000);
       await controller.updateUser();
       expect(controller.state, isA<ErrorUpdateState>());
     });
@@ -69,14 +64,9 @@ void main() {
     expect(controller.userEmail, 'test');
   });
 
-  test('[TEST] - setUserPassword', () {
-    controller.setUserPassword('test');
-    expect(controller.userPassword, 'test');
-  });
-
   test('[TEST] - setUserId', () {
-    controller.setUserId('0');
-    expect(controller.userId, '0');
+    controller.setUserId(0);
+    expect(controller.userId, 0);
   });
 
   test('[TEST] - setPageState', () {
@@ -93,11 +83,5 @@ void main() {
     expect(controller.validateUserEmail(''), S.current.fieldRequired);
     expect(controller.validateUserEmail('test'), S.current.fieldInvalidEmail);
     expect(controller.validateUserEmail('test@'), null);
-  });
-
-  test('[TEST] - validateUserPassword', () {
-    expect(controller.validateUserPassword(''), S.current.fieldRequired);
-    expect(controller.validateUserPassword('test'), S.current.fieldMinLength);
-    expect(controller.validateUserPassword('test12312'), null);
   });
 }

@@ -27,29 +27,25 @@ void main() {
     var userModel = UserModel(
       name: 'Gabriel',
       email: 'gabriel.godoybz@hotmail.com',
-      password: 'Teste123!',
       state: StateEnum.REJECTED,
-      id: '',
     );
 
     test('should return SuccessCreateState', () async {
-      when(usecase.call('Gabriel', 'gabriel.godoybz@hotmail.com', 'Teste123!'))
+      when(usecase.call('Gabriel', 'gabriel.godoybz@hotmail.com'))
           .thenAnswer((_) async => Right(userModel));
       expect(controller.state, const StartCreateState());
       controller.setUserName(userModel.name);
       controller.setUserEmail(userModel.email);
-      controller.setUserPassword(userModel.password);
       await controller.createUser();
       expect(controller.state, isA<SuccessCreateState>());
     });
 
     test('should return ErrorCreateState', () async {
-      when(usecase.call('Gabriel', 'gabriel.godoybz@hotmail.com', 'Teste123!'))
+      when(usecase.call('Gabriel', 'gabriel.godoybz@hotmail.com'))
           .thenAnswer((_) async => left(ErrorRequest(message: 'message')));
       expect(controller.state, const StartCreateState());
       controller.setUserName(userModel.name);
       controller.setUserEmail(userModel.email);
-      controller.setUserPassword(userModel.password);
       await controller.createUser();
       expect(controller.state, isA<ErrorCreateState>());
     });
@@ -63,11 +59,6 @@ void main() {
   test('[TEST] - setUserEmail', () {
     controller.setUserEmail('test');
     expect(controller.userEmail, 'test');
-  });
-
-  test('[TEST] - setUserPassword', () {
-    controller.setUserPassword('test');
-    expect(controller.userPassword, 'test');
   });
 
   test('[TEST] - setPageState', () {
@@ -84,11 +75,5 @@ void main() {
     expect(controller.validateUserEmail(''), S.current.fieldRequired);
     expect(controller.validateUserEmail('test'), S.current.fieldInvalidEmail);
     expect(controller.validateUserEmail('test@'), null);
-  });
-
-  test('[TEST] - validateUserPassword', () {
-    expect(controller.validateUserPassword(''), S.current.fieldRequired);
-    expect(controller.validateUserPassword('test'), S.current.fieldMinLength);
-    expect(controller.validateUserPassword('test12312'), null);
   });
 }

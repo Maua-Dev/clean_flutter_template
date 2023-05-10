@@ -12,7 +12,7 @@ class UserDatasource implements IUserDatasource {
     var response = await _httpRequest.post(
       '/delete-user',
       {
-        'userId': userId,
+        'user_id': userId,
       },
     );
 
@@ -25,7 +25,12 @@ class UserDatasource implements IUserDatasource {
 
   @override
   Future<UserModel> getUser(String userId) async {
-    var response = await _httpRequest.get('/get-user?userId=$userId');
+    var response = await _httpRequest.get(
+      '/get-user',
+      {
+        'user_id': userId,
+      },
+    );
 
     if (response.statusCode == 200) {
       return UserModel.fromJson(response.data);
@@ -38,7 +43,7 @@ class UserDatasource implements IUserDatasource {
   Future<UserModel> updateUser(UserModel userToUpdate) async {
     var response = await _httpRequest.post(
       '/update-user',
-      userToUpdate.toJson(),
+      userToUpdate.toJsonUpdate(),
     );
 
     if (response.statusCode == 200) {
@@ -52,22 +57,11 @@ class UserDatasource implements IUserDatasource {
   Future<UserModel> createUser(UserModel userToCreate) async {
     var response = await _httpRequest.post(
       '/create-user',
-      userToCreate.toJson(),
+      userToCreate.toJsonCreate(),
     );
 
     if (response.statusCode == 201) {
       return UserModel.fromJson(response.data);
-    } else {
-      throw Exception();
-    }
-  }
-
-  @override
-  Future<List<UserModel>> getAllUsers() async {
-    var response = await _httpRequest.get('/get-all-users');
-
-    if (response.statusCode == 200) {
-      return UserModel.fromMaps(response.data);
     } else {
       throw Exception();
     }

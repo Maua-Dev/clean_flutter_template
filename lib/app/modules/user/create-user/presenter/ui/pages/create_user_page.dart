@@ -97,12 +97,6 @@ class _CreateUserPageState extends State<CreateUserPage> {
                         onChanged: controller.setUserEmail,
                         validation: controller.validateUserEmail,
                       ),
-                      TextFieldWidget(
-                        title: S.of(context).fieldPassword,
-                        hintText: S.of(context).fieldHintPassword,
-                        onChanged: controller.setUserPassword,
-                        validation: controller.validateUserPassword,
-                      ),
                       const SizedBox(height: 8),
                       SizedBox(
                         width: 250,
@@ -113,7 +107,9 @@ class _CreateUserPageState extends State<CreateUserPage> {
                               }
                             },
                             child: controller.state is LoadingCreateState
-                                ? const CircularProgressIndicator()
+                                ? CircularProgressIndicator(
+                                    color: AppColors.white,
+                                  )
                                 : Text(
                                     S.of(context).registerTitle,
                                     style: Theme.of(context)

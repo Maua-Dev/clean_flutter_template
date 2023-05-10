@@ -83,7 +83,9 @@ class DeleteUserPage extends StatelessWidget {
                         TextFieldWidget(
                           title: S.of(context).fieldId,
                           hintText: S.of(context).fieldHintId,
-                          onChanged: controller.setUserId,
+                          onChanged: (value) =>
+                              controller.setUserId(int.parse(value)),
+                          validation: controller.validateUserId,
                         ),
                         const SizedBox(height: 8),
                         SizedBox(
@@ -95,7 +97,9 @@ class DeleteUserPage extends StatelessWidget {
                                 }
                               },
                               child: controller.state is LoadingDeleteState
-                                  ? const CircularProgressIndicator()
+                                  ? CircularProgressIndicator(
+                                      color: AppColors.white,
+                                    )
                                   : Text(
                                       S.of(context).deleteTitle,
                                       style: Theme.of(context)

@@ -12,17 +12,15 @@ class UserRepositoryMock implements IUserRepository {
   UserRepositoryMock() {
     users = [
       User(
-        id: '0',
+        id: 0,
         name: 'Gabriel Godoy',
         email: 'gabriel.godoybz@hotmail.com',
-        password: 'Teste123!',
         state: StateEnum.APPROVED,
       ),
       User(
-        id: '1',
+        id: 1,
         name: 'Vitor Soller',
         email: 'sollerzin@gmail.com',
-        password: 'Teste123!',
         state: StateEnum.REJECTED,
       ),
     ];
@@ -35,7 +33,7 @@ class UserRepositoryMock implements IUserRepository {
   }
 
   @override
-  Future<Either<Failure, User>> deleteUser(String id) async {
+  Future<Either<Failure, User>> deleteUser(int id) async {
     for (var i = 0; i < users.length; i++) {
       if (users[i].id == id) {
         users.removeAt(i);
@@ -46,15 +44,7 @@ class UserRepositoryMock implements IUserRepository {
   }
 
   @override
-  Future<Either<Failure, List<User>>> getAllUsers() async {
-    if (users.isEmpty) {
-      return left(EmptyList());
-    }
-    return right(users);
-  }
-
-  @override
-  Future<Either<Failure, User>> getUser(String id) async {
+  Future<Either<Failure, User>> getUser(int id) async {
     for (var user in users) {
       if (user.id == id) {
         return right(user);

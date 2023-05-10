@@ -41,33 +41,17 @@ mixin _$UpdateUserController on UpdateUserControllerBase, Store {
     });
   }
 
-  late final _$userPasswordAtom =
-      Atom(name: 'UpdateUserControllerBase.userPassword', context: context);
-
-  @override
-  String get userPassword {
-    _$userPasswordAtom.reportRead();
-    return super.userPassword;
-  }
-
-  @override
-  set userPassword(String value) {
-    _$userPasswordAtom.reportWrite(value, super.userPassword, () {
-      super.userPassword = value;
-    });
-  }
-
   late final _$userIdAtom =
       Atom(name: 'UpdateUserControllerBase.userId', context: context);
 
   @override
-  String get userId {
+  int get userId {
     _$userIdAtom.reportRead();
     return super.userId;
   }
 
   @override
-  set userId(String value) {
+  set userId(int value) {
     _$userIdAtom.reportWrite(value, super.userId, () {
       super.userId = value;
     });
@@ -123,18 +107,7 @@ mixin _$UpdateUserController on UpdateUserControllerBase, Store {
   }
 
   @override
-  dynamic setUserPassword(String password) {
-    final _$actionInfo = _$UpdateUserControllerBaseActionController.startAction(
-        name: 'UpdateUserControllerBase.setUserPassword');
-    try {
-      return super.setUserPassword(password);
-    } finally {
-      _$UpdateUserControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic setUserId(String id) {
+  dynamic setUserId(int id) {
     final _$actionInfo = _$UpdateUserControllerBaseActionController.startAction(
         name: 'UpdateUserControllerBase.setUserId');
     try {
@@ -178,11 +151,11 @@ mixin _$UpdateUserController on UpdateUserControllerBase, Store {
   }
 
   @override
-  String? validateUserPassword(String? value) {
+  String? validateUserId(String? value) {
     final _$actionInfo = _$UpdateUserControllerBaseActionController.startAction(
-        name: 'UpdateUserControllerBase.validateUserPassword');
+        name: 'UpdateUserControllerBase.validateUserId');
     try {
-      return super.validateUserPassword(value);
+      return super.validateUserId(value);
     } finally {
       _$UpdateUserControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -193,7 +166,6 @@ mixin _$UpdateUserController on UpdateUserControllerBase, Store {
     return '''
 userName: ${userName},
 userEmail: ${userEmail},
-userPassword: ${userPassword},
 userId: ${userId},
 state: ${state}
     ''';

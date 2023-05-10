@@ -12,9 +12,15 @@ class EnvironmentConfig {
     'ENV',
   );
 
+  static const MSS_USER_BASE_URL = String.fromEnvironment(
+    'MSS_USER_BASE_URL',
+  );
+
   static IUserRepository getUserRepo() {
     EnvironmentEnum value = EnvironmentEnum.values.firstWhere(
-      (element) => element.toString() == ENV,
+      (element) {
+        return element.name.toUpperCase() == ENV.toUpperCase();
+      },
       orElse: () => EnvironmentEnum.DEV,
     );
     if (value == EnvironmentEnum.DEV) {

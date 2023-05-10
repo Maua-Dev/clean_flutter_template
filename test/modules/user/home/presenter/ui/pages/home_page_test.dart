@@ -21,7 +21,7 @@ void main() {
     expect(find.byType(LogoWidget), findsOneWidget);
     expect(find.text(S.current.homePageTitle), findsOneWidget);
     expect(find.text(S.current.homePageSubtitle), findsOneWidget);
-    expect(find.byType(HomeButtonWidget), findsNWidgets(5));
+    expect(find.byType(HomeButtonWidget), findsNWidgets(4));
     expect(find.byType(FooterWidget), findsOneWidget);
   });
 }

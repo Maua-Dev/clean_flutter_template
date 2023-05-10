@@ -126,16 +126,6 @@ class S {
     );
   }
 
-  /// `Password`
-  String get fieldPassword {
-    return Intl.message(
-      'Password',
-      name: 'fieldPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `ID`
   String get fieldId {
     return Intl.message(
@@ -161,16 +151,6 @@ class S {
     return Intl.message(
       'example@example.com',
       name: 'fieldHintEmail',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `🤫`
-  String get fieldHintPassword {
-    return Intl.message(
-      '🤫',
-      name: 'fieldHintPassword',
       desc: '',
       args: [],
     );
@@ -211,6 +191,16 @@ class S {
     return Intl.message(
       'Field must be a valid email address',
       name: 'fieldInvalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Field must be a valid integer`
+  String get fieldInvalidId {
+    return Intl.message(
+      'Field must be a valid integer',
+      name: 'fieldInvalidId',
       desc: '',
       args: [],
     );
@@ -281,16 +271,6 @@ class S {
     return Intl.message(
       'Delete',
       name: 'deleteTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `List of all users`
-  String get getAllPageTitle {
-    return Intl.message(
-      'List of all users',
-      name: 'getAllPageTitle',
       desc: '',
       args: [],
     );

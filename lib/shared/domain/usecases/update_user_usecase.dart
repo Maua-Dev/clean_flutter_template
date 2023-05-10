@@ -7,8 +7,7 @@ import '../enums/state_enum.dart';
 import '../repositories/user_repository_interface.dart';
 
 abstract class IUpdateUserUsecase {
-  Future<Either<Failure, User>> call(
-      String name, String email, String password, String id);
+  Future<Either<Failure, User>> call(String name, String email, int id);
 }
 
 class UpdateUserUsecase implements IUpdateUserUsecase {
@@ -17,12 +16,10 @@ class UpdateUserUsecase implements IUpdateUserUsecase {
   UpdateUserUsecase(this.repository);
 
   @override
-  Future<Either<Failure, User>> call(
-      String name, String email, String password, String id) async {
+  Future<Either<Failure, User>> call(String name, String email, int id) async {
     UserModel userToUpdate = UserModel(
       email: email,
       name: name,
-      password: password,
       state: StateEnum.REJECTED,
       id: id,
     );

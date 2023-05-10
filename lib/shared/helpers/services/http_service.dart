@@ -11,8 +11,8 @@ class HttpService {
     required this.httpRequest,
   });
 
-  Future<Response?> get(String url) async {
-    return await _handleRequest(() => httpRequest.get(url));
+  Future<Response?> get(String url, dynamic data) async {
+    return await _handleRequest(() => httpRequest.get(url, data));
   }
 
   Future<Response?> post(String url, dynamic data) async {

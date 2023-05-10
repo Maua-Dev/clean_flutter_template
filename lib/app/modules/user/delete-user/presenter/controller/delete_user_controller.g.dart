@@ -13,13 +13,13 @@ mixin _$DeleteUserController on DeleteUserControllerBase, Store {
       Atom(name: 'DeleteUserControllerBase.userId', context: context);
 
   @override
-  String get userId {
+  int? get userId {
     _$userIdAtom.reportRead();
     return super.userId;
   }
 
   @override
-  set userId(String value) {
+  set userId(int? value) {
     _$userIdAtom.reportWrite(value, super.userId, () {
       super.userId = value;
     });
@@ -53,7 +53,7 @@ mixin _$DeleteUserController on DeleteUserControllerBase, Store {
       ActionController(name: 'DeleteUserControllerBase', context: context);
 
   @override
-  dynamic setUserId(String id) {
+  dynamic setUserId(int id) {
     final _$actionInfo = _$DeleteUserControllerBaseActionController.startAction(
         name: 'DeleteUserControllerBase.setUserId');
     try {
@@ -69,6 +69,17 @@ mixin _$DeleteUserController on DeleteUserControllerBase, Store {
         name: 'DeleteUserControllerBase.setPageState');
     try {
       return super.setPageState(value);
+    } finally {
+      _$DeleteUserControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  String? validateUserId(String? value) {
+    final _$actionInfo = _$DeleteUserControllerBaseActionController.startAction(
+        name: 'DeleteUserControllerBase.validateUserId');
+    try {
+      return super.validateUserId(value);
     } finally {
       _$DeleteUserControllerBaseActionController.endAction(_$actionInfo);
     }

@@ -11,12 +11,11 @@ import 'package:mockito/mockito.dart';
 
 class UserRepositoryMockSuccess extends Mock implements IUserRepository {
   @override
-  Future<Either<Failure, UserModel>> getUser(String id) async {
+  Future<Either<Failure, UserModel>> getUser(int id) async {
     var user = UserModel(
-      id: '0',
+      id: 0,
       name: 'Vitor Soller',
       email: 'gabriel.godoybz@hotmail.com',
-      password: 'Teste123!',
       state: StateEnum.APPROVED,
     );
     return right(user);
@@ -25,7 +24,7 @@ class UserRepositoryMockSuccess extends Mock implements IUserRepository {
 
 class UserRepositoryMockFailed extends Mock implements IUserRepository {
   @override
-  Future<Either<Failure, UserModel>> getUser(String id) async {
+  Future<Either<Failure, UserModel>> getUser(int id) async {
     return left(ErrorRequest(message: ''));
   }
 }
@@ -42,14 +41,14 @@ void main() {
   group('[TEST] - GetUserUsecase', () {
     test('should return an User', () async {
       usecase = GetUserUsecase(repositorySuccess);
-      final result = await usecase('0');
+      final result = await usecase(0);
 
       expect(result.fold(id, id), isA<UserModel>());
     });
 
     test('should return an ErrorRequest', () async {
       usecase = GetUserUsecase(repositoryFailed);
-      final result = await usecase('0');
+      final result = await usecase(0);
 
       expect(result.fold(id, id), isA<ErrorRequest>());
     });

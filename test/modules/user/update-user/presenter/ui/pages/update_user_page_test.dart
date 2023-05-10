@@ -28,7 +28,6 @@ void main() {
 
   String name = "Gabriel Godoy";
   String email = "gabriel.godoybz@hotmail.com";
-  String password = "Teste123!";
 
   setUp(() async {
     initModules([
@@ -54,7 +53,7 @@ void main() {
     expect(find.byType(LogoWidget), findsOneWidget);
     expect(find.text(S.current.updatePageTitle), findsOneWidget);
     expect(find.byType(Form), findsOneWidget);
-    expect(find.byType(TextFieldWidget), findsNWidgets(4));
+    expect(find.byType(TextFieldWidget), findsNWidgets(3));
     expect(find.byType(ElevatedButton), findsOneWidget);
     expect(find.text(S.current.updateTitle), findsOneWidget);
     expect(find.byType(FooterWidget), findsOneWidget);
@@ -66,9 +65,8 @@ void main() {
     var userModel = UserModel(
       name: name,
       email: email,
-      password: password,
       state: StateEnum.REJECTED,
-      id: '0',
+      id: 0,
     );
     await widgetTester.pumpWidget(MaterialApp(
         localizationsDelegates: const [
@@ -78,17 +76,15 @@ void main() {
         ],
         supportedLocales: S.delegate.supportedLocales,
         home: const UpdateUserPage()));
-    when(usecase.call(name, email, password, '0'))
+    when(usecase.call(name, email, 0))
         .thenAnswer((_) async => Right(userModel));
     await widgetTester.runAsync(() async => controller.setUserEmail(email));
     await widgetTester.runAsync(() async => controller.setUserName(name));
-    await widgetTester
-        .runAsync(() async => controller.setUserPassword(password));
-    await widgetTester.runAsync(() async => controller.setUserId('0'));
+    await widgetTester.runAsync(() async => controller.setUserId(0));
     await widgetTester.runAsync(() async => controller.updateUser());
     await widgetTester.pump();
 
-    expect(find.text(S.current.successUpdateUser('', '0')), findsOneWidget);
+    expect(find.text(S.current.successUpdateUser('', 0)), findsOneWidget);
   });
 
   testWidgets('[TEST] - UpdateUserPage must show ErrorWidget when create user',
@@ -101,13 +97,11 @@ void main() {
         ],
         supportedLocales: S.delegate.supportedLocales,
         home: const UpdateUserPage()));
-    when(usecase.call(name, email, password, '10000'))
+    when(usecase.call(name, email, 10000))
         .thenAnswer((_) async => left(ErrorRequest(message: 'message')));
     await widgetTester.runAsync(() async => controller.setUserEmail(email));
     await widgetTester.runAsync(() async => controller.setUserName(name));
-    await widgetTester
-        .runAsync(() async => controller.setUserPassword(password));
-    await widgetTester.runAsync(() async => controller.setUserId('10000'));
+    await widgetTester.runAsync(() async => controller.setUserId(10000));
     await widgetTester.runAsync(() async => controller.updateUser());
     await widgetTester.pump();
 

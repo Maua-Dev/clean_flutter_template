@@ -73,10 +73,7 @@ void main() {
           data: userData, statusCode: 200, requestOptions: RequestOptions());
 
       when(httpRequest.get(
-        '/get-user',
-        {
-          'user_id': userId,
-        },
+        '/get-user?user_id=$userId',
       )).thenAnswer((_) async => response);
 
       final result = await userDatasource.getUser(userId);
@@ -90,10 +87,7 @@ void main() {
           Response(statusCode: 500, requestOptions: RequestOptions());
 
       when(httpRequest.get(
-        '/get-user',
-        {
-          'user_id': userId,
-        },
+        '/get-user?user_id=$userId',
       )).thenAnswer((_) async => response);
 
       expect(() => userDatasource.getUser(userId), throwsException);

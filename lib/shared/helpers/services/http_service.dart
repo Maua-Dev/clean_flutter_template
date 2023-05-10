@@ -12,7 +12,7 @@ class HttpService {
   });
 
   Future<Response?> get(String url, dynamic data) async {
-    return await _handleRequest(() => httpRequest.get(url, data));
+    return await _handleRequest(() => httpRequest.get(url));
   }
 
   Future<Response?> post(String url, dynamic data) async {

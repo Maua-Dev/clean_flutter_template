@@ -52,25 +52,6 @@ void main() {
     });
   });
 
-  group('[TEST] - getAllUsers', () {
-    UserRepositoryMock repository = UserRepositoryMock();
-
-    test('should return a list of users', () async {
-      var response = await repository.getAllUsers();
-      expect(response.fold(id, id), isA<List<User>>());
-    });
-
-    test('should return EmptyList', () async {
-      repository.users = [];
-      repository.getAllUsers();
-      try {
-        await repository.getAllUsers();
-      } catch (e) {
-        expect(e, isA<EmptyList>());
-      }
-    });
-  });
-
   group('[TEST] - getUser', () {
     test('should return a user', () async {
       UserRepositoryMock repository = UserRepositoryMock();

@@ -20,6 +20,7 @@
             "flutterMode": "debug",
             "args": [
                 "--dart-define=ENV=HOMOLOG",
+                "--dart-define=MSS_USER_BASE_URL=https://3q0ikd6zx3.execute-api.us-east-2.amazonaws.com/prod/mss-template",
             ]
         },
         

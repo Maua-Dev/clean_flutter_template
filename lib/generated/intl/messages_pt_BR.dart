@@ -61,18 +61,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Número de identificação do usuário"),
         "fieldHintName":
             MessageLookupByLibrary.simpleMessage("Gabriel de Godoy Braz"),
-        "fieldHintPassword": MessageLookupByLibrary.simpleMessage("🤫"),
         "fieldId": MessageLookupByLibrary.simpleMessage("ID"),
         "fieldInvalidEmail": MessageLookupByLibrary.simpleMessage(
             "O campo deve ser um endereço de e-mail válido"),
         "fieldMinLength": MessageLookupByLibrary.simpleMessage(
             "O campo deve ter pelo menos 6 caracteres"),
         "fieldName": MessageLookupByLibrary.simpleMessage("Nome"),
-        "fieldPassword": MessageLookupByLibrary.simpleMessage("Senha"),
         "fieldRequired":
             MessageLookupByLibrary.simpleMessage("Campo é obrigatório"),
-        "getAllPageTitle":
-            MessageLookupByLibrary.simpleMessage("Lista de todos os usuários"),
         "getPageTitle":
             MessageLookupByLibrary.simpleMessage("Procure um usuário"),
         "homePageSubtitle": MessageLookupByLibrary.simpleMessage(

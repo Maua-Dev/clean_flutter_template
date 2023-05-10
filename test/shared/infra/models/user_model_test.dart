@@ -20,12 +20,26 @@ void main() {
     'state': 'APPROVED',
   };
 
+  var userMapUpdate = {
+    'user_id': '123',
+    'new_name': 'Gabriel',
+  };
+
+  var userMapCreate = {
+    'name': 'Gabriel',
+    'email': 'gabriel.godoybz@hotmail.com',
+  };
+
   setUpAll(() async {
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
   });
 
-  test('[TEST] - userModel toJson', () {
-    expect(userModel.toJson(), userMap);
+  test('[TEST] - userModel toJsonCreate', () {
+    expect(userModel.toJsonCreate(), userMapCreate);
+  });
+
+  test('[TEST] - userModel toJsonUpdate', () {
+    expect(userModel.toJsonUpdate(), userMapUpdate);
   });
 
   test('[TEST] - userModel fromJson', () {

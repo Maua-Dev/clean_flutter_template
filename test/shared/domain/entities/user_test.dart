@@ -46,16 +46,4 @@ void main() {
       throwsA(isInstanceOf<EntityError>()),
     );
   });
-
-  test('[TEST] - throw EntityError with invalid password', () {
-    expect(
-      () => User(
-        name: 'gabriel',
-        email: "gabriel.braz@maua.br",
-        id: '1',
-        state: StateEnum.APPROVED,
-      ),
-      throwsA(isInstanceOf<EntityError>()),
-    );
-  });
 }

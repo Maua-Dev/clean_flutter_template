@@ -98,12 +98,4 @@ class MockUserDatasource extends _i1.Mock implements _i3.UserDatasource {
           ),
         )),
       ) as _i4.Future<_i2.UserModel>);
-  @override
-  _i4.Future<List<_i2.UserModel>> getAllUsers() => (super.noSuchMethod(
-        Invocation.method(
-          #getAllUsers,
-          [],
-        ),
-        returnValue: _i4.Future<List<_i2.UserModel>>.value(<_i2.UserModel>[]),
-      ) as _i4.Future<List<_i2.UserModel>>);
 }

@@ -41,22 +41,6 @@ mixin _$CreateUserController on CreateUserControllerBase, Store {
     });
   }
 
-  late final _$userPasswordAtom =
-      Atom(name: 'CreateUserControllerBase.userPassword', context: context);
-
-  @override
-  String get userPassword {
-    _$userPasswordAtom.reportRead();
-    return super.userPassword;
-  }
-
-  @override
-  set userPassword(String value) {
-    _$userPasswordAtom.reportWrite(value, super.userPassword, () {
-      super.userPassword = value;
-    });
-  }
-
   late final _$userStateAtom =
       Atom(name: 'CreateUserControllerBase.userState', context: context);
 
@@ -139,17 +123,6 @@ mixin _$CreateUserController on CreateUserControllerBase, Store {
   }
 
   @override
-  dynamic setUserPassword(String password) {
-    final _$actionInfo = _$CreateUserControllerBaseActionController.startAction(
-        name: 'CreateUserControllerBase.setUserPassword');
-    try {
-      return super.setUserPassword(password);
-    } finally {
-      _$CreateUserControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   dynamic setPageState(CreateUserState value) {
     final _$actionInfo = _$CreateUserControllerBaseActionController.startAction(
         name: 'CreateUserControllerBase.setPageState');
@@ -183,22 +156,10 @@ mixin _$CreateUserController on CreateUserControllerBase, Store {
   }
 
   @override
-  String? validateUserPassword(String? value) {
-    final _$actionInfo = _$CreateUserControllerBaseActionController.startAction(
-        name: 'CreateUserControllerBase.validateUserPassword');
-    try {
-      return super.validateUserPassword(value);
-    } finally {
-      _$CreateUserControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
 userName: ${userName},
 userEmail: ${userEmail},
-userPassword: ${userPassword},
 userState: ${userState},
 userId: ${userId},
 state: ${state}

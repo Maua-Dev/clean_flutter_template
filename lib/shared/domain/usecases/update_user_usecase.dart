@@ -7,8 +7,7 @@ import '../enums/state_enum.dart';
 import '../repositories/user_repository_interface.dart';
 
 abstract class IUpdateUserUsecase {
-  Future<Either<Failure, User>> call(
-      String name, String email, String password, String id);
+  Future<Either<Failure, User>> call(String name, String email, String id);
 }
 
 class UpdateUserUsecase implements IUpdateUserUsecase {

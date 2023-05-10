@@ -77,28 +77,6 @@ void main() {
     });
   });
 
-  group('[TEST] - getAllUsers', () {
-    repository = UserRepositoryHttp(datasource: datasource);
-    test('should return a List of users', () async {
-      when(datasource.getAllUsers()).thenAnswer((_) async => [user]);
-      var response = await repository.getAllUsers();
-      expect(response.fold(id, id), isA<List<User>>());
-    });
-
-    test('should return ErrorRequest', () async {
-      when(datasource.getAllUsers()).thenThrow(DioError(
-        requestOptions: RequestOptions(path: ''),
-        response: Response(
-          requestOptions: RequestOptions(path: ''),
-          statusCode: 400,
-          data: {'message': errorMessage},
-        ),
-      ));
-      var response = await repository.getAllUsers();
-      expect(response.fold(id, id), isA<ErrorRequest>());
-    });
-  });
-
   group('[TEST] - getUser', () {
     repository = UserRepositoryHttp(datasource: datasource);
     test('should return a user', () async {

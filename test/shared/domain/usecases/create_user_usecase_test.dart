@@ -34,16 +34,14 @@ void main() {
   group('[TEST] - CreateUserUsecase', () {
     test('should return an User', () async {
       usecase = CreateUserUsecase(repositorySuccess);
-      final result =
-          await usecase('John Doe', 'johndoe@example.com', 'Teste123!');
+      final result = await usecase('John Doe', 'johndoe@example.com');
 
       expect(result.fold(id, id), isA<UserModel>());
     });
 
     test('should return an ErrorRequest', () async {
       usecase = CreateUserUsecase(repositoryFailed);
-      final result =
-          await usecase('John Doe', 'johndoe@example.com', 'Teste123!');
+      final result = await usecase('John Doe', 'johndoe@example.com');
 
       expect(result.fold(id, id), isA<ErrorRequest>());
     });

@@ -10,7 +10,7 @@ class UserModel extends User {
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
-        id: json['id'],
+        id: json['user_id'],
         name: json['name'],
         email: json['email'],
         state: StateEnum.values
@@ -21,12 +21,17 @@ class UserModel extends User {
     return array.map((e) => UserModel.fromJson(e)).toList();
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJsonUpdate() {
     return {
-      'id': super.id,
+      'user_id': super.id,
+      'new_name': super.name,
+    };
+  }
+
+  Map<String, dynamic> toJsonCreate() {
+    return {
       'name': super.name,
       'email': super.email,
-      'state': super.state.name
     };
   }
 

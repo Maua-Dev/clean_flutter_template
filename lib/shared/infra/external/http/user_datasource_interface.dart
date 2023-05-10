@@ -5,5 +5,4 @@ abstract class IUserDatasource {
   Future<UserModel> deleteUser(String userId);
   Future<UserModel> updateUser(UserModel userToUpdate);
   Future<UserModel> createUser(UserModel userToCreate);
-  Future<List<UserModel>> getAllUsers();
 }

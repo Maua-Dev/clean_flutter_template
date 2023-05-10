@@ -28,7 +28,6 @@ void main() {
 
   String name = "Gabriel Godoy";
   String email = "gabriel.godoybz@hotmail.com";
-  String password = "Teste123!";
 
   setUp(() async {
     initModules([
@@ -78,12 +77,9 @@ void main() {
         ],
         supportedLocales: S.delegate.supportedLocales,
         home: const CreateUserPage()));
-    when(usecase.call(name, email, password))
-        .thenAnswer((_) async => Right(userModel));
+    when(usecase.call(name, email)).thenAnswer((_) async => Right(userModel));
     await widgetTester.runAsync(() async => controller.setUserEmail(email));
     await widgetTester.runAsync(() async => controller.setUserName(name));
-    await widgetTester
-        .runAsync(() async => controller.setUserPassword(password));
     await widgetTester.runAsync(() async => controller.createUser());
     await widgetTester.pump();
 
@@ -100,12 +96,10 @@ void main() {
         ],
         supportedLocales: S.delegate.supportedLocales,
         home: const CreateUserPage()));
-    when(usecase.call(name, email, password))
+    when(usecase.call(name, email))
         .thenAnswer((_) async => left(ErrorRequest(message: 'message')));
     await widgetTester.runAsync(() async => controller.setUserEmail(email));
     await widgetTester.runAsync(() async => controller.setUserName(name));
-    await widgetTester
-        .runAsync(() async => controller.setUserPassword(password));
     await widgetTester.runAsync(() async => controller.createUser());
     await widgetTester.pump();
 

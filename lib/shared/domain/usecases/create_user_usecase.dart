@@ -7,8 +7,7 @@ import '../entities/user.dart';
 import '../repositories/user_repository_interface.dart';
 
 abstract class ICreateUserUsecase {
-  Future<Either<Failure, User>> call(
-      String name, String email, String password);
+  Future<Either<Failure, User>> call(String name, String email);
 }
 
 class CreateUserUsecase implements ICreateUserUsecase {
@@ -17,8 +16,7 @@ class CreateUserUsecase implements ICreateUserUsecase {
   CreateUserUsecase(this.repository);
 
   @override
-  Future<Either<Failure, User>> call(
-      String name, String email, String password) async {
+  Future<Either<Failure, User>> call(String name, String email) async {
     return await repository.createUser(UserModel(
       email: email,
       name: name,

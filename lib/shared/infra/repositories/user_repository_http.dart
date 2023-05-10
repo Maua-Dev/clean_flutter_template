@@ -45,21 +45,6 @@ class UserRepositoryHttp implements IUserRepository {
   }
 
   @override
-  Future<Either<Failure, List<User>>> getAllUsers() async {
-    List<User> users;
-    try {
-      users = await datasource.getAllUsers();
-    } on DioError catch (e) {
-      HttpStatusCodeEnum errorType =
-          getHttpStatusFunction(e.response!.statusCode);
-      return left(ErrorRequest(message: errorType.errorMessage));
-      //caso erro venha do back
-      //return left(ErrorRequest(message: e.response?.data['message']));
-    }
-    return users.isEmpty ? left(EmptyList()) : right(users);
-  }
-
-  @override
   Future<Either<Failure, User>> getUser(String id) async {
     User user;
     try {

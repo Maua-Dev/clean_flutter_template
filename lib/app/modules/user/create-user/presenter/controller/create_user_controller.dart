@@ -22,9 +22,6 @@ abstract class CreateUserControllerBase with Store {
   String userEmail = '';
 
   @observable
-  String userPassword = '';
-
-  @observable
   StateEnum userState = StateEnum.REJECTED;
 
   @observable
@@ -36,7 +33,7 @@ abstract class CreateUserControllerBase with Store {
   @action
   Future<void> createUser() async {
     setPageState(const LoadingCreateState());
-    var result = await _createUserUsecase(userName, userEmail, userPassword);
+    var result = await _createUserUsecase(userName, userEmail);
     setPageState(
         result.fold((l) => ErrorCreateState(l), (r) => SuccessCreateState(r)));
   }
@@ -46,9 +43,6 @@ abstract class CreateUserControllerBase with Store {
 
   @action
   setUserEmail(String email) => userEmail = email;
-
-  @action
-  setUserPassword(String password) => userPassword = password;
 
   @action
   setPageState(CreateUserState value) => state = value;
@@ -67,16 +61,6 @@ abstract class CreateUserControllerBase with Store {
       return S.current.fieldRequired;
     } else if (!value.contains('@')) {
       return S.current.fieldInvalidEmail;
-    }
-    return null;
-  }
-
-  @action
-  String? validateUserPassword(String? value) {
-    if (value!.isEmpty) {
-      return S.current.fieldRequired;
-    } else if (value.length < 6) {
-      return S.current.fieldMinLength;
     }
     return null;
   }

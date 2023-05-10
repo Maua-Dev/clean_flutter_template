@@ -27,7 +27,6 @@ void main() {
         'id': userId,
         'name': 'John Doe',
         'email': 'johndoe@example.com',
-        'password': 'Teste123!',
         'state': 'APPROVED'
       };
       final response = Response(
@@ -68,7 +67,6 @@ void main() {
         'id': userId,
         'name': 'John Doe',
         'email': 'johndoe@example.com',
-        'password': 'Teste123!',
         'state': 'APPROVED'
       };
       final response = Response(
@@ -101,7 +99,6 @@ void main() {
         'id': userId,
         'name': 'John Doe',
         'email': 'johndoe@example.com',
-        'password': 'Teste123!',
         'state': 'APPROVED'
       };
       final response = Response(
@@ -124,7 +121,6 @@ void main() {
         'id': userId,
         'name': 'John Doe',
         'email': 'johndoe@example.com',
-        'password': 'Teste123!',
         'state': 'APPROVED'
       };
       final response =
@@ -137,38 +133,6 @@ void main() {
 
       expect(() => userDatasource.createUser(UserModel.fromJson(userData)),
           throwsException);
-    });
-  });
-
-  group('[TEST] - getAllUsers', () {
-    test('success 200', () async {
-      var userId = '123';
-      final userData = [
-        {
-          'id': userId,
-          'name': 'John Doe',
-          'email': 'johndoe@example.com',
-          'password': 'Teste123!',
-          'state': 'APPROVED'
-        }
-      ];
-      final response = Response(
-          data: userData, statusCode: 200, requestOptions: RequestOptions());
-
-      when(httpRequest.get('/get-all-users')).thenAnswer((_) async => response);
-
-      final result = await userDatasource.getAllUsers();
-
-      expect(result[0].id, userId);
-    });
-
-    test('failure', () async {
-      final response =
-          Response(statusCode: 500, requestOptions: RequestOptions());
-
-      when(httpRequest.get('/get-all-users')).thenAnswer((_) async => response);
-
-      expect(() => userDatasource.getAllUsers(), throwsException);
     });
   });
 }

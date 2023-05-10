@@ -151,17 +151,6 @@ mixin _$UpdateUserController on UpdateUserControllerBase, Store {
   }
 
   @override
-  String? validateUserPassword(String? value) {
-    final _$actionInfo = _$UpdateUserControllerBaseActionController.startAction(
-        name: 'UpdateUserControllerBase.validateUserPassword');
-    try {
-      return super.validateUserPassword(value);
-    } finally {
-      _$UpdateUserControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
 userName: ${userName},

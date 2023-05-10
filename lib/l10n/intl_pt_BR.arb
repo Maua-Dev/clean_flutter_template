@@ -10,11 +10,9 @@
 
     "fieldName": "Nome",
     "fieldEmail": "Email",
-    "fieldPassword": "Senha",
     "fieldId": "ID",
     "fieldHintName": "Gabriel de Godoy Braz",
     "fieldHintEmail": "exemplo@exemplo.com",
-    "fieldHintPassword": "🤫",
     "fieldHintId": "Número de identificação do usuário",
 
     "fieldRequired": "Campo é obrigatório",
@@ -39,7 +37,6 @@
     "deletePageTitle": "Delete um usuário",
     "deleteTitle": "Deletar",
 
-    "getAllPageTitle": "Lista de todos os usuários",
 
     "successUpdateUser": "Usuário {successUpdateUser} updated com sucesso",
     "@successUpdateUser" : {

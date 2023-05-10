@@ -60,18 +60,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Identification number"),
         "fieldHintName":
             MessageLookupByLibrary.simpleMessage("Gabriel de Godoy Braz"),
-        "fieldHintPassword": MessageLookupByLibrary.simpleMessage("🤫"),
         "fieldId": MessageLookupByLibrary.simpleMessage("ID"),
         "fieldInvalidEmail": MessageLookupByLibrary.simpleMessage(
             "Field must be a valid email address"),
         "fieldMinLength": MessageLookupByLibrary.simpleMessage(
             "Field must be at least 6 characters long"),
         "fieldName": MessageLookupByLibrary.simpleMessage("Name"),
-        "fieldPassword": MessageLookupByLibrary.simpleMessage("Password"),
         "fieldRequired":
             MessageLookupByLibrary.simpleMessage("Field is required"),
-        "getAllPageTitle":
-            MessageLookupByLibrary.simpleMessage("List of all users"),
         "getPageTitle":
             MessageLookupByLibrary.simpleMessage("Search for a user"),
         "homePageSubtitle": MessageLookupByLibrary.simpleMessage(

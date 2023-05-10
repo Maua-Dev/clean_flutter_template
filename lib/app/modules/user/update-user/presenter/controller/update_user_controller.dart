@@ -63,14 +63,4 @@ abstract class UpdateUserControllerBase with Store {
     }
     return null;
   }
-
-  @action
-  String? validateUserPassword(String? value) {
-    if (value!.isEmpty) {
-      return S.current.fieldRequired;
-    } else if (value.length < 6) {
-      return S.current.fieldMinLength;
-    }
-    return null;
-  }
 }

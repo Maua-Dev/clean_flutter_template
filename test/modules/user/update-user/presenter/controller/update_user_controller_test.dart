@@ -84,10 +84,4 @@ void main() {
     expect(controller.validateUserEmail('test'), S.current.fieldInvalidEmail);
     expect(controller.validateUserEmail('test@'), null);
   });
-
-  test('[TEST] - validateUserPassword', () {
-    expect(controller.validateUserPassword(''), S.current.fieldRequired);
-    expect(controller.validateUserPassword('test'), S.current.fieldMinLength);
-    expect(controller.validateUserPassword('test12312'), null);
-  });
 }

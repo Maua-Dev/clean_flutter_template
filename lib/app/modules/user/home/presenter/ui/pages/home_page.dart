@@ -66,11 +66,6 @@ class HomePage extends StatelessWidget {
                           Modular.to.pushNamed('/delete-user/');
                         },
                         text: 'Deletar usuário'),
-                    HomeButtonWidget(
-                        onPressed: () {
-                          Modular.to.pushNamed('/get-all-users/');
-                        },
-                        text: 'Listar usuários'),
                   ],
                 ),
                 const Spacer(),

@@ -67,7 +67,6 @@ void main() {
     var userModel = UserModel(
       name: name,
       email: email,
-      password: password,
       state: StateEnum.REJECTED,
       id: '',
     );

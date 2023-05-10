@@ -15,14 +15,12 @@ class UserRepositoryMock implements IUserRepository {
         id: '0',
         name: 'Gabriel Godoy',
         email: 'gabriel.godoybz@hotmail.com',
-        password: 'Teste123!',
         state: StateEnum.APPROVED,
       ),
       User(
         id: '1',
         name: 'Vitor Soller',
         email: 'sollerzin@gmail.com',
-        password: 'Teste123!',
         state: StateEnum.REJECTED,
       ),
     ];

@@ -27,32 +27,27 @@ void main() {
     var userModel = UserModel(
       name: 'Gabriel',
       email: 'gabriel.godoybz@hotmail.com',
-      password: 'Teste123!',
       state: StateEnum.REJECTED,
       id: '0',
     );
 
     test('should return SuccessUpdateState', () async {
-      when(usecase.call(
-              'Gabriel', 'gabriel.godoybz@hotmail.com', 'Teste123!', '0'))
+      when(usecase.call('Gabriel', 'gabriel.godoybz@hotmail.com', '0'))
           .thenAnswer((_) async => Right(userModel));
       expect(controller.state, const StartUpdateState());
       controller.setUserName(userModel.name);
       controller.setUserEmail(userModel.email);
-      controller.setUserPassword(userModel.password);
       controller.setUserId(userModel.id!);
       await controller.updateUser();
       expect(controller.state, isA<SuccessUpdateState>());
     });
 
     test('should return ErrorUpdateState', () async {
-      when(usecase.call(
-              'Gabriel', 'gabriel.godoybz@hotmail.com', 'Teste123!', '10000'))
+      when(usecase.call('Gabriel', 'gabriel.godoybz@hotmail.com', '10000'))
           .thenAnswer((_) async => left(ErrorRequest(message: 'message')));
       expect(controller.state, const StartUpdateState());
       controller.setUserName(userModel.name);
       controller.setUserEmail(userModel.email);
-      controller.setUserPassword(userModel.password);
       controller.setUserId('10000');
       await controller.updateUser();
       expect(controller.state, isA<ErrorUpdateState>());
@@ -67,11 +62,6 @@ void main() {
   test('[TEST] - setUserEmail', () {
     controller.setUserEmail('test');
     expect(controller.userEmail, 'test');
-  });
-
-  test('[TEST] - setUserPassword', () {
-    controller.setUserPassword('test');
-    expect(controller.userPassword, 'test');
   });
 
   test('[TEST] - setUserId', () {

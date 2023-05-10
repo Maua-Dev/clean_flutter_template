@@ -5,7 +5,6 @@ class User {
   final String? id;
   final String name;
   final String email;
-  final String password;
   final StateEnum state;
 
   static const int minNameLenght = 2;
@@ -14,7 +13,6 @@ class User {
     this.id,
     required this.name,
     required this.email,
-    required this.password,
     required this.state,
   }) {
     if (!User.validateName(name)) {
@@ -22,9 +20,6 @@ class User {
     }
     if (!User.validateEmail(email)) {
       throw EntityError(message: 'email');
-    }
-    if (!User.validatePassword(password)) {
-      throw EntityError(message: 'password');
     }
   }
 
@@ -40,12 +35,5 @@ class User {
       r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)",
     );
     return regex.hasMatch(email);
-  }
-
-  static bool validatePassword(String password) {
-    if (password.length < 6) {
-      return false;
-    }
-    return true;
   }
 }

@@ -86,12 +86,6 @@ class UpdateUserPage extends StatelessWidget {
                             onChanged: controller.setUserEmail,
                             validation: controller.validateUserEmail,
                           ),
-                          TextFieldWidget(
-                            title: S.of(context).fieldPassword,
-                            hintText: S.of(context).fieldHintPassword,
-                            onChanged: controller.setUserPassword,
-                            validation: controller.validateUserPassword,
-                          ),
                           const SizedBox(height: 8),
                           SizedBox(
                             width: 250,

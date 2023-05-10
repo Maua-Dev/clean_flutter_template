@@ -41,22 +41,6 @@ mixin _$UpdateUserController on UpdateUserControllerBase, Store {
     });
   }
 
-  late final _$userPasswordAtom =
-      Atom(name: 'UpdateUserControllerBase.userPassword', context: context);
-
-  @override
-  String get userPassword {
-    _$userPasswordAtom.reportRead();
-    return super.userPassword;
-  }
-
-  @override
-  set userPassword(String value) {
-    _$userPasswordAtom.reportWrite(value, super.userPassword, () {
-      super.userPassword = value;
-    });
-  }
-
   late final _$userIdAtom =
       Atom(name: 'UpdateUserControllerBase.userId', context: context);
 
@@ -123,17 +107,6 @@ mixin _$UpdateUserController on UpdateUserControllerBase, Store {
   }
 
   @override
-  dynamic setUserPassword(String password) {
-    final _$actionInfo = _$UpdateUserControllerBaseActionController.startAction(
-        name: 'UpdateUserControllerBase.setUserPassword');
-    try {
-      return super.setUserPassword(password);
-    } finally {
-      _$UpdateUserControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   dynamic setUserId(String id) {
     final _$actionInfo = _$UpdateUserControllerBaseActionController.startAction(
         name: 'UpdateUserControllerBase.setUserId');
@@ -193,7 +166,6 @@ mixin _$UpdateUserController on UpdateUserControllerBase, Store {
     return '''
 userName: ${userName},
 userEmail: ${userEmail},
-userPassword: ${userPassword},
 userId: ${userId},
 state: ${state}
     ''';

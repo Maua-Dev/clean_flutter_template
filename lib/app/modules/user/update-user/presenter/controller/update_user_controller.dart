@@ -21,9 +21,6 @@ abstract class UpdateUserControllerBase with Store {
   String userEmail = '';
 
   @observable
-  String userPassword = '';
-
-  @observable
   String userId = '';
 
   @observable
@@ -36,9 +33,6 @@ abstract class UpdateUserControllerBase with Store {
   setUserEmail(String email) => userEmail = email;
 
   @action
-  setUserPassword(String password) => userPassword = password;
-
-  @action
   setUserId(String id) => userId = id;
 
   @action
@@ -47,8 +41,7 @@ abstract class UpdateUserControllerBase with Store {
   @action
   Future<void> updateUser() async {
     setPageState(const LoadingUpdateState());
-    var result =
-        await _updateUserUsecase(userName, userEmail, userPassword, userId);
+    var result = await _updateUserUsecase(userName, userEmail, userId);
     setPageState(
         result.fold((l) => ErrorUpdateState(l), (r) => SuccessUpdateState(r)));
   }

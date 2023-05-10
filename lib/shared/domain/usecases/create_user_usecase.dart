@@ -22,7 +22,6 @@ class CreateUserUsecase implements ICreateUserUsecase {
     return await repository.createUser(UserModel(
       email: email,
       name: name,
-      password: password,
       state: StateEnum.REJECTED,
       id: '',
     ));

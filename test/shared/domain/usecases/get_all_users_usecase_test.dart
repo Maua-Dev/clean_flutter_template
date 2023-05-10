@@ -18,7 +18,6 @@ class UserRepositoryMockSuccess extends Mock implements IUserRepository {
         id: '0',
         name: 'Vitor Soller',
         email: 'gabriel.godoybz@hotmail.com',
-        password: 'Teste123!',
         state: StateEnum.APPROVED,
       )
     ];

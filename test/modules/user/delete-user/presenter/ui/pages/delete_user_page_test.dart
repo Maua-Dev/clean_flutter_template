@@ -27,7 +27,6 @@ void main() {
 
   String name = "Gabriel Godoy";
   String email = "gabriel.godoybz@hotmail.com";
-  String password = "Teste123!";
 
   setUp(() async {
     initModules([
@@ -66,7 +65,6 @@ void main() {
     var userModel = UserModel(
       name: name,
       email: email,
-      password: password,
       state: StateEnum.REJECTED,
       id: '0',
     );

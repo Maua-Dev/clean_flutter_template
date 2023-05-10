@@ -18,11 +18,10 @@ class UpdateUserUsecase implements IUpdateUserUsecase {
 
   @override
   Future<Either<Failure, User>> call(
-      String name, String email, String password, String id) async {
+      String name, String email, String id) async {
     UserModel userToUpdate = UserModel(
       email: email,
       name: name,
-      password: password,
       state: StateEnum.REJECTED,
       id: id,
     );

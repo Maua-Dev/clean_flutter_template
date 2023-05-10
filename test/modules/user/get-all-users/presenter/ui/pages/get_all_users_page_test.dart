@@ -27,7 +27,6 @@ void main() {
     UserModel(
       name: 'Gabriel',
       email: 'gabriel.godoybz@hotmail.com',
-      password: 'Teste123!',
       state: StateEnum.REJECTED,
       id: '0',
     ),

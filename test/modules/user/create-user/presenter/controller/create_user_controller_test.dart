@@ -27,7 +27,6 @@ void main() {
     var userModel = UserModel(
       name: 'Gabriel',
       email: 'gabriel.godoybz@hotmail.com',
-      password: 'Teste123!',
       state: StateEnum.REJECTED,
       id: '',
     );
@@ -38,7 +37,6 @@ void main() {
       expect(controller.state, const StartCreateState());
       controller.setUserName(userModel.name);
       controller.setUserEmail(userModel.email);
-      controller.setUserPassword(userModel.password);
       await controller.createUser();
       expect(controller.state, isA<SuccessCreateState>());
     });
@@ -49,7 +47,6 @@ void main() {
       expect(controller.state, const StartCreateState());
       controller.setUserName(userModel.name);
       controller.setUserEmail(userModel.email);
-      controller.setUserPassword(userModel.password);
       await controller.createUser();
       expect(controller.state, isA<ErrorCreateState>());
     });

@@ -9,7 +9,6 @@ void main() {
   var userModel = UserModel(
     name: 'Gabriel',
     email: 'gabriel.godoybz@hotmail.com',
-    password: 'Teste123!',
     state: StateEnum.APPROVED,
     id: '123',
   );
@@ -18,7 +17,6 @@ void main() {
     'id': '123',
     'name': 'Gabriel',
     'email': 'gabriel.godoybz@hotmail.com',
-    'password': 'Teste123!',
     'state': 'APPROVED',
   };
 
@@ -34,7 +32,6 @@ void main() {
     expect(UserModel.fromJson(userMap).id, userModel.id);
     expect(UserModel.fromJson(userMap).name, userModel.name);
     expect(UserModel.fromJson(userMap).email, userModel.email);
-    expect(UserModel.fromJson(userMap).password, userModel.password);
     expect(UserModel.fromJson(userMap).state, userModel.state);
   });
 

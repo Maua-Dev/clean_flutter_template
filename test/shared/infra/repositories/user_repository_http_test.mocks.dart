@@ -3,12 +3,15 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
 
 import 'package:clean_flutter_template/shared/datasource/external/http/user_datasource.dart'
-    as _i3;
+    as _i4;
 import 'package:clean_flutter_template/shared/infra/models/user_model.dart'
     as _i2;
+import 'package:clean_flutter_template/shared/infra/storage/user_local_storage.dart'
+    as _i6;
+import 'package:hive_flutter/hive_flutter.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -32,70 +35,133 @@ class _FakeUserModel_0 extends _i1.SmartFake implements _i2.UserModel {
         );
 }
 
+class _FakeBox_1<E> extends _i1.SmartFake implements _i3.Box<E> {
+  _FakeBox_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [UserDatasource].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockUserDatasource extends _i1.Mock implements _i3.UserDatasource {
+class MockUserDatasource extends _i1.Mock implements _i4.UserDatasource {
   MockUserDatasource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.UserModel> deleteUser(String? userId) => (super.noSuchMethod(
+  _i5.Future<_i2.UserModel> deleteUser(String? userId) => (super.noSuchMethod(
         Invocation.method(
           #deleteUser,
           [userId],
         ),
-        returnValue: _i4.Future<_i2.UserModel>.value(_FakeUserModel_0(
+        returnValue: _i5.Future<_i2.UserModel>.value(_FakeUserModel_0(
           this,
           Invocation.method(
             #deleteUser,
             [userId],
           ),
         )),
-      ) as _i4.Future<_i2.UserModel>);
+      ) as _i5.Future<_i2.UserModel>);
   @override
-  _i4.Future<_i2.UserModel> getUser(String? userId) => (super.noSuchMethod(
+  _i5.Future<_i2.UserModel> getUser(String? userId) => (super.noSuchMethod(
         Invocation.method(
           #getUser,
           [userId],
         ),
-        returnValue: _i4.Future<_i2.UserModel>.value(_FakeUserModel_0(
+        returnValue: _i5.Future<_i2.UserModel>.value(_FakeUserModel_0(
           this,
           Invocation.method(
             #getUser,
             [userId],
           ),
         )),
-      ) as _i4.Future<_i2.UserModel>);
+      ) as _i5.Future<_i2.UserModel>);
   @override
-  _i4.Future<_i2.UserModel> updateUser(_i2.UserModel? userToUpdate) =>
+  _i5.Future<_i2.UserModel> updateUser(_i2.UserModel? userToUpdate) =>
       (super.noSuchMethod(
         Invocation.method(
           #updateUser,
           [userToUpdate],
         ),
-        returnValue: _i4.Future<_i2.UserModel>.value(_FakeUserModel_0(
+        returnValue: _i5.Future<_i2.UserModel>.value(_FakeUserModel_0(
           this,
           Invocation.method(
             #updateUser,
             [userToUpdate],
           ),
         )),
-      ) as _i4.Future<_i2.UserModel>);
+      ) as _i5.Future<_i2.UserModel>);
   @override
-  _i4.Future<_i2.UserModel> createUser(_i2.UserModel? userToCreate) =>
+  _i5.Future<_i2.UserModel> createUser(_i2.UserModel? userToCreate) =>
       (super.noSuchMethod(
         Invocation.method(
           #createUser,
           [userToCreate],
         ),
-        returnValue: _i4.Future<_i2.UserModel>.value(_FakeUserModel_0(
+        returnValue: _i5.Future<_i2.UserModel>.value(_FakeUserModel_0(
           this,
           Invocation.method(
             #createUser,
             [userToCreate],
           ),
         )),
-      ) as _i4.Future<_i2.UserModel>);
+      ) as _i5.Future<_i2.UserModel>);
+}
+
+/// A class which mocks [UserLocalStorage].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockUserLocalStorage extends _i1.Mock implements _i6.UserLocalStorage {
+  MockUserLocalStorage() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i3.Box<dynamic> get storage => (super.noSuchMethod(
+        Invocation.getter(#storage),
+        returnValue: _FakeBox_1<dynamic>(
+          this,
+          Invocation.getter(#storage),
+        ),
+      ) as _i3.Box<dynamic>);
+  @override
+  _i5.Future<void> createUser(_i2.UserModel? user) => (super.noSuchMethod(
+        Invocation.method(
+          #createUser,
+          [user],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+  @override
+  _i5.Future<_i2.UserModel?> getUser(int? id) => (super.noSuchMethod(
+        Invocation.method(
+          #getUser,
+          [id],
+        ),
+        returnValue: _i5.Future<_i2.UserModel?>.value(),
+      ) as _i5.Future<_i2.UserModel?>);
+  @override
+  _i5.Future<void> deleteUser(int? id) => (super.noSuchMethod(
+        Invocation.method(
+          #deleteUser,
+          [id],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+  @override
+  _i5.Future<void> updateUser(_i2.UserModel? user) => (super.noSuchMethod(
+        Invocation.method(
+          #updateUser,
+          [user],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 }

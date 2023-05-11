@@ -6,6 +6,7 @@ import '../domain/repositories/user_repository_interface.dart';
 import '../helpers/enums/environment_enum.dart';
 import '../infra/external/http/user_datasource_interface.dart';
 import '../infra/repositories/user_repository_http.dart';
+import '../infra/storage/user_local_storage.dart';
 
 class EnvironmentConfig {
   static const ENV = String.fromEnvironment(
@@ -26,7 +27,9 @@ class EnvironmentConfig {
     if (value == EnvironmentEnum.DEV) {
       return UserRepositoryMock();
     } else if (value == EnvironmentEnum.HOMOLOG) {
-      return UserRepositoryHttp(datasource: Modular.get<IUserDatasource>());
+      return UserRepositoryHttp(
+          datasource: Modular.get<IUserDatasource>(),
+          storage: Modular.get<UserLocalStorage>());
     }
     // else if (value == EnvironmentEnum.PROD) {
     //   return null;

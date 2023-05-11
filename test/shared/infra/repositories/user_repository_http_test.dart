@@ -81,13 +81,22 @@ void main() {
 
   group('[TEST] - getUser', () {
     repository = UserRepositoryHttp(datasource: datasource, storage: storage);
-    test('should return a user', () async {
+    test('should return a user in storage', () async {
       when(datasource.getUser('0')).thenAnswer((_) async => user);
+      when(storage.getUser(0)).thenAnswer((_) async => user);
+      var response = await repository.getUser(0);
+      expect(response.fold(id, id), isA<User>());
+    });
+
+    test('should return a user datasource', () async {
+      when(datasource.getUser('0')).thenAnswer((_) async => user);
+      when(storage.getUser(0)).thenAnswer((_) async => null);
       var response = await repository.getUser(0);
       expect(response.fold(id, id), isA<User>());
     });
 
     test('should return ErrorRequest', () async {
+      when(storage.getUser(0)).thenAnswer((_) async => null);
       when(datasource.getUser('0')).thenThrow(DioError(
         requestOptions: RequestOptions(path: ''),
         response: Response(

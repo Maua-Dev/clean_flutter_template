@@ -3,11 +3,15 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i6;
 
+import 'package:clean_flutter_template/shared/domain/storage/local_storage_interface.dart'
+    as _i2;
 import 'package:clean_flutter_template/shared/helpers/services/http_request_interface.dart'
     as _i3;
-import 'package:dio/dio.dart' as _i2;
+import 'package:clean_flutter_template/shared/helpers/services/http_service.dart'
+    as _i5;
+import 'package:dio/dio.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -21,8 +25,8 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeResponse_0<T> extends _i1.SmartFake implements _i2.Response<T> {
-  _FakeResponse_0(
+class _FakeILocalStorage_0 extends _i1.SmartFake implements _i2.ILocalStorage {
+  _FakeILocalStorage_0(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -31,31 +35,77 @@ class _FakeResponse_0<T> extends _i1.SmartFake implements _i2.Response<T> {
         );
 }
 
-/// A class which mocks [IHttpRequest].
+class _FakeIHttpRequest_1 extends _i1.SmartFake implements _i3.IHttpRequest {
+  _FakeIHttpRequest_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeResponse_2<T> extends _i1.SmartFake implements _i4.Response<T> {
+  _FakeResponse_2(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+/// A class which mocks [HttpService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockIHttpRequest extends _i1.Mock implements _i3.IHttpRequest {
-  MockIHttpRequest() {
+class MockHttpService extends _i1.Mock implements _i5.HttpService {
+  MockHttpService() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.Response<dynamic>> get(String? url) => (super.noSuchMethod(
+  _i2.ILocalStorage get storage => (super.noSuchMethod(
+        Invocation.getter(#storage),
+        returnValue: _FakeILocalStorage_0(
+          this,
+          Invocation.getter(#storage),
+        ),
+      ) as _i2.ILocalStorage);
+  @override
+  _i3.IHttpRequest get httpRequest => (super.noSuchMethod(
+        Invocation.getter(#httpRequest),
+        returnValue: _FakeIHttpRequest_1(
+          this,
+          Invocation.getter(#httpRequest),
+        ),
+      ) as _i3.IHttpRequest);
+  @override
+  _i6.Future<_i4.Response<dynamic>> get(
+    String? url,
+    dynamic data,
+  ) =>
+      (super.noSuchMethod(
         Invocation.method(
           #get,
-          [url],
+          [
+            url,
+            data,
+          ],
         ),
         returnValue:
-            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_0<dynamic>(
+            _i6.Future<_i4.Response<dynamic>>.value(_FakeResponse_2<dynamic>(
           this,
           Invocation.method(
             #get,
-            [url],
+            [
+              url,
+              data,
+            ],
           ),
         )),
-      ) as _i4.Future<_i2.Response<dynamic>>);
+      ) as _i6.Future<_i4.Response<dynamic>>);
   @override
-  _i4.Future<_i2.Response<dynamic>> post(
+  _i6.Future<_i4.Response<dynamic>> post(
     String? url,
     dynamic data,
   ) =>
@@ -68,7 +118,7 @@ class MockIHttpRequest extends _i1.Mock implements _i3.IHttpRequest {
           ],
         ),
         returnValue:
-            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_0<dynamic>(
+            _i6.Future<_i4.Response<dynamic>>.value(_FakeResponse_2<dynamic>(
           this,
           Invocation.method(
             #post,
@@ -78,9 +128,9 @@ class MockIHttpRequest extends _i1.Mock implements _i3.IHttpRequest {
             ],
           ),
         )),
-      ) as _i4.Future<_i2.Response<dynamic>>);
+      ) as _i6.Future<_i4.Response<dynamic>>);
   @override
-  _i4.Future<_i2.Response<dynamic>> put(
+  _i6.Future<_i4.Response<dynamic>> put(
     String? url,
     dynamic data,
   ) =>
@@ -93,7 +143,7 @@ class MockIHttpRequest extends _i1.Mock implements _i3.IHttpRequest {
           ],
         ),
         returnValue:
-            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_0<dynamic>(
+            _i6.Future<_i4.Response<dynamic>>.value(_FakeResponse_2<dynamic>(
           this,
           Invocation.method(
             #put,
@@ -103,5 +153,5 @@ class MockIHttpRequest extends _i1.Mock implements _i3.IHttpRequest {
             ],
           ),
         )),
-      ) as _i4.Future<_i2.Response<dynamic>>);
+      ) as _i6.Future<_i4.Response<dynamic>>);
 }

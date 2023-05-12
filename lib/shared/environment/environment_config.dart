@@ -1,5 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:clean_flutter_template/app/modules/user/user_module.dart';
 import 'package:clean_flutter_template/shared/infra/repositories/user_repository_mock.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../domain/repositories/user_repository_interface.dart';
@@ -18,6 +19,7 @@ class EnvironmentConfig {
   );
 
   static IUserRepository getUserRepo() {
+    awaitModular();
     EnvironmentEnum value = EnvironmentEnum.values.firstWhere(
       (element) {
         return element.name.toUpperCase() == ENV.toUpperCase();
@@ -37,4 +39,8 @@ class EnvironmentConfig {
       return UserRepositoryMock();
     }
   }
+}
+
+Future awaitModular() async {
+  return await Modular.isModuleReady<UserModule>();
 }

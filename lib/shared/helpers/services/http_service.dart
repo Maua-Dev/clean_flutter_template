@@ -11,19 +11,19 @@ class HttpService {
     required this.httpRequest,
   });
 
-  Future<Response?> get(String url, dynamic data) async {
+  Future<Response> get(String url, dynamic data) async {
     return await _handleRequest(() => httpRequest.get(url));
   }
 
-  Future<Response?> post(String url, dynamic data) async {
+  Future<Response> post(String url, dynamic data) async {
     return await _handleRequest(() => httpRequest.post(url, data));
   }
 
-  Future<Response?> put(String url, dynamic data) async {
+  Future<Response> put(String url, dynamic data) async {
     return await _handleRequest(() => httpRequest.put(url, data));
   }
 
-  Future<Response?> _handleRequest(Future<Response> Function() request) async {
+  Future<Response> _handleRequest(Future<Response> Function() request) async {
     try {
       return await request();
     } on DioError catch (e) {
@@ -45,12 +45,12 @@ class HttpService {
     // await authController.refreshUserToken();
   }
 
-  Future<Response?> _handleError(
+  Future<Response> _handleError(
       DioError e, Future<Response> Function() request) async {
     if (e.response == null || e.response!.statusCode == 401) {
       await _getTokenFromStorageOrRefresh();
       return await request();
     }
-    return null;
+    return Future.value(e.response);
   }
 }

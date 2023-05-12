@@ -1,6 +1,6 @@
 import 'package:clean_flutter_template/generated/l10n.dart';
 import 'package:clean_flutter_template/shared/datasource/external/http/user_datasource.dart';
-import 'package:clean_flutter_template/shared/helpers/services/http_request_interface.dart';
+import 'package:clean_flutter_template/shared/helpers/services/http_service.dart';
 import 'package:clean_flutter_template/shared/infra/models/user_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -10,10 +10,10 @@ import 'package:mockito/mockito.dart';
 
 import 'user_datasource_test.mocks.dart';
 
-@GenerateMocks([IHttpRequest])
+@GenerateMocks([HttpService])
 void main() {
   late UserDatasource userDatasource;
-  IHttpRequest httpRequest = MockIHttpRequest();
+  HttpService httpRequest = MockHttpService();
 
   setUp(() async {
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
@@ -72,9 +72,8 @@ void main() {
       final response = Response(
           data: userData, statusCode: 200, requestOptions: RequestOptions());
 
-      when(httpRequest.get(
-        '/get-user?user_id=$userId',
-      )).thenAnswer((_) async => response);
+      when(httpRequest.get('/get-user?user_id=$userId', null))
+          .thenAnswer((_) async => response);
 
       final result = await userDatasource.getUser(userId);
 
@@ -86,9 +85,8 @@ void main() {
       final response =
           Response(statusCode: 500, requestOptions: RequestOptions());
 
-      when(httpRequest.get(
-        '/get-user?user_id=$userId',
-      )).thenAnswer((_) async => response);
+      when(httpRequest.get('/get-user?user_id=$userId', null))
+          .thenAnswer((_) async => response);
 
       expect(() => userDatasource.getUser(userId), throwsException);
     });

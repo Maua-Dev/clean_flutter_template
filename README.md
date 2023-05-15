@@ -45,12 +45,6 @@ Our folder structure was developed specially for our projects.
 │   │       │        └── ui
 │   │       │            ├──pages
 │   │       │            └── states
-│   │       ├── get_all_users
-│   │       │    └── presenter
-│   │       │        ├── controller
-│   │       │        └── ui
-│   │       │            ├──pages
-│   │       │            └── states
 │   │       ├── get_user
 │   │       │    └── presenter
 │   │       │        ├── controller
@@ -75,6 +69,7 @@ Our folder structure was developed specially for our projects.
 │       │   ├── repositories
 │       │   ├── storage
 │       │   └── usecases
+│       ├── environment
 │       ├── helpers
 │       │   ├── enum
 │       │   ├── errors
@@ -82,6 +77,11 @@ Our folder structure was developed specially for our projects.
 │       │   └── http
 │       ├── environment
 │       ├── helpers
+│       │   ├── enums
+│       │   ├── errors
+│       │   ├── functions
+│       │   ├── services
+│       │   └── utils
 │       ├── infra
 │       │   ├── external
 │       │   ├── models
@@ -98,11 +98,6 @@ Our folder structure was developed specially for our projects.
         │   │       └── ui
         │   │           └── pages
         │   ├── delete_user
-        │   │   └── presenter
-        │   │       ├── controller
-        │   │       └── ui
-        │   │           └── pages
-        │   ├── get_all_users
         │   │   └── presenter
         │   │       ├── controller
         │   │       └── ui
@@ -164,6 +159,8 @@ Our folder structure was developed specially for our projects.
 
 - SNAKE_CASE 🐍
 - File name ends with "ENUM" (ex: "STATE_ENUM")
+- OBS: in dart we can't use SNAKE_CASE in constant identifier names, to solve this we add this code in the top of the archive:
+            `// ignore_for_file: constant_identifier_names`
 
 ### Tests 📄
 
@@ -188,6 +185,39 @@ Clone the repository using template
 
     flutter test --coverage
 
+## Packages 📦
+
+### flutter_modular and modular_test
+
+- Navigation
+- Dependency Injection
+- Unit test
+
+### flutter_mobx and mobx_codegen
+
+- Pages state controller
+
+### hive_flutter
+
+- Key-value database written in pure Dart
+- Used for data storage like user attributes and to decrease the "get" request for data
+
+### flutter_intl and Flutter Intl (VS Code extension)
+
+- App internationalization for multiple languages
+
+### build_runner
+
+- Provides a concrete way of generating files using Dart code
+- Used for create mock files and Mobx code gen
+
+### dio
+
+- Used for http requests
+
+### mockito
+
+- Mock for unit testing
 
 ## Contributors 💰🤝💰
 

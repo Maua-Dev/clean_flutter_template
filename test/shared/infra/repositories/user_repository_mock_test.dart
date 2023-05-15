@@ -44,11 +44,9 @@ void main() {
     test('should return NoItemsFound', () async {
       UserRepositoryMock repository = UserRepositoryMock();
 
-      try {
-        await repository.deleteUser(0);
-      } catch (e) {
-        expect(e, isA<NoItemsFound>());
-      }
+      var response = await repository.deleteUser(99999999);
+
+      expect(response.fold(id, id), isA<NoItemsFound>());
     });
   });
 
@@ -63,11 +61,9 @@ void main() {
     test('should return NoItemsFound', () async {
       UserRepositoryMock repository = UserRepositoryMock();
 
-      try {
-        await repository.getUser(0);
-      } catch (e) {
-        expect(e, isA<NoItemsFound>());
-      }
+      var response = await repository.getUser(9999999);
+
+      expect(response.fold(id, id), isA<NoItemsFound>());
     });
   });
 
@@ -82,11 +78,9 @@ void main() {
     test('should return NoItemsFound', () async {
       UserRepositoryMock repository = UserRepositoryMock();
 
-      try {
-        await repository.updateUser(user);
-      } catch (e) {
-        expect(e, isA<NoItemsFound>());
-      }
+      var response = await repository.updateUser(user.copyWith(id: 9999999));
+
+      expect(response.fold(id, id), isA<NoItemsFound>());
     });
   });
 }

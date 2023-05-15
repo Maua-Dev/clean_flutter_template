@@ -13,9 +13,9 @@ class DioHttpRequest implements IHttpRequest {
         _authorizationToken = authorizationToken;
 
   @override
-  Future<Response> get(String url, dynamic data) async {
+  Future<Response> get(String url) async {
     _setAuthorizationToken();
-    return _dio.get(url, data: data);
+    return _dio.get(url);
   }
 
   @override

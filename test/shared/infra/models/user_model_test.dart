@@ -53,4 +53,13 @@ void main() {
     var userList = [userMap, userMap];
     expect(UserModel.fromMaps(userList).length, 2);
   });
+
+  test('[TEST] - userModel copyWith', () {
+    expect(userModel.copyWith(name: 'Gabriel Godoy').name, 'Gabriel Godoy');
+    expect(userModel.copyWith(id: 123).id, 123);
+    expect(userModel.copyWith(email: 'gabriel@gabriel.com').email,
+        'gabriel@gabriel.com');
+    expect(userModel.copyWith(state: StateEnum.APPROVED).state,
+        StateEnum.APPROVED);
+  });
 }

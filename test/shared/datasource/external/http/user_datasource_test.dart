@@ -139,4 +139,52 @@ void main() {
           throwsException);
     });
   });
+
+  group('[TEST] - updateUser', () {
+    test('success 200', () async {
+      final userData = {
+        'user_id': 123,
+        'name': 'John Doe',
+        'email': 'johndoe@example.com',
+        'state': 'APPROVED'
+      };
+      final response = Response(
+          data: userData, statusCode: 200, requestOptions: RequestOptions());
+
+      when(httpRequest.post(
+        '/update-user',
+        {
+          'user_id': '123',
+          'new_name': 'John Doe',
+        },
+      )).thenAnswer((_) async => response);
+
+      final result =
+          await userDatasource.updateUser(UserModel.fromJson(userData));
+
+      expect(result.id, 123);
+    });
+
+    test('failure', () async {
+      final userData = {
+        'user_id': 123,
+        'name': 'John Doe',
+        'email': 'johndoe@example.com',
+        'state': 'APPROVED'
+      };
+      final response =
+          Response(statusCode: 500, requestOptions: RequestOptions());
+
+      when(httpRequest.post(
+        '/update-user',
+        {
+          'user_id': '123',
+          'new_name': 'John Doe',
+        },
+      )).thenAnswer((_) async => response);
+
+      expect(() => userDatasource.updateUser(UserModel.fromJson(userData)),
+          throwsException);
+    });
+  });
 }

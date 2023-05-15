@@ -35,10 +35,6 @@ class UserModel extends User {
     };
   }
 
-  factory UserModel.newInstance() {
-    return UserModel(name: '', email: '', state: StateEnum.PENDING);
-  }
-
   UserModel copyWith({
     int? id,
     String? name,

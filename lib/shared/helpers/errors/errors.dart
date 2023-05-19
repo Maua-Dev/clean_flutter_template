@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:clean_flutter_template/generated/l10n.dart';
 
 class Failure implements Exception {
   final String message;
 
-  Failure({required this.message});
+  Failure({required this.message}) {
+    log('${DateTime.now()} - $message', name: 'Failure');
+  }
 }
 
 class EntityError extends Failure {

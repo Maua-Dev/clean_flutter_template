@@ -141,4 +141,12 @@ class MockIHttpRequest extends _i1.Mock implements _i5.IHttpRequest {
         ),
         returnValueForMissingStub: null,
       );
+  @override
+  void clearAuthorizationToken() => super.noSuchMethod(
+        Invocation.method(
+          #clearAuthorizationToken,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
 }

@@ -5,4 +5,5 @@ abstract class IHttpRequest {
   Future<Response> post(String url, dynamic data);
   Future<Response> put(String url, dynamic data);
   void setAuthorizationToken(String authorizationToken);
+  void clearAuthorizationToken();
 }

@@ -30,4 +30,9 @@ class DioHttpRequest implements IHttpRequest {
       _dio.options.headers["authorization"] = authorizationToken;
     }
   }
+
+  @override
+  void clearAuthorizationToken() {
+    _dio.options.headers.remove("authorization");
+  }
 }

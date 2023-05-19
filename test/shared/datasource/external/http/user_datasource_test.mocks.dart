@@ -7,6 +7,8 @@ import 'dart:async' as _i6;
 
 import 'package:clean_flutter_template/shared/domain/storage/local_storage_interface.dart'
     as _i2;
+import 'package:clean_flutter_template/shared/helpers/enums/token_enum.dart'
+    as _i7;
 import 'package:clean_flutter_template/shared/helpers/services/http_request_interface.dart'
     as _i3;
 import 'package:clean_flutter_template/shared/helpers/services/http_service.dart'
@@ -82,8 +84,9 @@ class MockHttpService extends _i1.Mock implements _i5.HttpService {
   @override
   _i6.Future<_i4.Response<dynamic>> get(
     String? url,
-    dynamic data,
-  ) =>
+    dynamic data, {
+    _i7.TokenEnum? tokenType = _i7.TokenEnum.NOTOKEN,
+  }) =>
       (super.noSuchMethod(
         Invocation.method(
           #get,
@@ -91,6 +94,7 @@ class MockHttpService extends _i1.Mock implements _i5.HttpService {
             url,
             data,
           ],
+          {#tokenType: tokenType},
         ),
         returnValue:
             _i6.Future<_i4.Response<dynamic>>.value(_FakeResponse_2<dynamic>(
@@ -101,14 +105,16 @@ class MockHttpService extends _i1.Mock implements _i5.HttpService {
               url,
               data,
             ],
+            {#tokenType: tokenType},
           ),
         )),
       ) as _i6.Future<_i4.Response<dynamic>>);
   @override
   _i6.Future<_i4.Response<dynamic>> post(
     String? url,
-    dynamic data,
-  ) =>
+    dynamic data, {
+    _i7.TokenEnum? tokenType = _i7.TokenEnum.NOTOKEN,
+  }) =>
       (super.noSuchMethod(
         Invocation.method(
           #post,
@@ -116,6 +122,7 @@ class MockHttpService extends _i1.Mock implements _i5.HttpService {
             url,
             data,
           ],
+          {#tokenType: tokenType},
         ),
         returnValue:
             _i6.Future<_i4.Response<dynamic>>.value(_FakeResponse_2<dynamic>(
@@ -126,14 +133,16 @@ class MockHttpService extends _i1.Mock implements _i5.HttpService {
               url,
               data,
             ],
+            {#tokenType: tokenType},
           ),
         )),
       ) as _i6.Future<_i4.Response<dynamic>>);
   @override
   _i6.Future<_i4.Response<dynamic>> put(
     String? url,
-    dynamic data,
-  ) =>
+    dynamic data, {
+    _i7.TokenEnum? tokenType = _i7.TokenEnum.NOTOKEN,
+  }) =>
       (super.noSuchMethod(
         Invocation.method(
           #put,
@@ -141,6 +150,7 @@ class MockHttpService extends _i1.Mock implements _i5.HttpService {
             url,
             data,
           ],
+          {#tokenType: tokenType},
         ),
         returnValue:
             _i6.Future<_i4.Response<dynamic>>.value(_FakeResponse_2<dynamic>(
@@ -151,6 +161,7 @@ class MockHttpService extends _i1.Mock implements _i5.HttpService {
               url,
               data,
             ],
+            {#tokenType: tokenType},
           ),
         )),
       ) as _i6.Future<_i4.Response<dynamic>>);

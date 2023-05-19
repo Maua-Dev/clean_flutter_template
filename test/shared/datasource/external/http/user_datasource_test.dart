@@ -34,7 +34,7 @@ void main() {
 
       when(httpRequest.post(
         '/delete-user',
-        {
+        data: {
           'user_id': userId,
         },
       )).thenAnswer((_) async => response);
@@ -51,7 +51,7 @@ void main() {
 
       when(httpRequest.post(
         '/delete-user',
-        {
+        data: {
           'user_id': userId,
         },
       )).thenAnswer((_) async => response);
@@ -72,7 +72,7 @@ void main() {
       final response = Response(
           data: userData, statusCode: 200, requestOptions: RequestOptions());
 
-      when(httpRequest.get('/get-user?user_id=$userId', null))
+      when(httpRequest.get('/get-user?user_id=$userId'))
           .thenAnswer((_) async => response);
 
       final result = await userDatasource.getUser(userId);
@@ -85,7 +85,7 @@ void main() {
       final response =
           Response(statusCode: 500, requestOptions: RequestOptions());
 
-      when(httpRequest.get('/get-user?user_id=$userId', null))
+      when(httpRequest.get('/get-user?user_id=$userId'))
           .thenAnswer((_) async => response);
 
       expect(() => userDatasource.getUser(userId), throwsException);
@@ -105,7 +105,7 @@ void main() {
 
       when(httpRequest.post(
         '/create-user',
-        {
+        data: {
           'name': 'John Doe',
           'email': 'johndoe@example.com',
         },
@@ -129,7 +129,7 @@ void main() {
 
       when(httpRequest.post(
         '/create-user',
-        {
+        data: {
           'name': 'John Doe',
           'email': 'johndoe@example.com',
         },
@@ -153,7 +153,7 @@ void main() {
 
       when(httpRequest.post(
         '/update-user',
-        {
+        data: {
           'user_id': '123',
           'new_name': 'John Doe',
         },
@@ -177,7 +177,7 @@ void main() {
 
       when(httpRequest.post(
         '/update-user',
-        {
+        data: {
           'user_id': '123',
           'new_name': 'John Doe',
         },

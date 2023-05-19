@@ -11,7 +11,7 @@ class UserDatasource implements IUserDatasource {
   Future<UserModel> deleteUser(String userId) async {
     var response = await _httpService.post(
       '/delete-user',
-      {
+      data: {
         'user_id': userId,
       },
     );
@@ -25,7 +25,7 @@ class UserDatasource implements IUserDatasource {
 
   @override
   Future<UserModel> getUser(String userId) async {
-    var response = await _httpService.get('/get-user?user_id=$userId', null);
+    var response = await _httpService.get('/get-user?user_id=$userId');
 
     if (response.statusCode == 200) {
       return UserModel.fromJson(response.data);
@@ -38,7 +38,7 @@ class UserDatasource implements IUserDatasource {
   Future<UserModel> updateUser(UserModel userToUpdate) async {
     var response = await _httpService.post(
       '/update-user',
-      userToUpdate.toJsonUpdate(),
+      data: userToUpdate.toJsonUpdate(),
     );
 
     if (response.statusCode == 200) {
@@ -52,7 +52,7 @@ class UserDatasource implements IUserDatasource {
   Future<UserModel> createUser(UserModel userToCreate) async {
     var response = await _httpService.post(
       '/create-user',
-      userToCreate.toJsonCreate(),
+      data: userToCreate.toJsonCreate(),
     );
 
     if (response.statusCode == 201) {

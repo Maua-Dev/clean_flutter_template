@@ -83,85 +83,85 @@ class MockHttpService extends _i1.Mock implements _i5.HttpService {
       ) as _i3.IHttpRequest);
   @override
   _i6.Future<_i4.Response<dynamic>> get(
-    String? url,
-    dynamic data, {
+    String? url, {
+    dynamic data,
     _i7.TokenEnum? tokenType = _i7.TokenEnum.NOTOKEN,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
           #get,
-          [
-            url,
-            data,
-          ],
-          {#tokenType: tokenType},
+          [url],
+          {
+            #data: data,
+            #tokenType: tokenType,
+          },
         ),
         returnValue:
             _i6.Future<_i4.Response<dynamic>>.value(_FakeResponse_2<dynamic>(
           this,
           Invocation.method(
             #get,
-            [
-              url,
-              data,
-            ],
-            {#tokenType: tokenType},
+            [url],
+            {
+              #data: data,
+              #tokenType: tokenType,
+            },
           ),
         )),
       ) as _i6.Future<_i4.Response<dynamic>>);
   @override
   _i6.Future<_i4.Response<dynamic>> post(
-    String? url,
-    dynamic data, {
+    String? url, {
+    dynamic data,
     _i7.TokenEnum? tokenType = _i7.TokenEnum.NOTOKEN,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
           #post,
-          [
-            url,
-            data,
-          ],
-          {#tokenType: tokenType},
+          [url],
+          {
+            #data: data,
+            #tokenType: tokenType,
+          },
         ),
         returnValue:
             _i6.Future<_i4.Response<dynamic>>.value(_FakeResponse_2<dynamic>(
           this,
           Invocation.method(
             #post,
-            [
-              url,
-              data,
-            ],
-            {#tokenType: tokenType},
+            [url],
+            {
+              #data: data,
+              #tokenType: tokenType,
+            },
           ),
         )),
       ) as _i6.Future<_i4.Response<dynamic>>);
   @override
   _i6.Future<_i4.Response<dynamic>> put(
-    String? url,
-    dynamic data, {
+    String? url, {
+    dynamic data,
     _i7.TokenEnum? tokenType = _i7.TokenEnum.NOTOKEN,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
           #put,
-          [
-            url,
-            data,
-          ],
-          {#tokenType: tokenType},
+          [url],
+          {
+            #data: data,
+            #tokenType: tokenType,
+          },
         ),
         returnValue:
             _i6.Future<_i4.Response<dynamic>>.value(_FakeResponse_2<dynamic>(
           this,
           Invocation.method(
             #put,
-            [
-              url,
-              data,
-            ],
-            {#tokenType: tokenType},
+            [url],
+            {
+              #data: data,
+              #tokenType: tokenType,
+            },
           ),
         )),
       ) as _i6.Future<_i4.Response<dynamic>>);

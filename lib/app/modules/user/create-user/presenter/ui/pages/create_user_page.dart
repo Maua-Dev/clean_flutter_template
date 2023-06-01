@@ -32,7 +32,7 @@ class _CreateUserPageState extends State<CreateUserPage> {
           color: AppColors.red,
           borderRadius: const BorderRadius.all(Radius.circular(20))),
       child: Text(error.message,
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 color: AppColors.white,
               )),
     );
@@ -45,7 +45,7 @@ class _CreateUserPageState extends State<CreateUserPage> {
           color: AppColors.green,
           borderRadius: const BorderRadius.all(Radius.circular(20))),
       child: Text(S.of(context).successCreateUser('', user.name),
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 color: AppColors.white,
               )),
     );

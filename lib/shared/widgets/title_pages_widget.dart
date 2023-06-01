@@ -11,7 +11,7 @@ class TitlePagesWidget extends StatelessWidget {
     return Text(
       text,
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.headline1!.copyWith(
+      style: Theme.of(context).textTheme.displayLarge!.copyWith(
           fontSize: ScreenHelper.width(context) < ScreenHelper.breakpointTablet
               ? 22
               : 24),

@@ -22,7 +22,7 @@ class HomeButtonWidget extends StatelessWidget {
             child: Text(
               text,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline3!.copyWith(
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(
                   color: Colors.white,
                   fontSize: ScreenHelper.width(context) <
                           ScreenHelper.breakpointTablet

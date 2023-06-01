@@ -25,12 +25,12 @@ class TextFieldWidget extends StatelessWidget {
         children: [
           Text(
             title,
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
           TextFormField(
             textAlign: TextAlign.start,
             cursorColor: AppColors.primary,
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyMedium,
             validator: validation,
             onChanged: onChanged,
             decoration: InputDecoration(

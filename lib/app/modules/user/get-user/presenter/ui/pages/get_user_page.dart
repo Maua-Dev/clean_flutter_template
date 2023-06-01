@@ -28,7 +28,7 @@ class GetUserPage extends StatelessWidget {
             color: AppColors.red,
             borderRadius: const BorderRadius.all(Radius.circular(20))),
         child: Text(error.message,
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   color: AppColors.white,
                 )),
       );
@@ -43,15 +43,15 @@ class GetUserPage extends StatelessWidget {
         child: Column(
           children: [
             Text('Nome: ${user.name}',
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: AppColors.white,
                     )),
             Text('Email: ${user.email}',
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: AppColors.white,
                     )),
             Text('State: ${user.state.name}',
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: AppColors.white,
                     )),
           ],
@@ -104,7 +104,7 @@ class GetUserPage extends StatelessWidget {
                                     S.of(context).searchTitle,
                                     style: Theme.of(context)
                                         .textTheme
-                                        .headline3!
+                                        .displaySmall!
                                         .copyWith(color: AppColors.white),
                                   )),
                       ),

@@ -10,13 +10,13 @@ ThemeData lightTheme = ThemeData(
     floatingActionButtonTheme:
         FloatingActionButtonThemeData(backgroundColor: AppColors.accent),
     textTheme: TextTheme(
-      headline1: AppTextStyles.headline1,
-      headline2: AppTextStyles.headline2,
-      headline3: AppTextStyles.headline3,
-      bodyText1: AppTextStyles.bodyText1,
-      bodyText2: AppTextStyles.bodyText2,
-      subtitle1: AppTextStyles.subtitle1,
-      subtitle2: AppTextStyles.subtitle2,
+      displayLarge: AppTextStyles.headline1,
+      displayMedium: AppTextStyles.headline2,
+      displaySmall: AppTextStyles.headline3,
+      bodyLarge: AppTextStyles.bodyText1,
+      bodyMedium: AppTextStyles.bodyText2,
+      titleMedium: AppTextStyles.subtitle1,
+      titleSmall: AppTextStyles.subtitle2,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
@@ -42,13 +42,13 @@ ThemeData darkTheme = ThemeData(
     thumbColor: MaterialStateProperty.all<Color>(AppColors.white),
   ),
   textTheme: TextTheme(
-    headline1: AppTextStyles.headline1.copyWith(color: AppColors.white),
-    headline2: AppTextStyles.headline2.copyWith(color: AppColors.white),
-    headline3: AppTextStyles.headline3.copyWith(color: AppColors.white),
-    bodyText1: AppTextStyles.bodyText1.copyWith(color: AppColors.white),
-    bodyText2: AppTextStyles.bodyText2.copyWith(color: AppColors.white),
-    subtitle1: AppTextStyles.subtitle1.copyWith(color: AppColors.white),
-    subtitle2: AppTextStyles.subtitle2.copyWith(color: AppColors.white),
+    displayLarge: AppTextStyles.headline1.copyWith(color: AppColors.white),
+    displayMedium: AppTextStyles.headline2.copyWith(color: AppColors.white),
+    displaySmall: AppTextStyles.headline3.copyWith(color: AppColors.white),
+    bodyLarge: AppTextStyles.bodyText1.copyWith(color: AppColors.white),
+    bodyMedium: AppTextStyles.bodyText2.copyWith(color: AppColors.white),
+    titleMedium: AppTextStyles.subtitle1.copyWith(color: AppColors.white),
+    titleSmall: AppTextStyles.subtitle2.copyWith(color: AppColors.white),
   ),
   inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(

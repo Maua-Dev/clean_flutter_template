@@ -12,7 +12,7 @@ class FooterWidget extends StatelessWidget {
       child: Text(
         'Copyright 2023 © Dev. Community Mauá',
         textAlign: TextAlign.center,
-        style: Theme.of(context).textTheme.headline3!.copyWith(
+        style: Theme.of(context).textTheme.displaySmall!.copyWith(
               fontSize:
                   ScreenHelper.width(context) < ScreenHelper.breakpointTablet
                       ? 12

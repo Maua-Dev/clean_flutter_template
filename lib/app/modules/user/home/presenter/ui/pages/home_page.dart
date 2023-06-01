@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
                 Text(
                   S.of(context).homePageSubtitle,
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
                       fontSize: ScreenHelper.width(context) <
                               ScreenHelper.breakpointTablet
                           ? 18

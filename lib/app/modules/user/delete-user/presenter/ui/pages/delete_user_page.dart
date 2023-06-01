@@ -29,7 +29,7 @@ class DeleteUserPage extends StatelessWidget {
             color: AppColors.red,
             borderRadius: const BorderRadius.all(Radius.circular(20))),
         child: Text(error.message,
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   color: AppColors.white,
                 )),
       );
@@ -42,7 +42,7 @@ class DeleteUserPage extends StatelessWidget {
             color: AppColors.green,
             borderRadius: const BorderRadius.all(Radius.circular(20))),
         child: Text(S.of(context).successDeleteUser('', user.name),
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   color: AppColors.white,
                 )),
       );
@@ -104,7 +104,7 @@ class DeleteUserPage extends StatelessWidget {
                                       S.of(context).deleteTitle,
                                       style: Theme.of(context)
                                           .textTheme
-                                          .headline3!
+                                          .displaySmall!
                                           .copyWith(color: AppColors.white),
                                     )),
                         ),
